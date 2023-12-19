@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <title>OEClock</title>
+</head>
+
+
+<body class="acitve">
+    <div class="wrapper">
+        <div class="section">
+            <div class="top_navbar">
+                <div class="hamburger">
+                    <a href="#">
+                        <i class="fas fa-bars"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <!--Top menu -->
+        <div class="sidebar">
+
+            <div class="profile">
+                <h3>OEClock Settings</h3>
+            </div>
+            <ul>
+                <li>
+                    <a href="/" data-link class="active">
+                        <span class="icon" data-link><i class="fas fa-home"></i></span>
+                        <span class="item" data-link>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/wifi" data-link>
+                        <span class="icon" data-link><i class="fas fa-desktop"></i></span>
+                        <span class="item" data-link>WiFi Manager</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/weather" data-link>
+                        <span class="icon" data-link><i class="fas fa-user-friends"></i></span>
+                        <span class="item" data-link>Weather</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/brightness" data-link>
+                        <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+                        <span class="item" data-link>Brightness</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/theme" data-link>
+                        <span class="icon"><i class="fas fa-database"></i></span>
+                        <span class="item" data-link>Theme</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/time" data-link>
+                        <span class="icon"><i class="fas fa-chart-line"></i></span>
+                        <span class="item" data-link>Time</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/debug" data-link>
+                        <span class="icon"><i class="fas fa-user-shield"></i></span>
+                        <span class="item" data-link>Debug</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <main id="app"></main>
+    <script type="module" src="./js/main.js"></script>
+    <script>  var hamburger = document.querySelector(".hamburger");
+        hamburger.addEventListener("click", function () {
+            document.querySelector("body").classList.toggle("active");
+        })
+    </script>
+
+</body>
+
+</html>
