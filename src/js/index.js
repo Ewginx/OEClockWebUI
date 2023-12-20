@@ -1,4 +1,10 @@
 import weather from '../../src/templates/weather.html';
+import brightness from '../../src/templates/brightness.html';
+import wifi from '../../src/templates/wifi.html';
+import time from '../../src/templates/time.html';
+import theme from '../../src/templates/theme.html';
+import debug from '../../src/templates/debug.html';
+
 // const routes = {
 //     "/": { title: "Home", render: home },
 //     "/weather": { title: "Weather", render: weather },
@@ -24,23 +30,23 @@ const urlRoutes = {
 		title: "Weather Settings",
 	},
 	"/brightness": {
-		template: "src/templates/brightness.html",
+		template: brightness,
 		title: "Brightness",
 	},
 	"/wifi": {
-		template: "src/templates/wifi.html",
+		template: wifi,
 		title: "WiFi Manager",
 	},
 	"/theme": {
-		template: "src/templates/theme.html",
+		template: theme,
 		title: "Theme",
 	},
 	"/time": {
-		template: "src/templates/time.html",
+		template: time,
 		title: "Time",
 	},
 	"/debug": {
-		template: "src/templates/debug.html",
+		template: debug,
 		title: "Debug",
 	},
 };
