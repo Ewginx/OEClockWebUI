@@ -1,4 +1,4 @@
-
+import weather from '../../src/templates/weather.html';
 // const routes = {
 //     "/": { title: "Home", render: home },
 //     "/weather": { title: "Weather", render: weather },
@@ -11,35 +11,36 @@
 
 const urlRoutes = {
 	404: {
-		template: "src/WebInterface/templates/404.html",
+		template: "/templates/404.html",
 		title: "404",
 	},
-	// "/": {
-	// 	template: "src/WebInterface/index.html",
+	// "/": {npm 
+	// 	template: "index.html",
 	// 	title: "Home ",
 	// },
 	"/weather": {
-		template: "src/WebInterface/templates/weather.html",
+		// template: weather,
+		template: weather,
 		title: "Weather Settings",
 	},
 	"/brightness": {
-		template: "src/WebInterface/templates/brightness.html",
+		template: "src/templates/brightness.html",
 		title: "Brightness",
 	},
 	"/wifi": {
-		template: "src/WebInterface/templates/wifi.html",
+		template: "src/templates/wifi.html",
 		title: "WiFi Manager",
 	},
 	"/theme": {
-		template: "src/WebInterface/templates/theme.html",
+		template: "src/templates/theme.html",
 		title: "Theme",
 	},
 	"/time": {
-		template: "src/WebInterface/templates/time.html",
+		template: "src/templates/time.html",
 		title: "Time",
 	},
 	"/debug": {
-		template: "src/WebInterface/templates/debug.html",
+		template: "src/templates/debug.html",
 		title: "Debug",
 	},
 };
@@ -48,14 +49,14 @@ async function router() {
 
     if (view) {
         document.title = view.title;
-
-        const html = await fetch(view.template).then((response) => response.text());
+        // const html = await fetch(view.template).then((response) => response.text());
+        const html = view.template;
         app.innerHTML = html;
     } 
-    else {
-        history.replaceState("", "", "/");
-        router();
-    }
+    // else {
+    //     history.replaceState("", "", "/");
+    //     router();
+    // }
 };
 
 // Handle navigation
@@ -68,9 +69,7 @@ window.addEventListener("click", e => {
         else{
             history.pushState("", "", e.target.href);
         }
-
         router();
-        console.log(e.target.href);
     }
 });
 
