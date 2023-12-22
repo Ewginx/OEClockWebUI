@@ -21,14 +21,6 @@ module.exports = {
   optimization: {
     realContentHash: false,
   },
-  devServer: {
-    static: {
-      directory: path.join(__dirname, 'dist')
-    },
-    open: true,
-  },
-  // mode: 'development',
-  mode: 'production',
   module: {
     rules: [
       {
