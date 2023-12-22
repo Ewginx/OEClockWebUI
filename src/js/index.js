@@ -4,28 +4,18 @@ import wifi from '../../src/templates/wifi.html';
 import time from '../../src/templates/time.html';
 import theme from '../../src/templates/theme.html';
 import debug from '../../src/templates/debug.html';
-
-// const routes = {
-//     "/": { title: "Home", render: home },
-//     "/weather": { title: "Weather", render: weather },
-//     "/brightness": { title: "Brightness", render: brightness },
-//     "/wifi": { title: "WiFi", render: wifi },
-//     "/theme": { title: "Theme", render: theme },
-//     "/time": { title: "Time", render: time },
-//     "/debug": { title: "Debug", render: debug },
-// };
+import home from '../../src/templates/home.html';
 
 const urlRoutes = {
 	404: {
 		template: "/templates/404.html",
 		title: "404",
 	},
-	// "/": {npm 
-	// 	template: "index.html",
-	// 	title: "Home ",
-	// },
+	"/": {
+		template: home,
+		title: "Home",
+	},
 	"/weather": {
-		// template: weather,
 		template: weather,
 		title: "Weather Settings",
 	},
@@ -50,35 +40,46 @@ const urlRoutes = {
 		title: "Debug",
 	},
 };
-async function router() {
-    let view = urlRoutes[location.pathname];
+function router() {
+	let view = urlRoutes[location.pathname];
 
-    if (view) {
-        document.title = view.title;
-        // const html = await fetch(view.template).then((response) => response.text());
-        const html = view.template;
-        app.innerHTML = html;
-    } 
-    // else {
-    //     history.replaceState("", "", "/");
-    //     router();
-    // }
+	if (view) {
+		document.title = view.title;
+		// const html = await fetch(view.template).then((response) => response.text());
+		const html = view.template;
+		app.innerHTML = html;
+	}
+	else {
+	    history.replaceState("", "", "/");
+	    router();
+	}
 };
 
 // Handle navigation
 window.addEventListener("click", e => {
-    if (e.target.matches("[data-link]")) {
-        e.preventDefault();
-        if(e.target.localName === 'span'){
-            history.pushState("", "", e.target.parentElement.href);
-        }
-        else{
-            history.pushState("", "", e.target.href);
-        }
-        router();
-    }
+	if (e.target.matches("[data-link]")) {
+		e.preventDefault();
+		if (e.target.localName === 'span') {
+			history.pushState("", "", e.target.parentElement.href);
+		}
+		else {
+			history.pushState("", "", e.target.href);
+
+		}
+		router();
+	}
 });
 
 // Update router
-window.addEventListener("popstate", router);
+window.addEventListener("popstate", e => {
+	// e.preventDefault();
+	console.log("Popstate trigger");
+	router();
+});
 window.addEventListener("DOMContentLoaded", router);
+window.addEventListener("beforeunload", e => {
+        e.preventDefault();
+        router();
+    }
+);
+router(window.location.pathname)
