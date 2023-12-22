@@ -8,7 +8,7 @@ module.exports = merge(common, {
     static: {
       directory: path.join(__dirname, 'dist')
     },
-    // historyApiFallback: true,
+    historyApiFallback: true,
     open: true,
   },
   devtool: 'inline-source-map',
