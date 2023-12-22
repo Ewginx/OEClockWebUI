@@ -54,12 +54,13 @@ function router() {
 		router();
 	}
 };
-
 // Handle navigation
 document.querySelectorAll('[data-link]').forEach(function (elem) {
 	elem.addEventListener("click", function (e) {
+		document.querySelectorAll('[data-link]').forEach(function (elem) {elem.classList.remove("active");})
 		e.preventDefault();
 		if (e.target.href) {
+			document.getElementById(e.target.id).classList.add("active");
 			history.pushState("", "", e.target.href);
 
 		}
@@ -74,8 +75,6 @@ document.querySelectorAll('[data-link]').forEach(function (elem) {
 
 // Update router
 window.addEventListener("popstate", e => {
-	// e.preventDefault();
-	console.log("Popstate trigger");
 	router();
 });
 window.addEventListener("DOMContentLoaded", router);
