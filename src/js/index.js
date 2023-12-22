@@ -50,25 +50,27 @@ function router() {
 		app.innerHTML = html;
 	}
 	else {
-	    history.replaceState("", "", "/");
-	    router();
+		history.replaceState("", "", "/");
+		router();
 	}
 };
 
 // Handle navigation
-window.addEventListener("click", e => {
-	if (e.target.matches("[data-link]")) {
+document.querySelectorAll('[data-link]').forEach(function (elem) {
+	elem.addEventListener("click", function (e) {
 		e.preventDefault();
-		if (e.target.localName === 'span') {
-			history.pushState("", "", e.target.parentElement.href);
-		}
-		else {
+		if (e.target.href) {
 			history.pushState("", "", e.target.href);
 
 		}
+		else {
+			history.pushState("", "", e.target.offsetParent.href);
+
+		}
 		router();
-	}
+	});
 });
+
 
 // Update router
 window.addEventListener("popstate", e => {
@@ -77,9 +79,13 @@ window.addEventListener("popstate", e => {
 	router();
 });
 window.addEventListener("DOMContentLoaded", router);
-window.addEventListener("beforeunload", e => {
-        e.preventDefault();
-        router();
-    }
-);
+// window.addEventListener("beforeunload", e => {
+// 	e.preventDefault();
+// 	router();
+// }
+// );
+
+document.querySelector(".hamburger").addEventListener("click", function () {
+	document.querySelector("body").classList.toggle("active");
+})
 router(window.location.pathname)
