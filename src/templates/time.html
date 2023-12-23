@@ -1,1 +1,28 @@
-<h1>Time Settings</h1>
+<h1 class="header">Time Settings</h1>
+<div class="page-container">
+  <form id="time-form">
+    <label for="timezone">Timezone</label>
+    <input type="text" id="timezone" placeholder="Timezone in hours" />
+
+    <label for="dayl_saving">Daylight Saving</label>
+    <input
+      type="text"
+      id="dayl_saving"
+      placeholder="Daylight saving in hours"
+    />
+    <fieldset>
+      <legend>Choose main clock screen:</legend>
+      <div>
+        <input type="radio" id="digital-clock" name="screen-choice" value="digital"/>
+        <label for="digital-clock">Digital</label>
+      </div>
+      <div>
+        <input type="radio" id="analog-clock" name="screen-choice" checked value="analog" />
+        <label for="analog-clock">Analog</label>
+      </div>
+    </fieldset>
+    <input type="submit" value="Save settings" />
+  </form>
+  <br>
+  <button>Update time on OEClock by time from your device</button>
+</div>

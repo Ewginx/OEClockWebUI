@@ -1,1 +1,13 @@
-<h1>Brightness Settings</h1>
+<h1 class="header">Brightness Settings</h1>
+<form id="brightness-form">
+  <label for="auto-brightness">Auto brightness</label>
+  <input type="checkbox" id="auto-brightness" name="auto-brightness"/>
+
+  <label for="brightness-slider">Brightness level</label>
+  <input type="range" min="10" max="255" value="50" class="slider" id="brightness-slider">
+
+  <label for="change-theme">Enable dark theme when brightness less than 20%</label>
+  <input type="checkbox" id="change-theme" name="change-theme"/>
+  
+  <input type="submit" value="Submit" />
+</form>
