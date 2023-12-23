@@ -165,19 +165,21 @@ div#sensor-container {
   height: 30vmin;
   justify-content: center;
 }
-.room-sensors .room-temperature {
+.room-sensors .room-icon-block {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
 }
 .room-sensors.room-temperature-container {
-  background-color: #7ac4b3;
+  background-color: #a3e4d5;
 }
-div#room-humidity-container {
-  background-color: #98cbe8;
+.room-sensors.room-humidity-container {
+  background-color: #bce6ff;
 }
 div#temperature {
+  margin-top: 20%;
+}
+div#humidity {
   margin-top: 20%;
 }
 .label {
