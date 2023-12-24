@@ -1,15 +1,41 @@
-<h1 class="header">Brightness Settings</h1>
 <form id="brightness-form">
-  <label for="auto-brightness">Auto brightness</label>
-  <input type="checkbox" id="auto-brightness" name="auto-brightness"/>
-  <label for="auto-brightness-level">Auto brightness max check level</label>
-  <input type="text" id="auto-brightness-level" name="auto-brightness-level" placeholder="Auto brightness level..." />
-  <input type="button" value="Check current brightness level in your room" />
-  <label for="brightness-slider">Brightness level</label>
-  <input type="range" min="10" max="255" value="50" class="slider" id="brightness-slider">
-
-  <label for="change-theme">Enable dark theme when brightness less than 20%</label>
-  <input type="checkbox" id="change-theme" name="change-theme"/>
-  
-  <input type="submit" value="Submit" />
+  <span class="auto-brightness">
+    <div class="checkbox-wrapper-6">
+    <input type="checkbox" class="tgl tgl-light" id="auto-brightness" name="auto-brightness" />
+    <label class="tgl-btn" for="auto-brightness"></label>
+  </div>
+  <label for="auto-brightness">Auto-brightness</label>
+  </span>
+  <div>
+    <label for="auto-brightness-threshold">Max room light threshold</label>
+    <input
+      type="text"
+      id="auto-brightness-threshold"
+      name="auto-brightness-threshold"
+      placeholder="Threshold level..."
+    />
+  </div>
+  <input type="button" id="check-level" value="Check light level" />
+  <div>
+    <label for="brightness-slider">Brightness level</label>
+    <input
+      type="range"
+      min="10"
+      max="255"
+      value="128"
+      class="slider"
+      id="brightness-slider"
+    />
+  </div>
+  <span>
+    <input type="checkbox" id="change-theme" name="change-theme" />
+    <label for="change-theme"
+      >Enable dark theme when brightness less than 20%</label
+    >
+  </span>
+  <input type="submit" id="save-brightness-settings" value="Save settings" />
+  <div class="checkbox-wrapper-6">
+    <input class="tgl tgl-light" id="cb1-6" type="checkbox"/>
+    <label class="tgl-btn" for="cb1-6">
+  </div>
 </form>
