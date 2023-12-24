@@ -1,10 +1,12 @@
 <form id="brightness-form">
   <span class="auto-brightness">
-    <div class="checkbox-wrapper-6">
-    <input type="checkbox" class="tgl tgl-light" id="auto-brightness" name="auto-brightness" />
-    <label class="tgl-btn" for="auto-brightness"></label>
-  </div>
-  <label for="auto-brightness">Auto-brightness</label>
+    <div class="checkbox-wrapper">
+      <label class="switch" for="auto-brightness">
+        <input type="checkbox" id="auto-brightness" name="auto-brightness" />
+        <div class="slider round"></div>
+      </label>
+    </div>
+    <label for="auto-brightness">Auto-brightness</label>
   </span>
   <div>
     <label for="auto-brightness-threshold">Max room light threshold</label>
@@ -34,8 +36,4 @@
     >
   </span>
   <input type="submit" id="save-brightness-settings" value="Save settings" />
-  <div class="checkbox-wrapper-6">
-    <input class="tgl tgl-light" id="cb1-6" type="checkbox"/>
-    <label class="tgl-btn" for="cb1-6">
-  </div>
 </form>
