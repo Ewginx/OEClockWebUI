@@ -17,7 +17,7 @@
       placeholder="Threshold level..."
     />
   </div>
-  <input type="button" id="check-level" value="Check light level" />
+  <input type="button" class="button" id="check-level" value="Check light level" />
   <div>
     <label for="brightness-slider">Brightness level</label>
     <input
@@ -29,11 +29,15 @@
       id="brightness-slider"
     />
   </div>
-  <span>
-    <input type="checkbox" id="change-theme" name="change-theme" />
+  <span class="change-theme">
+    <div class="checkbox-wrapper">
+      <label class="switch" for="change-theme">
+        <input type="checkbox" id="change-theme" name="change-theme" />
+        <div class="slider round"></div>
+      </label>
+    </div>
     <label for="change-theme"
-      >Enable dark theme when brightness less than 20%</label
-    >
+    >Dark theme on low brightness</label>
   </span>
-  <input type="submit" id="save-brightness-settings" value="Save settings" />
+  <input type="submit" class="button" id="save-brightness-settings" value="Save settings" />
 </form>

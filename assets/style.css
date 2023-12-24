@@ -128,12 +128,12 @@ body.active .wrapper .section {
     cursor: pointer;
   } */
 
-input[type="submit"] {
+/* input[type="submit"] {
   width: clamp(50px, 60%, 200px);
   height: 30px;
   border-radius: 6px;
   background-color: #3dc2ff;
-}
+} */
 /* input[type="checkbox"] {
   width: clamp(20px, 1.6vmin, 30px);
   height: clamp(20px, 1.6vmin, 30px);
@@ -152,10 +152,10 @@ form {
   margin-top: 20vh;
   text-align: center;
 }
-input#check-level {
+/* input#check-level {
   width: clamp(50px, 60%, 200px);
   height: 30px;
-}
+} */
 div#home-container {
   text-align: center;
   width: 50%;
@@ -214,6 +214,7 @@ div#humidity {
 div#weather-city-container {
   white-space: nowrap;
 }
+.change-theme,
 .auto-brightness {
   display: flex;
   flex-direction: row;
@@ -273,4 +274,34 @@ div#weather-city-container {
 
 .checkbox-wrapper .slider.round:before {
   border-radius: 50%;
+}
+
+
+.button {
+  align-items: center;
+  appearance: button;
+  background-color: #0276FF;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+  padding: 10px 21px;
+  text-align: center;
+  text-transform: none;
+  transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
+}
+.button:active {
+  background-color: #006AE8;
+}
+
+.button:hover {
+  background-color: #1C84FF;
 }
