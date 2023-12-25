@@ -146,10 +146,10 @@ form {
   justify-content: space-evenly;
   align-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 6vh;
   width: 70%;
   margin-left: 15%;
-  margin-top: 20vh;
+  margin-top: 15vh;
   text-align: center;
 }
 /* input#check-level {
@@ -222,7 +222,6 @@ div#weather-city-container {
   gap: 3vmin;
   font-size: clamp(20px, 4vmin, 40px);
 }
-
 .checkbox-wrapper {
   font-size: clamp(20px, 3vmin, 30px);
    display: flex;

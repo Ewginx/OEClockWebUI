@@ -8,6 +8,16 @@
     </div>
     <label for="auto-brightness">Auto-brightness</label>
   </span>
+  <span class="change-theme">
+    <div class="checkbox-wrapper">
+      <label class="switch" for="change-theme">
+        <input type="checkbox" id="change-theme" name="change-theme" />
+        <div class="slider round"></div>
+      </label>
+    </div>
+    <label id="change-theme-label" for="change-theme"
+    >Auto theme change</label>
+  </span>
   <div>
     <label for="auto-brightness-threshold">Max room light threshold</label>
     <input
@@ -29,15 +39,6 @@
       id="brightness-slider"
     />
   </div>
-  <span class="change-theme">
-    <div class="checkbox-wrapper">
-      <label class="switch" for="change-theme">
-        <input type="checkbox" id="change-theme" name="change-theme" />
-        <div class="slider round"></div>
-      </label>
-    </div>
-    <label for="change-theme"
-    >Dark theme on low brightness</label>
-  </span>
+
   <input type="submit" class="button" id="save-brightness-settings" value="Save settings" />
 </form>
