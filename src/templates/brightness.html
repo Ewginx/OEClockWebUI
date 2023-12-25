@@ -18,13 +18,14 @@
     <label id="change-theme-label" for="change-theme"
     >Auto theme change</label>
   </span>
-  <div>
-    <label for="auto-brightness-threshold">Max room light threshold</label>
+  <div class="auto-brightness-threshold-wrapper">
+    <label for="auto-brightness-threshold">Max room light threshold:</label>
     <input
       type="text"
       id="auto-brightness-threshold"
       name="auto-brightness-threshold"
-      placeholder="Threshold level..."
+      placeholder="lx"
+      maxlength=5
     />
   </div>
   <input type="button" class="button" id="check-level" value="Check light level" />

@@ -222,9 +222,25 @@ div#weather-city-container {
   gap: 3vmin;
   font-size: clamp(20px, 4vmin, 40px);
 }
+.auto-brightness-threshold-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3vmin;
+  font-size: clamp(20px, 3vmin, 30px);
+}
+input#auto-brightness-threshold{
+  font-size: 1em;
+  text-align: center;
+  max-width: 75px;
+  min-height: 30px;
+  border-radius: 5px;
+}
 .checkbox-wrapper {
   font-size: clamp(20px, 3vmin, 30px);
-   display: flex;
+  display: flex;
 }
 .checkbox-wrapper .switch {
   display: inline-block;
@@ -275,11 +291,10 @@ div#weather-city-container {
   border-radius: 50%;
 }
 
-
 .button {
   align-items: center;
   appearance: button;
-  background-color: #0276FF;
+  background-color: #0276ff;
   border-radius: 8px;
   border-style: none;
   box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
@@ -295,12 +310,13 @@ div#weather-city-container {
   padding: 10px 21px;
   text-align: center;
   text-transform: none;
-  transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
+  transition: color 0.13s ease-in-out, background 0.13s ease-in-out,
+    opacity 0.13s ease-in-out, box-shadow 0.13s ease-in-out;
 }
 .button:active {
-  background-color: #006AE8;
+  background-color: #006ae8;
 }
 
 .button:hover {
-  background-color: #1C84FF;
+  background-color: #1c84ff;
 }
