@@ -260,6 +260,21 @@ select#timezone-offset {
   border-radius: 5px;
   font-size: clamp(20px, 3vmin, 30px);
 }
+fieldset#main-clock-fieldset {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 3vmin;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: clamp(20px, 3vmin, 30px);
+}
+input[type=radio] {
+  border: 0px;
+  width: 100%;
+  height: 1.5em;
+}
 
 /*https://range-input-css.netlify.app/*/
 /*********** Baseline, reset styles ***********/
@@ -283,7 +298,6 @@ input[type="range"]::-webkit-slider-runnable-track {
   border-radius: 0.5rem;
   height: 1rem;
 }
-
 /* slider thumb */
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
