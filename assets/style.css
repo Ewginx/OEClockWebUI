@@ -294,8 +294,8 @@ label#ssid-label,
 label#password-label,
 label#ip-label,
 label#gateway-label {
-  min-width: 100px;
-  float: left;
+  width: 150px;
+  float: right;
 }
 
 input#gateway,
@@ -303,7 +303,7 @@ input#ip,
 input#password,
 input#ssid {
   font-size: clamp(20px, 3vmin, 30px);
-  width: clamp(150px, 50vmin, 200px);
+  width: clamp(150px, 50vmin, 300px);
   border-radius: 4px;
   height: 35px;
 }
