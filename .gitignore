@@ -12,3 +12,4 @@
 *.vsix
 /OEClockWebUI.code-workspace
 /node_modules
+/dist
