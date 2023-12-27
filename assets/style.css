@@ -270,7 +270,47 @@ fieldset#main-clock-fieldset {
   border-radius: 5px;
   font-size: clamp(20px, 3vmin, 30px);
 }
-input[type=radio] {
+
+form#wifi-form {
+  gap: 4vh;
+  margin-top: 10vh;
+  font-size: clamp(20px, 3vmin, 30px);
+}
+
+.gateway-wrapper,
+.ip-wrapper,
+.password-wrapper,
+.ssid-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3vmin;
+  min-width: 200px;
+}
+
+label#ssid-label,
+label#password-label,
+label#ip-label,
+label#gateway-label {
+  min-width: 100px;
+  float: left;
+}
+
+input#gateway,
+input#ip,
+input#password,
+input#ssid {
+  font-size: clamp(20px, 3vmin, 30px);
+  width: clamp(150px, 50vmin, 200px);
+  border-radius: 4px;
+  height: 35px;
+}
+input#wifi-submit{
+  margin-top: 25px;
+}
+input[type="radio"] {
   border: 0px;
   width: 100%;
   height: 1.5em;

@@ -1,18 +1,20 @@
 <h1 class="header">Wifi Manager</h1>
-<p class="description">WiFi Manager - used for connect OEClock to Access Point</p>
 <form id="wifi-form">
-<label for="fname">First Name</label>
-<input type="text" id="fname" name="firstname" placeholder="Your name..">
-
-<label for="lname">Last Name</label>
-<input type="text" id="lname" name="lastname" placeholder="Your last name..">
-
-<label for="country">Country</label>
-<select id="country" name="country">
-  <option value="australia">Australia</option>
-  <option value="canada">Canada</option>
-  <option value="usa">USA</option>
-</select>
-
-<input type="submit" value="Submit">
+  <span class="ssid-wrapper">
+    <label id="ssid-label" for="ssid">SSID</label>
+    <input type="text" id="ssid" name="ssid" />
+  </span>
+  <span class="password-wrapper">
+    <label for="password" id="password-label">Password</label>
+    <input type="text" id="password" name="password" />
+  </span>
+  <span class="ip-wrapper">
+    <label for="ip" id="ip-label">IP Address</label>
+    <input type="text" id="ip" name="ip" value="192.168.1.200" />
+  </span>
+  <span class="gateway-wrapper">
+    <label for="gateway" id="gateway-label">Gateway</label>
+    <input type="text" id="gateway" name="gateway" value="192.168.1.1" />
+  </span>
+  <input type="submit" id="wifi-submit" class="button" value="Save settings" />
 </form>
