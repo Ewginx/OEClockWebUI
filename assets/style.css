@@ -271,7 +271,7 @@ fieldset#main-clock-fieldset {
   font-size: clamp(20px, 3vmin, 30px);
 }
 
-.wifi-header {
+.settings-header {
   text-align: center;
   font-size: clamp(40px, 4vmin, 120px);;
   margin-top: 20px;
