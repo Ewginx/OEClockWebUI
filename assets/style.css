@@ -271,9 +271,15 @@ fieldset#main-clock-fieldset {
   font-size: clamp(20px, 3vmin, 30px);
 }
 
+.wifi-header {
+  text-align: center;
+  font-size: clamp(40px, 4vmin, 120px);;
+  margin-top: 20px;
+}
+
 form#wifi-form {
   gap: 4vh;
-  margin-top: 10vh;
+  margin-top: 6vh;
   font-size: clamp(20px, 3vmin, 30px);
 }
 
@@ -305,9 +311,9 @@ input#ssid {
   font-size: clamp(20px, 3vmin, 30px);
   width: clamp(150px, 50vmin, 300px);
   border-radius: 4px;
-  height: 35px;
+  height: clamp(30px, 4vmin, 45px);;
 }
-input#wifi-submit{
+input#wifi-submit {
   margin-top: 25px;
 }
 input[type="radio"] {
