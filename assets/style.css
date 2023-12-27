@@ -260,6 +260,7 @@ select#timezone-offset {
   border-radius: 5px;
   font-size: clamp(20px, 3vmin, 30px);
 }
+fieldset#weather,
 fieldset#main-clock-fieldset {
   display: flex;
   flex-direction: row;
@@ -273,7 +274,7 @@ fieldset#main-clock-fieldset {
 
 .settings-header {
   text-align: center;
-  font-size: clamp(40px, 4vmin, 120px);;
+  font-size: clamp(40px, 4vmin, 120px);
   margin-top: 20px;
 }
 
@@ -296,6 +297,10 @@ form#wifi-form {
   min-width: 200px;
 }
 
+label#language-label,
+label#api-key-label,
+label#city-label,
+label#period-label,
 label#ssid-label,
 label#password-label,
 label#ip-label,
@@ -304,6 +309,13 @@ label#gateway-label {
   float: right;
 }
 
+input#wifi-submit {
+  margin-top: 25px;
+}
+
+input#api-key,
+input#city,
+input#period,
 input#gateway,
 input#ip,
 input#password,
@@ -311,11 +323,34 @@ input#ssid {
   font-size: clamp(20px, 3vmin, 30px);
   width: clamp(150px, 50vmin, 300px);
   border-radius: 4px;
-  height: clamp(30px, 4vmin, 45px);;
+  height: clamp(30px, 4vmin, 45px);
 }
-input#wifi-submit {
-  margin-top: 25px;
+
+.language-wrapper,
+.period-wrapper,
+.city-wrapper,
+.api-key-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3vmin;
+  min-width: 200px;
 }
+
+form#weather-form {
+  gap: 5vh;
+  margin-top: 5vh;
+  font-size: clamp(20px, 3vmin, 30px);
+}
+select#language {
+  font-size: clamp(20px, 3vmin, 30px);
+  width: clamp(150px, 50vmin, 300px);
+  border-radius: 4px;
+  height: clamp(30px, 4vmin, 45px);
+}
+
 input[type="radio"] {
   border: 0px;
   width: 100%;
