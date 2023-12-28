@@ -199,6 +199,7 @@ form#wifi-form,
 form#brightness-form {
   gap: 4vh;
   margin-top: 6vh;
+  margin-bottom: 6vh;
   font-size: clamp(20px, 3vmin, 30px);
 }
 
@@ -243,7 +244,7 @@ fieldset#main-clock-fieldset {
 
 .settings-header {
   text-align: center;
-  font-size: clamp(40px, 4vmin, 120px);
+  font-size: clamp(30px, 6vmin, 120px);
   margin-top: 20px;
 }
 
