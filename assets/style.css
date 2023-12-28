@@ -105,39 +105,6 @@ body.active .wrapper .section {
   text-align: center;
 }
 
-/* input[type=text], select {
-    width: 50%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  } */
-/*   
-  input[type=submit] {
-    width: 50%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  } */
-
-/* input[type="submit"] {
-  width: clamp(50px, 60%, 200px);
-  height: 30px;
-  border-radius: 6px;
-  background-color: #3dc2ff;
-} */
-/* input[type="checkbox"] {
-  width: clamp(20px, 1.6vmin, 30px);
-  height: clamp(20px, 1.6vmin, 30px);
-  border-radius: 1px;
-} */
-
 form {
   display: flex;
   flex-direction: column;
@@ -150,10 +117,8 @@ form {
   margin-top: 15vh;
   text-align: center;
 }
-/* input#check-level {
-  width: clamp(50px, 60%, 200px);
-  height: 30px;
-} */
+
+
 div#home-container {
   text-align: center;
   width: 50%;
@@ -220,8 +185,9 @@ div#weather-city-container {
   flex-direction: row;
   align-items: center;
   gap: 3vmin;
-  font-size: clamp(20px, 4vmin, 40px);
+  font-size: clamp(20px, 3vmin, 30px);
 }
+
 .auto-brightness-threshold-wrapper {
   display: flex;
   flex-direction: row;
@@ -231,13 +197,15 @@ div#weather-city-container {
   gap: 3vmin;
   font-size: clamp(20px, 3vmin, 30px);
 }
+
 input#auto-brightness-threshold {
   font-size: 1em;
   text-align: center;
-  max-width: 75px;
+  max-width: 120px;
   min-height: 30px;
   border-radius: 5px;
 }
+
 .brightness-slider-wrapper {
   display: flex;
   flex-direction: row;
