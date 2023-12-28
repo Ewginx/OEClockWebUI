@@ -261,6 +261,14 @@ fieldset#main-clock-fieldset {
   min-width: 200px;
 }
 
+
+label#auto-brightness-label,
+label#change-theme-label{
+  width: 180px;
+  float: left;
+  text-align: left;
+}
+
 label#language-label,
 label#api-key-label,
 label#city-label,
