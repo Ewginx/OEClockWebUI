@@ -111,13 +111,10 @@ form {
   justify-content: space-evenly;
   align-content: center;
   align-items: center;
-  gap: 6vh;
   width: 70%;
   margin-left: 15%;
-  margin-top: 15vh;
   text-align: center;
 }
-
 
 div#home-container {
   text-align: center;
@@ -138,6 +135,7 @@ div#sensor-container {
   gap: 20px;
   padding-bottom: 20px;
 }
+
 .room-sensors {
   display: flex;
   flex-direction: column;
@@ -147,23 +145,26 @@ div#sensor-container {
   height: 30vmin;
   justify-content: center;
 }
+
 .room-sensors .room-icon-block {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
 .room-sensors.room-temperature-container {
   background-color: #a3e4d5;
 }
+
 .room-sensors.room-humidity-container {
   background-color: #bce6ff;
 }
+
+div#humidity,
 div#temperature {
   margin-top: 20%;
 }
-div#humidity {
-  margin-top: 20%;
-}
+
 .label {
   font-weight: bold;
 }
@@ -174,6 +175,7 @@ div#humidity {
   padding: 2vmin 1% 2vmin 1%;
   font-size: clamp(1em, 5vmin, 7em);
 }
+
 div#weather-city-container {
   white-space: nowrap;
 }
@@ -183,18 +185,20 @@ div#weather-city-container {
 .auto-brightness {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   gap: 3vmin;
   font-size: clamp(20px, 3vmin, 30px);
 }
 
-.auto-brightness-threshold-wrapper {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 3vmin;
+form#theme-form,
+form#weather-form,
+form#time-form,
+form#wifi-form,
+form#brightness-form {
+  gap: 4vh;
+  margin-top: 6vh;
   font-size: clamp(20px, 3vmin, 30px);
 }
 
@@ -206,6 +210,7 @@ input#auto-brightness-threshold {
   border-radius: 5px;
 }
 
+.timezone-wrapper,
 .brightness-slider-wrapper {
   display: flex;
   flex-direction: row;
@@ -216,20 +221,12 @@ input#auto-brightness-threshold {
   font-size: clamp(20px, 3vmin, 30px);
 }
 
-.timezone-wrapper {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 3vmin;
-  font-size: clamp(20px, 3vmin, 30px);
-}
 select#timezone-offset {
   max-width: 50vw;
   border-radius: 5px;
   font-size: clamp(20px, 3vmin, 30px);
 }
+
 fieldset#light-theme,
 fieldset#dark-theme,
 fieldset#weather,
@@ -248,12 +245,6 @@ fieldset#main-clock-fieldset {
   text-align: center;
   font-size: clamp(40px, 4vmin, 120px);
   margin-top: 20px;
-}
-
-form#wifi-form {
-  gap: 4vh;
-  margin-top: 6vh;
-  font-size: clamp(20px, 3vmin, 30px);
 }
 
 .gateway-wrapper,
@@ -311,11 +302,6 @@ input#ssid {
   min-width: 200px;
 }
 
-form#weather-form {
-  gap: 5vh;
-  margin-top: 5vh;
-  font-size: clamp(20px, 3vmin, 30px);
-}
 select#language {
   font-size: clamp(20px, 3vmin, 30px);
   width: clamp(150px, 50vmin, 300px);
@@ -323,13 +309,7 @@ select#language {
   height: clamp(30px, 4vmin, 45px);
 }
 
-form#theme-form {
-  gap: 5vh;
-  margin-top: 5vh;
-  font-size: clamp(20px, 3vmin, 30px);
-}
-
-.theme-color-wrapper{
+.theme-color-wrapper {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
