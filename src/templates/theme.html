@@ -1,22 +1,36 @@
-<h1 class="header">Theme Settings</h1>
+<h1 class="settings-header">Theme Settings</h1>
 <form id="theme-form">
-  <label for="fname">First Name</label>
-  <input type="text" id="fname" name="firstname" placeholder="Your name.." />
+  <span class="theme-switch-wrapper">
+    <div class="checkbox-wrapper">
+      <label class="switch" for="theme-switch">
+        <input type="checkbox" id="theme-switch" name="theme-switch" />
+        <div class="slider round"></div>
+      </label>
+    </div>
+    <label for="theme-switch">Enable dark theme</label>
+  </span>
+  <fieldset id="light-theme">
+    <legend>Light theme</legend>
+    <span class="theme-color-wrapper">
+      <input type="color" id="light-theme-background" />
+      <label for="light-theme-background">Background color</label>
+    </span>
+    <span class="theme-color-wrapper">
+      <input type="color" id="light-theme-second" />
+      <label for="light-theme-second">Second color</label>
+    </span>
+  </fieldset>
+  <fieldset id="dark-theme">
+    <legend>Dark theme</legend>
+    <span class="theme-color-wrapper">
+      <input type="color" id="dark-theme-background" />
+      <label for="dark-theme-background">Background color</label>
+    </span>
+    <span >
+      <input type="color" id="dark-theme-second" />
+      <label for="dark-theme-second">Second color</label>
+    </span>
+  </fieldset>
 
-  <label for="lname">Last Name</label>
-  <input
-    type="text"
-    id="lname"
-    name="lastname"
-    placeholder="Your last name.."
-  />
-
-  <label for="country">Country</label>
-  <select id="country" name="country">
-    <option value="australia">Australia</option>
-    <option value="canada">Canada</option>
-    <option value="usa">USA</option>
-  </select>
-
-  <input type="submit" value="Submit" />
+  <input type="submit" class="button" value="Save settings" />
 </form>

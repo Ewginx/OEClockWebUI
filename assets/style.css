@@ -212,6 +212,8 @@ div#humidity {
 div#weather-city-container {
   white-space: nowrap;
 }
+
+.theme-switch-wrapper,
 .change-theme,
 .auto-brightness {
   display: flex;
@@ -260,6 +262,8 @@ select#timezone-offset {
   border-radius: 5px;
   font-size: clamp(20px, 3vmin, 30px);
 }
+fieldset#light-theme,
+fieldset#dark-theme,
 fieldset#weather,
 fieldset#main-clock-fieldset {
   display: flex;
@@ -349,6 +353,21 @@ select#language {
   width: clamp(150px, 50vmin, 300px);
   border-radius: 4px;
   height: clamp(30px, 4vmin, 45px);
+}
+
+form#theme-form {
+  gap: 5vh;
+  margin-top: 5vh;
+  font-size: clamp(20px, 3vmin, 30px);
+}
+
+.theme-color-wrapper{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3vmin;
+  padding: 15px 5px 15px 5px;
 }
 
 input[type="radio"] {
