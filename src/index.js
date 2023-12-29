@@ -1,21 +1,31 @@
-import { router} from "./js/router";
+import { router } from "./js/router";
 import { posix_db } from "./js/posix_db";
 
-
-function timeFormHandler(event) {
-  let timezone = document.getElementById("timezone-offset");
-  let timezone_posix = posix_db[timezone.value]
-  console.log(`Form values ${timezone_posix}`);
+async function timeFormHandler(event) {
+  let data = {
+    "timezone": posix_db[document.getElementById("timezone-offset").value],
+    "digital-clock":document.getElementById("digital-clock").checked,
+    "analog-clock": document.getElementById("analog-clock").checked
+  }
+  let json_data  = JSON.stringify(data)
+  let response = await fetch("/setup_time", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: json_data,
+  });
+  console.log(`Form values ${json_data}`);
 }
 
 async function set_time_from_device() {
-  let time = {"time": Date.now()}
-  let response = await fetch('/set_time', {
-    method: 'POST',
+  let time = { time: Date.now() };
+  let response = await fetch("/set_time", {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json;charset=utf-8'
+      "Content-Type": "application/json;charset=utf-8",
     },
-    body: JSON.stringify(time)
+    body: JSON.stringify(time),
   });
   console.log(`Time on clock will be set with ${JSON.stringify(time)}`);
 }
