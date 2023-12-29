@@ -1,13 +1,12 @@
 import { router, urlRoutes } from "./js/router";
 
 function timeFormHandler(event) {
-  let timezone = document.getElementById("timezone");
-  let daylight_saving = document.getElementById("dayl_saving");
+  let timezone = document.getElementById("timezone-offset");
   console.log(`Form Submitted! Timestamp: ${event.timeStamp}`);
-  if (timezone.value == "" || daylight_saving.value == "") {
+  if (timezone.value == "") {
     console.log(`Empty form`);
   } else {
-    console.log(`Form values ${timezone.value} ${daylight_saving.value}`);
+    console.log(`Form values ${timezone.value}`);
   }
 }
 function brightnessFormHandler(event) {
@@ -41,6 +40,7 @@ function anchorClickHandler(e){
     history.pushState("", "", e.target.href);
   } else {
     history.pushState("", "", e.target.offsetParent.href);
+    document.getElementById(e.target.offsetParent.id).classList.add("active");
   }
   let view = router();
   if (view && view.form_id) {
@@ -49,6 +49,7 @@ function anchorClickHandler(e){
       .addEventListener("submit", formSubmitDispatcher);
   }
 }
+
 // Handle navigation
 document.querySelectorAll("[data-link]").forEach(function (elem) {
   elem.addEventListener("click", anchorClickHandler);
