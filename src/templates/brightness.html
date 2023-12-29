@@ -7,7 +7,9 @@
         <div class="slider round"></div>
       </label>
     </div>
-    <label id="auto-brightness-label" for="auto-brightness">Auto-brightness</label>
+    <label id="auto-brightness-label" for="auto-brightness"
+      >Auto-brightness</label
+    >
   </span>
   <span class="change-theme">
     <div class="checkbox-wrapper">
@@ -16,8 +18,7 @@
         <div class="slider round"></div>
       </label>
     </div>
-    <label id="change-theme-label" for="change-theme"
-    >Auto theme change</label>
+    <label id="change-theme-label" for="change-theme">Auto theme change</label>
   </span>
   <div class="auto-brightness">
     <label for="auto-brightness-threshold">Max room light threshold:</label>
@@ -31,7 +32,13 @@
       required
     />
   </div>
-  <input type="button" class="button" id="check-level" value="Check light level" />
+  <input
+    type="button"
+    class="button"
+    id="check-level"
+    value="Check light level"
+    onclick="check_lx()"
+  />
   <div class="brightness-slider-wrapper">
     <label for="brightness-slider">Brightness level:</label>
     <input
@@ -45,5 +52,15 @@
     />
   </div>
 
-  <input type="submit" class="button" id="save-brightness-settings" value="Save settings" />
+  <input
+    type="submit"
+    class="button"
+    id="save-brightness-settings"
+    value="Save settings"
+  />
 </form>
+
+<dialog id="dialog">
+  <p id="lx-label">120 lx</p>
+  <button id="dialog-cancel" class="button" type="reset">Cancel</button>
+</dialog>

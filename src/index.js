@@ -3,11 +3,11 @@ import { posix_db } from "./js/posix_db";
 
 async function timeFormHandler(event) {
   let data = {
-    "timezone": posix_db[document.getElementById("timezone-offset").value],
-    "digital-clock":document.getElementById("digital-clock").checked,
-    "analog-clock": document.getElementById("analog-clock").checked
-  }
-  let json_data  = JSON.stringify(data)
+    timezone: posix_db[document.getElementById("timezone-offset").value],
+    "digital-clock": document.getElementById("digital-clock").checked,
+    "analog-clock": document.getElementById("analog-clock").checked,
+  };
+  let json_data = JSON.stringify(data);
   let response = await fetch("/setup_time", {
     method: "POST",
     headers: {
@@ -34,11 +34,11 @@ window.set_time_from_device = set_time_from_device;
 async function brightnessFormHandler(event) {
   let data = {
     "auto-brightness": document.getElementById("auto-brightness").checked,
-    "change-theme":document.getElementById("change-theme").checked,
-    "threshold": document.getElementById("auto-brightness-threshold").value,
-    "brightness": document.getElementById("brightness-slider").value
-  }
-  let json_data  = JSON.stringify(data)
+    "change-theme": document.getElementById("change-theme").checked,
+    threshold: document.getElementById("auto-brightness-threshold").value,
+    brightness: document.getElementById("brightness-slider").value,
+  };
+  let json_data = JSON.stringify(data);
   let response = await fetch("/setup_brightness", {
     method: "POST",
     headers: {
@@ -48,7 +48,16 @@ async function brightnessFormHandler(event) {
   });
   console.log(`Form values ${json_data}`);
 }
-
+async function check_lx() {
+  let cancelButton = document.getElementById("dialog-cancel");
+  cancelButton.addEventListener("click", () => {
+    dialog.close();
+  });
+  let dialog = document.getElementById("dialog");
+  dialog.showModal();
+  console.log("Your lx is 228");
+}
+window.check_lx = check_lx;
 function themeFormHandler(event) {
   console.log(`Theme form`);
 }
