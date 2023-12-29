@@ -1,6 +1,7 @@
 import { router, urlRoutes } from "./js/router";
 
 function timeFormHandler(event) {
+  let button = event.target;
   let timezone = document.getElementById("timezone-offset");
   console.log(`Form Submitted! Timestamp: ${event.timeStamp}`);
   if (timezone.value == "") {
@@ -9,15 +10,24 @@ function timeFormHandler(event) {
     console.log(`Form values ${timezone.value}`);
   }
 }
+
+function set_time_from_device() {
+  console.log("Button clicked!");
+}
+window.set_time_from_device = set_time_from_device;
+
 function brightnessFormHandler(event) {
   console.log(`Brightness form`);
 }
+
 function themeFormHandler(event) {
   console.log(`Theme form`);
 }
+
 function weatherFormHandler(event) {
   console.log("This is a weather form submit");
 }
+
 function formSubmitDispatcher(event) {
   event.preventDefault();
   if (event.currentTarget.id === "time-form") {
@@ -30,7 +40,8 @@ function formSubmitDispatcher(event) {
     themeFormHandler(event);
   }
 }
-function anchorClickHandler(e){
+
+function anchorClickHandler(e) {
   document.querySelectorAll("[data-link]").forEach(function (elem) {
     elem.classList.remove("active");
   });
