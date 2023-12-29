@@ -31,8 +31,22 @@ async function set_time_from_device() {
 }
 window.set_time_from_device = set_time_from_device;
 
-function brightnessFormHandler(event) {
-  console.log(`Brightness form`);
+async function brightnessFormHandler(event) {
+  let data = {
+    "auto-brightness": document.getElementById("auto-brightness").checked,
+    "change-theme":document.getElementById("change-theme").checked,
+    "threshold": document.getElementById("auto-brightness-threshold").value,
+    "brightness": document.getElementById("brightness-slider").value
+  }
+  let json_data  = JSON.stringify(data)
+  let response = await fetch("/setup_brightness", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: json_data,
+  });
+  console.log(`Form values ${json_data}`);
 }
 
 function themeFormHandler(event) {
