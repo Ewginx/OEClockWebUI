@@ -8,8 +8,16 @@ function timeFormHandler(event) {
   console.log(`Form values ${timezone_posix}`);
 }
 
-function set_time_from_device() {
-  console.log("Button clicked!");
+async function set_time_from_device() {
+  let time = {"time": Date.now()}
+  let response = await fetch('/set_time', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8'
+    },
+    body: JSON.stringify(time)
+  });
+  console.log(`Time on clock will be set with ${JSON.stringify(time)}`);
 }
 window.set_time_from_device = set_time_from_device;
 
