@@ -351,6 +351,15 @@ input[type="radio"] {
   height: 1.5em;
 }
 
+
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+:-moz-placeholder {
+  text-align: center;
+}
+
 /*https://range-input-css.netlify.app/*/
 /*********** Baseline, reset styles ***********/
 input[type="range"] {
