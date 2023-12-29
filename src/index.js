@@ -1,14 +1,11 @@
-import { router, urlRoutes } from "./js/router";
+import { router} from "./js/router";
+import { posix_db } from "./js/posix_db";
+
 
 function timeFormHandler(event) {
-  let button = event.target;
   let timezone = document.getElementById("timezone-offset");
-  console.log(`Form Submitted! Timestamp: ${event.timeStamp}`);
-  if (timezone.value == "") {
-    console.log(`Empty form`);
-  } else {
-    console.log(`Form values ${timezone.value}`);
-  }
+  let timezone_posix = posix_db[timezone.value]
+  console.log(`Form values ${timezone_posix}`);
 }
 
 function set_time_from_device() {
