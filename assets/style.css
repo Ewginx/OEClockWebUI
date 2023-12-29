@@ -205,7 +205,7 @@ form#brightness-form {
 form#wifi-ap-form,
 form#wifi-form {
   gap: 4vh;
-  margin-top: 8vh;
+  margin-top: 10vmin;
   margin-bottom: 6vh;
   font-size: clamp(20px, 3vmin, 30px);
 }
@@ -514,6 +514,7 @@ input[type="range"]:focus::-moz-range-thumb {
   float: left;
 }
 .tab-label {
+  font-size: 20px;
   background: white;
   padding: 10px; 
   border: 1px solid #ccc;
@@ -528,13 +529,14 @@ input[type="range"]:focus::-moz-range-thumb {
 }
 .content {
   position: absolute;
-  top: 28px;
+  top: 32px;
   left: 0;
   background: #eee; 
   right: 0;
   bottom: 0;
   padding: 20px;
-  /* border: 1px solid #ccc;  */
+  padding-top: 0;
+  border: 1px solid #ccc; 
 }
 [type=radio]:checked ~ label {
   background: #eee; 
