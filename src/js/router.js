@@ -5,6 +5,7 @@ import time from "../../src/templates/time.html";
 import theme from "../../src/templates/theme.html";
 import debug from "../../src/templates/debug.html";
 import home from "../../src/templates/home.html";
+import ota from "../../src/templates/ota_update.html";
 
 const urlRoutes = {
   404: {
@@ -41,6 +42,11 @@ const urlRoutes = {
     template: time,
     title: "Time",
     form_id: "time-form",
+  },
+  "/ota": {
+    template: ota,
+    title: "OTA Update",
+    form_id: null,
   },
   "/debug": {
     template: debug,
