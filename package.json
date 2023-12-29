@@ -16,6 +16,7 @@
     "webpack-dev-server": "^4.15.1"
   },
   "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.8.1",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.6.0",
