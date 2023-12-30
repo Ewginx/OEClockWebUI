@@ -2,8 +2,14 @@ const path = require("path");
 const { merge } = require("webpack-merge");
 const common = require("./webpack.config.js");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const CompressionPlugin = require("compression-webpack-plugin");
 
 module.exports = merge(common, {
+  plugins: [
+    new CompressionPlugin({
+      deleteOriginalAssets: true,
+    }),
+  ],
   entry: {
     main: path.resolve(__dirname, "./src/index.js"),
   },
