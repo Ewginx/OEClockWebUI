@@ -6,6 +6,8 @@ import theme from "../../src/templates/theme.html";
 import debug from "../../src/templates/debug.html";
 import home from "../../src/templates/home.html";
 import ota from "../../src/templates/ota_update.html";
+import rgb from "../../src/templates/rgb.html";
+import sounds from "../../src/templates/sounds.html";
 
 const urlRoutes = {
   404: {
@@ -42,6 +44,16 @@ const urlRoutes = {
     template: time,
     title: "Time",
     form_id: "time-form",
+  },
+  "/sounds": {
+    template: sounds,
+    title: "Sounds",
+    form_id: null,
+  },
+  "/rgb": {
+    template: rgb,
+    title: "RGB",
+    form_id: null,
   },
   "/ota": {
     template: ota,
