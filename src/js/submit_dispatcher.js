@@ -36,6 +36,22 @@ async function brightnessFormHandler(event) {
 }
 
 async function themeFormHandler(event) {
+  let data = {
+    "theme": document.getElementById("theme-switch").checked,
+    "light-background": document.getElementById("light-theme-background").value,
+    "light-second": document.getElementById("light-theme-second").value,
+    "dark-background": document.getElementById("dark-theme-background").value,
+    "dark-second": document.getElementById("dark-theme-second").value,
+  };
+  let json_data = JSON.stringify(data);
+  let response = await fetch("/setup_brightness", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: json_data,
+  });
+  console.log(`Form values ${json_data}`);
 }
 
 function weatherFormHandler(event) {
