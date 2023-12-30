@@ -60,7 +60,7 @@ async function weatherFormHandler(event) {
         "api-key": document.getElementById("api-key").value,
         "city": document.getElementById("city").value,
         "language": document.getElementById("language").value,
-        "period": document.getElementById("period").value, // add multiply to milliseconds
+        "period": document.getElementById("period").value * 60000,
       };
       let json_data = JSON.stringify(data);
       let response = await fetch("/setup_weather", {
