@@ -19,44 +19,18 @@ module.exports = {
     }),
     new CopyPlugin({
       patterns: [
-        { from: path.resolve(__dirname, 'assets/webfonts'), to: path.resolve(__dirname, 'dist/webfonts') },
+        {
+          from: path.resolve(__dirname, "assets/webfonts"),
+          to: path.resolve(__dirname, "dist/webfonts"),
+        },
+        {
+          from: path.resolve(__dirname, "assets/webfonts"),
+          to: path.resolve(__dirname, "dist-dev/webfonts"),
+        },
       ],
     }),
   ],
   optimization: {
     realContentHash: false,
-  },
-  module: {
-    rules: [
-      {
-        test: /\.html$/i,
-        loader: "html-loader",
-        generator: {
-          filename: "[name][ext]",
-        },
-      },
-      {
-        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-        type: "asset/resource",
-        generator: {
-          filename: "[name][ext]",
-        },
-      },
-      {
-        test: /\.(woff(2)?|ttf|eot)$/,
-        type: "asset/source",
-        generator: {
-          filename: "./webfonts/[name][ext]",
-        },
-      },
-      {
-        test: /\.css$/i,
-        // use: ["style-loader", "css-loader"],
-        generator: {
-          filename: "[name][ext]",
-        },
-      },
-
-    ],
   },
 };
