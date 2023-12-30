@@ -1,22 +1,6 @@
 import { router } from "./js/router";
-import { posix_db } from "./js/posix_db";
+import {formSubmitDispatcher} from "./js/submit_dispatcher";
 
-async function timeFormHandler(event) {
-  let data = {
-    timezone: posix_db[document.getElementById("timezone-offset").value],
-    "digital-clock": document.getElementById("digital-clock").checked,
-    "analog-clock": document.getElementById("analog-clock").checked,
-  };
-  let json_data = JSON.stringify(data);
-  let response = await fetch("/setup_time", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json;charset=utf-8",
-    },
-    body: json_data,
-  });
-  console.log(`Form values ${json_data}`);
-}
 
 async function set_time_from_device() {
   let time = { time: Date.now() };
@@ -31,23 +15,6 @@ async function set_time_from_device() {
 }
 window.set_time_from_device = set_time_from_device;
 
-async function brightnessFormHandler(event) {
-  let data = {
-    "auto-brightness": document.getElementById("auto-brightness").checked,
-    "change-theme": document.getElementById("change-theme").checked,
-    threshold: document.getElementById("auto-brightness-threshold").value,
-    brightness: document.getElementById("brightness-slider").value,
-  };
-  let json_data = JSON.stringify(data);
-  let response = await fetch("/setup_brightness", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json;charset=utf-8",
-    },
-    body: json_data,
-  });
-  console.log(`Form values ${json_data}`);
-}
 async function check_lx() {
   let cancelButton = document.getElementById("dialog-cancel");
   cancelButton.addEventListener("click", () => {
@@ -58,26 +25,7 @@ async function check_lx() {
   console.log("Your lx is 228");
 }
 window.check_lx = check_lx;
-function themeFormHandler(event) {
-  console.log(`Theme form`);
-}
 
-function weatherFormHandler(event) {
-  console.log("This is a weather form submit");
-}
-
-function formSubmitDispatcher(event) {
-  event.preventDefault();
-  if (event.currentTarget.id === "time-form") {
-    timeFormHandler(event);
-  } else if (event.currentTarget.id === "weather-form") {
-    weatherFormHandler(event);
-  } else if (event.currentTarget.id === "brightness-form") {
-    brightnessFormHandler(event);
-  } else if (event.currentTarget.id === "theme-form") {
-    themeFormHandler(event);
-  }
-}
 
 function anchorClickHandler(e) {
   document.querySelectorAll("[data-link]").forEach(function (elem) {
