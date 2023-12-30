@@ -183,6 +183,7 @@ div#weather-city-container {
   white-space: nowrap;
 }
 
+.weather-requests,
 .theme-switch-wrapper,
 .change-theme,
 .auto-brightness {
@@ -277,6 +278,8 @@ fieldset#main-clock-fieldset {
   min-width: 200px;
 }
 
+
+label#weather-requests-label,
 label#auto-brightness-label,
 label#change-theme-label {
   width: 180px;

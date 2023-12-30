@@ -1,22 +1,16 @@
 <h1 class="settings-header">Weather Settings</h1>
 <form id="weather-form" action="">
-  <fieldset id="weather">
-    <legend>Weather Requests:</legend>
-    <div>
-      <input type="radio" id="weather-enabled" name="weather" value="1" />
-      <label for="weather">Enabled</label>
+  <span class="weather-requests">
+    <div class="checkbox-wrapper">
+      <label class="switch" for="weather-enabled">
+        <input type="checkbox" id="weather-enabled" name="weather-enabled" />
+        <div class="slider round"></div>
+      </label>
     </div>
-    <div>
-      <input
-        type="radio"
-        id="weather-disabled"
-        name="weather"
-        checked
-        value="0"
-      />
-      <label for="weather-disabled">Disabled</label>
-    </div>
-  </fieldset>
+    <label id="weather-requests-label" for="weather-enabled"
+      >Weather requests</label
+    >
+  </span>
   <span class="api-key-wrapper">
     <label id="api-key-label" for="api-key">API key</label>
     <input
@@ -29,7 +23,7 @@
   </span>
   <span class="city-wrapper">
     <label id="city-label" for="city">City</label>
-    <input type="text" id="city" name="city"/>
+    <input type="text" id="city" name="city" pattern="([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*"/>
   </span>
   <span class="language-wrapper">
     <label id="language-label" for="language">Language</label>
@@ -79,10 +73,12 @@
   <span class="period-wrapper">
     <label id="period-label" for="period">Periodicity of weather request</label>
     <input
-      type="text"
+      type="number"
       id="period"
       name="period"
       placeholder="in minutes"
+      min="1"
+      max="1380"
     />
   </span>
   <input type="submit" class="button" value="Save settings" />

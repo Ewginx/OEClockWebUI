@@ -2,7 +2,7 @@ import { posix_db } from "./posix_db";
 
 async function timeFormHandler(event) {
   let data = {
-    timezone: posix_db[document.getElementById("timezone-offset").value],
+    "timezone": posix_db[document.getElementById("timezone-offset").value],
     "digital-clock": document.getElementById("digital-clock").checked,
     "analog-clock": document.getElementById("analog-clock").checked,
   };
@@ -37,14 +37,14 @@ async function brightnessFormHandler(event) {
 
 async function themeFormHandler(event) {
   let data = {
-    "theme": document.getElementById("theme-switch").checked,
+    "theme": document.getElementById("weather-requests").checked,
     "light-background": document.getElementById("light-theme-background").value,
     "light-second": document.getElementById("light-theme-second").value,
     "dark-background": document.getElementById("dark-theme-background").value,
     "dark-second": document.getElementById("dark-theme-second").value,
   };
   let json_data = JSON.stringify(data);
-  let response = await fetch("/setup_brightness", {
+  let response = await fetch("/setup_theme", {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
@@ -54,8 +54,23 @@ async function themeFormHandler(event) {
   console.log(`Form values ${json_data}`);
 }
 
-function weatherFormHandler(event) {
-  console.log("This is a weather form submit");
+async function weatherFormHandler(event) {
+    let data = {
+        "weather-enabled": document.getElementById("weather-enabled").checked,
+        "api-key": document.getElementById("api-key").value,
+        "city": document.getElementById("city").value,
+        "language": document.getElementById("language").value,
+        "period": document.getElementById("period").value, // add multiply to milliseconds
+      };
+      let json_data = JSON.stringify(data);
+      let response = await fetch("/setup_weather", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+        },
+        body: json_data,
+      });
+      console.log(`Form values ${json_data}`);
 }
 
 function formSubmitDispatcher(event) {
