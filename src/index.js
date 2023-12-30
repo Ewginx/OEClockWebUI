@@ -1,6 +1,6 @@
 import { router } from "./js/router";
-import {formSubmitDispatcher} from "./js/submit_dispatcher";
-
+import { formSubmitDispatcher } from "./js/submit_dispatcher";
+import { formDataDispatcher } from "./js/form_data_dispatcher";
 
 async function set_time_from_device() {
   let time = { time: Date.now() };
@@ -25,7 +25,6 @@ async function check_lx() {
   console.log("Your lx is 228");
 }
 window.check_lx = check_lx;
-
 
 function anchorClickHandler(e) {
   document.querySelectorAll("[data-link]").forEach(function (elem) {
