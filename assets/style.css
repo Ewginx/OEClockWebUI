@@ -206,7 +206,6 @@ form#brightness-form {
   font-size: clamp(20px, 3vmin, 30px);
 }
 
-form#wifi-ap-form,
 form#wifi-form {
   gap: 4vh;
   margin-top: 10vmin;
@@ -214,9 +213,6 @@ form#wifi-form {
   font-size: clamp(20px, 3vmin, 30px);
 }
 
-form#wifi-ap-form {
-  margin-top: 15vh;
-}
 
 input#auto-brightness-threshold {
   font-size: 1em;
