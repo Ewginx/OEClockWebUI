@@ -23,12 +23,15 @@ body {
   height: 100%;
   padding: 20px 0;
   transition: all 0.5s ease;
+  overflow: scroll;
 }
 .wrapper .sidebar .profile {
   margin-bottom: 30px;
   text-align: center;
 }
-
+.wrapper .sidebar::-webkit-scrollbar {
+  display: none;
+}
 .wrapper .sidebar .profile h3 {
   color: #ffffff;
   margin: 10px 0 5px;
