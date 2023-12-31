@@ -1,14 +1,21 @@
 const path = require('path');
 const { merge } = require("webpack-merge");
 const common = require("./webpack.config.js");
-
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = merge(common, {
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "./src/index.html"),
+      filename: "index.html",
+      // inject: false,
+    }),
+  ],
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist-dev')
     },
-    historyApiFallback: true,
+    // historyApiFallback: true,
     open: true,
   },
   devtool: 'inline-source-map',
