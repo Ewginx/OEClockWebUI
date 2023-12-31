@@ -2,9 +2,8 @@ import { posix_db } from "./posix_db";
 
 async function timeFormHandler(event) {
   let data = {
-    timezone: posix_db[document.getElementById("timezone-offset").value],
-    digital_clock: document.getElementById("digital-clock").checked,
-    analog_clock: document.getElementById("analog-clock").checked,
+    timezone_posix: posix_db[document.getElementById("timezone-offset").value],
+    digital_main_screen: document.getElementById("digital-clock").checked,
   };
   let json_data = JSON.stringify(data);
   let response = await fetch("/setup_time", {
@@ -20,9 +19,9 @@ async function timeFormHandler(event) {
 async function brightnessFormHandler(event) {
   let data = {
     auto_brightness: document.getElementById("auto-brightness").checked,
-    change_theme: document.getElementById("change-theme").checked,
+    auto_theme_change: document.getElementById("change-theme").checked,
     threshold: document.getElementById("auto-brightness-threshold").value,
-    brightness: document.getElementById("brightness-slider").value,
+    brightness_level: document.getElementById("brightness-slider").value,
   };
   let json_data = JSON.stringify(data);
   let response = await fetch("/setup_brightness", {
@@ -37,11 +36,11 @@ async function brightnessFormHandler(event) {
 
 async function themeFormHandler(event) {
   let data = {
-    theme: document.getElementById("weather-requests").checked,
-    light_background: document.getElementById("light-theme-background").value,
-    light_second: document.getElementById("light-theme-second").value,
-    dark_background: document.getElementById("dark-theme-background").value,
-    dark_second: document.getElementById("dark-theme-second").value,
+    dark_theme_enabled: document.getElementById("weather-requests").checked,
+    light_background_color: document.getElementById("light-theme-background").value,
+    light_second_color: document.getElementById("light-theme-second").value,
+    dark_background_color: document.getElementById("dark-theme-background").value,
+    dark_second_color: document.getElementById("dark-theme-second").value,
   };
   let json_data = JSON.stringify(data);
   let response = await fetch("/setup_theme", {
@@ -60,7 +59,7 @@ async function weatherFormHandler(event) {
     api_key: document.getElementById("api-key").value,
     city: document.getElementById("city").value,
     language: document.getElementById("language").value,
-    period: document.getElementById("period").value * 60000,
+    request_period: document.getElementById("period").value * 60000,
   };
   let json_data = JSON.stringify(data);
   let response = await fetch("/setup_weather", {
