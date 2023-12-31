@@ -4,6 +4,14 @@ const common = require("./webpack.config.js");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = merge(common, {
+  entry: {
+    main: path.resolve(__dirname, "./src/index.js"),
+  },
+  output: {
+    path: path.resolve(__dirname, "./dist-dev"),
+    filename: "[name].js",
+    clean: true,
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "./src/index.html"),
