@@ -5,14 +5,14 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackChangeAssetsExtensionPlugin = require("html-webpack-change-assets-extension-plugin");
-
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = merge(common, {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "./src/index.html"),
       filename: "index.html",
-      jsExtension: '.gz',
+      jsExtension: ".gz",
       // inject: false,
     }),
     new CompressionPlugin({
@@ -30,7 +30,8 @@ module.exports = merge(common, {
   },
   mode: "production",
   optimization: {
-    minimizer: [new CssMinimizerPlugin()],
+    minimize: true,
+    minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
   },
   module: {
     rules: [
