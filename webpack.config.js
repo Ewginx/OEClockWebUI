@@ -29,7 +29,7 @@ module.exports = {
       ],
     }),
   ],
-  optimization: {
-    realContentHash: false,
-  },
+  // optimization: {
+  //   realContentHash: false,
+  // },
 };
