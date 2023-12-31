@@ -8,7 +8,7 @@ module.exports = merge(common, {
     main: path.resolve(__dirname, "./src/index.js"),
   },
   output: {
-    path: path.resolve(__dirname, "./dist-dev"),
+    path: path.resolve(__dirname, "./dist_dev"),
     filename: "[name].js",
     clean: true,
   },
@@ -21,7 +21,7 @@ module.exports = merge(common, {
   ],
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist-dev')
+      directory: path.join(__dirname, 'dist_dev')
     },
     // historyApiFallback: true,
     open: true,

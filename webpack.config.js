@@ -24,7 +24,7 @@ module.exports = {
         },
         {
           from: path.resolve(__dirname, "assets/webfonts"),
-          to: path.resolve(__dirname, "dist-dev/webfonts"),
+          to: path.resolve(__dirname, "dist_dev/webfonts"),
         },
       ],
     }),
