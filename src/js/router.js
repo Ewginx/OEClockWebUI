@@ -14,56 +14,67 @@ const urlRoutes = {
     template: "/templates/404.html",
     title: "404",
     form_id: null,
+    name: "",
   },
   "/": {
     template: home,
     title: "Home",
     form_id: null,
+    name: "home",
   },
   "/weather": {
     template: weather,
     title: "Weather Settings",
     form_id: "weather-form",
+    name: "weather",
   },
   "/brightness": {
     template: brightness,
     title: "Brightness",
     form_id: "brightness-form",
+    name: "brightness"
   },
   "/wifi": {
     template: wifi,
     title: "WiFi Manager",
     form_id: "wifi-form",
+    name: "wifi",
   },
   "/theme": {
     template: theme,
     title: "Theme",
     form_id: "theme-form",
+    name: "theme",
   },
   "/time": {
     template: time,
     title: "Time",
     form_id: "time-form",
+    name: "time",
   },
   "/sounds": {
     template: sounds,
     title: "Sounds",
     form_id: null,
+    name: "sounds",
   },
   "/rgb": {
     template: rgb,
     title: "RGB",
     form_id: null,
+    name: "rgb",
   },
   "/ota": {
     template: ota,
     title: "OTA Update",
     form_id: null,
+    name: "ota",
   },
   "/debug": {
     template: debug,
     title: "Debug",
     form_id: null,
+    name: "debug",
   },
 };
 
