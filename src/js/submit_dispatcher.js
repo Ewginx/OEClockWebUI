@@ -6,8 +6,8 @@ async function timeFormHandler(event) {
     digital_main_screen: document.getElementById("digital-clock").checked,
   };
   let json_data = JSON.stringify(data);
-  let response = await fetch("/setup_time", {
-    method: "POST",
+  let response = await fetch("/settings/time", {
+    method: "PUT",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
     },
@@ -20,12 +20,12 @@ async function brightnessFormHandler(event) {
   let data = {
     auto_brightness: document.getElementById("auto-brightness").checked,
     auto_theme_change: document.getElementById("change-theme").checked,
-    threshold: document.getElementById("auto-brightness-threshold").value,
-    brightness_level: document.getElementById("brightness-slider").value,
+    threshold: parseInt(document.getElementById("auto-brightness-threshold").value),
+    brightness_level: parseInt(document.getElementById("brightness-slider").value),
   };
   let json_data = JSON.stringify(data);
-  let response = await fetch("/setup_brightness", {
-    method: "POST",
+  let response = await fetch("/settings/brightness", {
+    method: "PUT",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
     },
@@ -43,8 +43,8 @@ async function themeFormHandler(event) {
     dark_second_color: document.getElementById("dark-theme-second").value,
   };
   let json_data = JSON.stringify(data);
-  let response = await fetch("/setup_theme", {
-    method: "POST",
+  let response = await fetch("/settings/theme", {
+    method: "PUT",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
     },
@@ -59,11 +59,11 @@ async function weatherFormHandler(event) {
     api_key: document.getElementById("api-key").value,
     city: document.getElementById("city").value,
     language: document.getElementById("language").value,
-    request_period: document.getElementById("period").value * 60000,
+    request_period: parseInt(document.getElementById("period").value) * 60000,
   };
   let json_data = JSON.stringify(data);
-  let response = await fetch("/setup_weather", {
-    method: "POST",
+  let response = await fetch("/settings/weather", {
+    method: "PUT",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
     },
@@ -82,8 +82,8 @@ async function wifiFormHandler(event) {
     sta_password: document.getElementById("sta-password").value,
   };
   let json_data = JSON.stringify(data);
-  let response = await fetch("/setup_wifi", {
-    method: "POST",
+  let response = await fetch("/settings/wifi", {
+    method: "PUT",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
     },
