@@ -6,9 +6,13 @@ const CompressionPlugin = require("compression-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackChangeAssetsExtensionPlugin = require("html-webpack-change-assets-extension-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const webpack = require('webpack');
 
 module.exports = merge(common, {
   plugins: [
+    new webpack.DefinePlugin({
+      "__URL": JSON.stringify("window.location.host"),
+    }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "./src/index.html"),
       filename: "index.html",

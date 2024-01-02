@@ -1,4 +1,4 @@
-var gateway = `ws://${window.location.hostname}:${window.location.port}/ws`;
+var gateway = `ws://${__URL}/ws`;
 var websocket;
 
 function onOpen(event) {
