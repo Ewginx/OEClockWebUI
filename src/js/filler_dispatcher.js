@@ -1,9 +1,7 @@
 import { posix_db } from "./posix_db";
+import { flip_object, toMinutes } from "./helpers";
 
 window.settings_state;
-
-const flip = (data) =>
-  Object.fromEntries(Object.entries(data).map(([key, value]) => [value, key]));
 
 function wifiPageFiller(view) {
   document.getElementById("ssid").value = settings_state.ssid;
@@ -12,7 +10,6 @@ function wifiPageFiller(view) {
   document.getElementById("gateway").value = settings_state.gateway;
   document.getElementById("login").value = settings_state.sta_login;
   document.getElementById("sta-password").value = settings_state.sta_password;
-  console.log(`Fill wifi view`);
 }
 
 function themePageFiller(view) {
@@ -26,7 +23,6 @@ function themePageFiller(view) {
     settings_state.dark_background_color;
   document.getElementById("dark-theme-second").value =
     settings_state.dark_second_color;
-  console.log(`Fill theme view`);
 }
 
 function brightnessPageFiller(view) {
@@ -38,17 +34,15 @@ function brightnessPageFiller(view) {
     settings_state.threshold;
   document.getElementById("brightness-slider").value =
     settings_state.brightness_level;
-  console.log(`Fill brightness view`);
 }
 
 function timePageFiller(view) {
-  const flipped_posix_db = flip(posix_db);
+  const flipped_posix_db = flip_object(posix_db);
   document.getElementById("timezone-offset").value =
     flipped_posix_db[settings_state.timezone_posix];
 
   document.getElementById("digital-clock").checked =
     settings_state.digital_main_screen;
-  console.log(`Fill time view`);
 }
 
 function weatherPageFiller(view) {
@@ -57,15 +51,13 @@ function weatherPageFiller(view) {
   document.getElementById("api-key").value = settings_state.api_key;
   document.getElementById("city").value = settings_state.city;
   document.getElementById("language").value = settings_state.language;
-  let period = parseInt(settings_state.request_period) / 60000;
+  let period = toMinutes(parseInt(settings_state.request_period));
   document.getElementById("period").value = period.toString();
-  console.log(`Fill weather view`);
 }
 
 function homePageFiller(view) {
   document.getElementById("home-ip").innerText = settings_state.ip_address;
   document.getElementById("weather-city").innerText = settings_state.city;
-  console.log(`Fill home view`);
 }
 
 function pageFillerDispatcher(view) {

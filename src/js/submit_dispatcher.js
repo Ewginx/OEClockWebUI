@@ -1,4 +1,5 @@
 import { posix_db } from "./posix_db";
+import { toMilliseconds } from "./helpers";
 
 async function timeFormHandler(event) {
   let data = {
@@ -13,7 +14,6 @@ async function timeFormHandler(event) {
     },
     body: json_data,
   });
-  console.log(`Form values ${json_data}`);
 }
 
 async function brightnessFormHandler(event) {
@@ -31,7 +31,6 @@ async function brightnessFormHandler(event) {
     },
     body: json_data,
   });
-  console.log(`Form values ${json_data}`);
 }
 
 async function themeFormHandler(event) {
@@ -50,7 +49,6 @@ async function themeFormHandler(event) {
     },
     body: json_data,
   });
-  console.log(`Form values ${json_data}`);
 }
 
 async function weatherFormHandler(event) {
@@ -59,7 +57,7 @@ async function weatherFormHandler(event) {
     api_key: document.getElementById("api-key").value,
     city: document.getElementById("city").value,
     language: document.getElementById("language").value,
-    request_period: parseInt(document.getElementById("period").value) * 60000,
+    request_period: toMilliseconds(parseInt(document.getElementById("period").value)),
   };
   let json_data = JSON.stringify(data);
   let response = await fetch("/settings/weather", {
@@ -69,7 +67,6 @@ async function weatherFormHandler(event) {
     },
     body: json_data,
   });
-  console.log(`Form values ${json_data}`);
 }
 
 async function wifiFormHandler(event) {
@@ -89,7 +86,6 @@ async function wifiFormHandler(event) {
     },
     body: json_data,
   });
-  console.log(`Form values ${json_data}`);
 }
 
 function formSubmitDispatcher(event) {

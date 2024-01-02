@@ -1,6 +1,7 @@
 import { router } from "./js/router";
 import { formSubmitDispatcher } from "./js/submit_dispatcher";
 import { pageFillerDispatcher, settings_state } from "./js/filler_dispatcher";
+import { initWebSocket } from "./js/sensors_handler";
 
 async function set_time_from_device() {
   let time = { time: Date.now() };
@@ -11,18 +12,16 @@ async function set_time_from_device() {
     },
     body: JSON.stringify(time),
   });
-  console.log(`Time on clock will be set with ${JSON.stringify(time)}`);
 }
 window.set_time_from_device = set_time_from_device;
 
-async function check_lx() {
+function check_lx() {
   let cancelButton = document.getElementById("dialog-cancel");
   cancelButton.addEventListener("click", () => {
     dialog.close();
   });
   let dialog = document.getElementById("dialog");
   dialog.showModal();
-  console.log("Your lx is 228");
 }
 window.check_lx = check_lx;
 
@@ -33,9 +32,7 @@ async function fetch_settings() {
       "Content-Type": "application/json;charset=utf-8",
     },
   });
-  console.log(`Response from server: ${response.ok}`);
   window.settings_state = JSON.parse(await response.json());
-  console.log(`Response from server: ${window.settings_state.language}`);
 }
 
 function anchorClickHandler(e) {
@@ -65,12 +62,15 @@ function loadPage() {
 }
 
 function loadPageOnContentLoaded() {
+  initWebSocket();
   fetch_settings().then(() => loadPage());
 }
+
 function pageReloadHandler(event) {
   event.preventDefault();
   loadPage();
 }
+
 // Handle navigation
 document.querySelectorAll("[data-link]").forEach(function (elem) {
   elem.addEventListener("click", anchorClickHandler);
@@ -84,4 +84,6 @@ window.addEventListener("beforeunload", pageReloadHandler);
 document.querySelector(".hamburger").addEventListener("click", function () {
   document.querySelector("body").classList.toggle("active");
 });
+
+
 router(window.location.pathname);

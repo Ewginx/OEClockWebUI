@@ -142,7 +142,7 @@ div#sensor-container {
 .room-sensors {
   display: flex;
   flex-direction: column;
-  font-size: clamp(1em, 10vmin, 13em);
+  font-size: clamp(1em, 8vmin, 9em);
   border-radius: 50%;
   width: 30vmin;
   height: 30vmin;

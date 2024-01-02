@@ -82,7 +82,6 @@ function router() {
   let view = urlRoutes[location.pathname];
   if (view) {
     document.title = view.title;
-    // const html = await fetch(view.template).then((response) => response.text());
     const html = view.template;
     app.innerHTML = html;
     return view;
