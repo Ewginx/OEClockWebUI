@@ -36,7 +36,7 @@ async function brightnessFormHandler(event) {
 
 async function themeFormHandler(event) {
   let data = {
-    dark_theme_enabled: document.getElementById("weather-requests").checked,
+    dark_theme_enabled: document.getElementById("theme-switch").checked,
     light_background_color: document.getElementById("light-theme-background").value,
     light_second_color: document.getElementById("light-theme-second").value,
     dark_background_color: document.getElementById("dark-theme-background").value,
