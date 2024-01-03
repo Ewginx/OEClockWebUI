@@ -86,7 +86,7 @@ body {
   justify-content: space-between;
 }
 
-.logout-button{
+.logout-button {
   font-size: 18px;
   font-weight: bold;
   color: white;
@@ -311,6 +311,7 @@ input#wifi-submit {
   margin-top: 25px;
 }
 
+
 input#login,
 input#sta-password,
 input#api-key,
@@ -324,6 +325,7 @@ input#ssid {
   width: clamp(150px, 50vmin, 300px);
   border-radius: 4px;
   height: clamp(30px, 4vmin, 45px);
+  padding-left: 10px;
 }
 
 .language-wrapper,
