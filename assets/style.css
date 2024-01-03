@@ -83,6 +83,18 @@ body {
   display: flex;
   align-items: center;
   padding: 0 30px;
+  justify-content: space-between;
+}
+
+.logout-button{
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
 }
 
 .wrapper .section .top_navbar .hamburger a {
@@ -213,7 +225,6 @@ form#wifi-form {
   font-size: clamp(20px, 3vmin, 30px);
 }
 
-
 input#auto-brightness-threshold {
   font-size: 1em;
   text-align: center;
@@ -273,7 +284,6 @@ fieldset#main-clock-fieldset {
   gap: 3vmin;
   min-width: 200px;
 }
-
 
 label#weather-requests-label,
 label#auto-brightness-label,

@@ -25,6 +25,13 @@ function check_lx() {
 }
 window.check_lx = check_lx;
 
+async function logout() {
+  await fetch("/logout", {
+    method: "GET",
+  });
+}
+window.logout = logout;
+
 async function fetch_settings() {
   let response = await fetch("/settings", {
     method: "GET",
@@ -84,6 +91,5 @@ window.addEventListener("beforeunload", pageReloadHandler);
 document.querySelector(".hamburger").addEventListener("click", function () {
   document.querySelector("body").classList.toggle("active");
 });
-
 
 router(window.location.pathname);
