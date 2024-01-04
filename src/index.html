@@ -1,101 +1,119 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.0/css/all.css"> -->
-    <link rel="stylesheet" type="text/css" href="../assets/fontawesome.css">
-    <link rel="stylesheet" type="text/css" href="../assets/style.css">
-    <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+      charset="utf-8"
+    />
+    
+    <link rel="stylesheet" type="text/css" href="../assets/fontawesome.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/style.css" />
+    <link rel="icon" type="image/png" href="../assets/favicon.png" />
     <title>OEClock</title>
-</head>
+  </head>
 
-
-<body class="active">
+  <body class="active">
     <div class="wrapper">
-        <div class="section">
-            <div class="top_navbar">
-                <div class="hamburger">
-                    <a href="javascript:;">
-                        <i class="fas fa-bars"></i>
-                    </a>
-                </div>
-                <button class="logout-button" onclick="window.logout()">Log out</button>
-            </div>
-
+      <div class="section">
+        <div class="top_navbar">
+          <div class="hamburger">
+            <a href="javascript:;">
+              <i class="fas fa-bars"></i>
+            </a>
+          </div>
+          <button class="logout-button" onclick="window.logout()">
+            Log out
+          </button>
         </div>
-        <!--Top menu -->
-        <div class="sidebar">
-
-            <div class="profile">
-                <h3>OEClock Settings</h3>
-            </div>
-            <ul>
-                <li>
-                    <a href="/" data-link id="/" class="active">
-                        <span class="icon"><i data-link class="fas fa-home"></i></span>
-                        <span class="item" data-link>Home</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/wifi" id="wifi" data-link>
-                        <span class="icon" data-link ><i data-link class="fas fa-wifi"></i></span>
-                        <span class="item" data-link>WiFi Manager</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/brightness" id="brightness" data-link>
-                        <span class="icon" data-link><i data-link class="fas fa-sun"></i></span>
-                        <span class="item" data-link>Brightness</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/time" id="time" data-link>
-                        <span class="icon" data-link><i data-link class="fas fa-clock"></i></span>
-                        <span class="item" data-link>Time</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/weather" id="weather" data-link>
-                        <span class="icon" data-link><i data-link class="fas fa-cloud-sun-rain"></i></span>
-                        <span class="item" data-link>Weather</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/theme" id="theme" data-link>
-                        <span class="icon" data-link><i data-link class="fas fa-brush"></i></span>
-                        <span class="item" data-link>Theme</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/rgb" id="rgb" data-link>
-                        <span class="icon" data-link><i data-link class="fas fa-lightbulb"></i></span>
-                        <span class="item" data-link>RGB</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/sounds" id="sounds" data-link>
-                        <span class="icon" data-link><i data-link class="fas fa-bell"></i></span>
-                        <span class="item" data-link>Sounds</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/ota" id="ota" data-link>
-                        <span class="icon" data-link><i data-link class="fas fa-cloud-arrow-up"></i></span>
-                        <span class="item" data-link>OTA Update</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/debug" id="debug" data-link>
-                        <span class="icon" data-link><i data-link class="fas fa-bug"></i></span>
-                        <span class="item" data-link>Debug</span>
-                    </a>
-                </li>
-            </ul>
+      </div>
+      <!--Top menu -->
+      <div class="sidebar">
+        <div class="profile">
+          <h3>OEClock Settings</h3>
         </div>
+        <ul>
+          <li>
+            <a href="/" data-link id="/" class="active">
+              <span class="icon"><i data-link class="fas fa-home"></i></span>
+              <span class="item" data-link>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="/wifi" id="wifi" data-link>
+              <span class="icon" data-link
+                ><i data-link class="fas fa-wifi"></i
+              ></span>
+              <span class="item" data-link>WiFi Manager</span>
+            </a>
+          </li>
+          <li>
+            <a href="/brightness" id="brightness" data-link>
+              <span class="icon" data-link
+                ><i data-link class="fas fa-sun"></i
+              ></span>
+              <span class="item" data-link>Brightness</span>
+            </a>
+          </li>
+          <li>
+            <a href="/time" id="time" data-link>
+              <span class="icon" data-link
+                ><i data-link class="fas fa-clock"></i
+              ></span>
+              <span class="item" data-link>Time</span>
+            </a>
+          </li>
+          <li>
+            <a href="/weather" id="weather" data-link>
+              <span class="icon" data-link
+                ><i data-link class="fas fa-cloud-sun-rain"></i
+              ></span>
+              <span class="item" data-link>Weather</span>
+            </a>
+          </li>
+          <li>
+            <a href="/theme" id="theme" data-link>
+              <span class="icon" data-link
+                ><i data-link class="fas fa-brush"></i
+              ></span>
+              <span class="item" data-link>Theme</span>
+            </a>
+          </li>
+          <li>
+            <a href="/rgb" id="rgb" data-link>
+              <span class="icon" data-link
+                ><i data-link class="fas fa-lightbulb"></i
+              ></span>
+              <span class="item" data-link>RGB</span>
+            </a>
+          </li>
+          <li>
+            <a href="/sounds" id="sounds" data-link>
+              <span class="icon" data-link
+                ><i data-link class="fas fa-bell"></i
+              ></span>
+              <span class="item" data-link>Sounds</span>
+            </a>
+          </li>
+          <li>
+            <a href="/ota" id="ota" data-link>
+              <span class="icon" data-link
+                ><i data-link class="fas fa-cloud-arrow-up"></i
+              ></span>
+              <span class="item" data-link>OTA Update</span>
+            </a>
+          </li>
+          <li>
+            <a href="/debug" id="debug" data-link>
+              <span class="icon" data-link
+                ><i data-link class="fas fa-bug"></i
+              ></span>
+              <span class="item" data-link>Debug</span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
     <main class="app" id="app"></main>
-
-</body>
-
+  </body>
 </html>
