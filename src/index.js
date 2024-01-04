@@ -39,7 +39,7 @@ async function fetch_settings() {
       "Content-Type": "application/json;charset=utf-8",
     },
   });
-  window.settings_state = JSON.parse(await response.json());
+  window.settings_state = await response.json();
 }
 
 function anchorClickHandler(e) {
