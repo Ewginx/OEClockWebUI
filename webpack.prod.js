@@ -11,6 +11,7 @@ module.exports = merge(common, {
   plugins: [
     new webpack.DefinePlugin({
       "__URL": "`ws://${window.location.hostname}/ws`",
+      "__SETTINGS_JSON": "await response.json()",
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "./src/index.html"),
