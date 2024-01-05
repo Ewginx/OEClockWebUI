@@ -1,5 +1,5 @@
 import { posix_db } from "./posix_db";
-import { toMilliseconds } from "./helpers";
+import { toMilliseconds, showSuccessfulMessage } from "./helpers";
 
 async function timeFormHandler(event) {
   let data = {
@@ -14,14 +14,21 @@ async function timeFormHandler(event) {
     },
     body: json_data,
   });
+  if (response.status === 200) {
+    showSuccessfulMessage();
+  }
 }
 
 async function brightnessFormHandler(event) {
   let data = {
     auto_brightness: document.getElementById("auto-brightness").checked,
     auto_theme_change: document.getElementById("change-theme").checked,
-    threshold: parseInt(document.getElementById("auto-brightness-threshold").value),
-    brightness_level: parseInt(document.getElementById("brightness-slider").value),
+    threshold: parseInt(
+      document.getElementById("auto-brightness-threshold").value
+    ),
+    brightness_level: parseInt(
+      document.getElementById("brightness-slider").value
+    ),
   };
   let json_data = JSON.stringify(data);
   let response = await fetch("/settings/brightness", {
@@ -31,14 +38,19 @@ async function brightnessFormHandler(event) {
     },
     body: json_data,
   });
+  if (response.status === 200) {
+    showSuccessfulMessage();
+  }
 }
 
 async function themeFormHandler(event) {
   let data = {
     dark_theme_enabled: document.getElementById("theme-switch").checked,
-    light_background_color: document.getElementById("light-theme-background").value,
+    light_background_color: document.getElementById("light-theme-background")
+      .value,
     light_second_color: document.getElementById("light-theme-second").value,
-    dark_background_color: document.getElementById("dark-theme-background").value,
+    dark_background_color: document.getElementById("dark-theme-background")
+      .value,
     dark_second_color: document.getElementById("dark-theme-second").value,
   };
   let json_data = JSON.stringify(data);
@@ -49,6 +61,9 @@ async function themeFormHandler(event) {
     },
     body: json_data,
   });
+  if (response.status === 200) {
+    showSuccessfulMessage();
+  }
 }
 
 async function weatherFormHandler(event) {
@@ -57,7 +72,9 @@ async function weatherFormHandler(event) {
     api_key: document.getElementById("api-key").value,
     city: document.getElementById("city").value,
     language: document.getElementById("language").value,
-    request_period: toMilliseconds(parseInt(document.getElementById("period").value)),
+    request_period: toMilliseconds(
+      parseInt(document.getElementById("period").value)
+    ),
   };
   let json_data = JSON.stringify(data);
   let response = await fetch("/settings/weather", {
@@ -67,6 +84,9 @@ async function weatherFormHandler(event) {
     },
     body: json_data,
   });
+  if (response.status === 200) {
+    showSuccessfulMessage();
+  }
 }
 
 async function wifiFormHandler(event) {
@@ -86,6 +106,9 @@ async function wifiFormHandler(event) {
     },
     body: json_data,
   });
+  if (response.status === 200) {
+    showSuccessfulMessage();
+  }
 }
 
 function formSubmitDispatcher(event) {
