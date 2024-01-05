@@ -2,9 +2,14 @@ import { posix_db } from "./posix_db";
 import { toMilliseconds, showSuccessfulMessage } from "./helpers";
 
 async function timeFormHandler(event) {
+  window.settings_state.timezone_posix =
+    posix_db[document.getElementById("timezone-offset").value];
+  window.settings_state.digital_main_screen =
+    document.getElementById("digital-clock").checked;
+
   let data = {
-    timezone_posix: posix_db[document.getElementById("timezone-offset").value],
-    digital_main_screen: document.getElementById("digital-clock").checked,
+    timezone_posix: window.settings_state.timezone_posix,
+    digital_main_screen: window.settings_state.digital_main_screen,
   };
   let json_data = JSON.stringify(data);
   let response = await fetch("/settings/time", {
@@ -20,15 +25,22 @@ async function timeFormHandler(event) {
 }
 
 async function brightnessFormHandler(event) {
+  window.settings_state.auto_brightness =
+    document.getElementById("auto-brightness").checked;
+  window.settings_state.auto_theme_change =
+    document.getElementById("change-theme").checked;
+  window.settings_state.threshold = parseInt(
+    document.getElementById("auto-brightness-threshold").value
+  );
+  window.settings_state.brightness_level = parseInt(
+    document.getElementById("brightness-slider").value
+  );
+
   let data = {
-    auto_brightness: document.getElementById("auto-brightness").checked,
-    auto_theme_change: document.getElementById("change-theme").checked,
-    threshold: parseInt(
-      document.getElementById("auto-brightness-threshold").value
-    ),
-    brightness_level: parseInt(
-      document.getElementById("brightness-slider").value
-    ),
+    auto_brightness: window.settings_state.auto_brightness,
+    auto_theme_change: window.settings_state.auto_theme_change,
+    threshold: window.settings_state.threshold,
+    brightness_level: window.settings_state.brightness_level,
   };
   let json_data = JSON.stringify(data);
   let response = await fetch("/settings/brightness", {
@@ -44,15 +56,27 @@ async function brightnessFormHandler(event) {
 }
 
 async function themeFormHandler(event) {
+  window.settings_state.dark_theme_enabled =
+    document.getElementById("theme-switch").checked;
+  window.settings_state.light_background_color = document.getElementById(
+    "light-theme-background"
+  ).value;
+  window.settings_state.light_second_color =
+    document.getElementById("light-theme-second").value;
+  window.settings_state.dark_background_color = document.getElementById(
+    "dark-theme-background"
+  ).value;
+  window.settings_state.dark_second_color =
+    document.getElementById("dark-theme-second").value;
+
   let data = {
-    dark_theme_enabled: document.getElementById("theme-switch").checked,
-    light_background_color: document.getElementById("light-theme-background")
-      .value,
-    light_second_color: document.getElementById("light-theme-second").value,
-    dark_background_color: document.getElementById("dark-theme-background")
-      .value,
-    dark_second_color: document.getElementById("dark-theme-second").value,
+    dark_theme_enabled: window.settings_state.dark_theme_enabled,
+    light_background_color: window.settings_state.light_background_color,
+    light_second_color: window.settings_state.light_second_color,
+    dark_background_color: window.settings_state.dark_background_color,
+    dark_second_color: window.settings_state.dark_second_color,
   };
+
   let json_data = JSON.stringify(data);
   let response = await fetch("/settings/theme", {
     method: "PUT",
@@ -67,14 +91,21 @@ async function themeFormHandler(event) {
 }
 
 async function weatherFormHandler(event) {
+  window.settings_state.weather_enabled =
+    document.getElementById("weather-enabled").checked;
+  window.settings_state.api_key = document.getElementById("api-key").value;
+  window.settings_state.city = document.getElementById("city").value;
+  window.settings_state.language = document.getElementById("language").value;
+  window.settings_state.request_period = toMilliseconds(
+    parseInt(document.getElementById("period").value)
+  );
+
   let data = {
-    weather_enabled: document.getElementById("weather-enabled").checked,
-    api_key: document.getElementById("api-key").value,
-    city: document.getElementById("city").value,
-    language: document.getElementById("language").value,
-    request_period: toMilliseconds(
-      parseInt(document.getElementById("period").value)
-    ),
+    weather_enabled: window.settings_state.weather_enabled,
+    api_key: window.settings_state.api_key,
+    city: window.settings_state.city,
+    language: window.settings_state.language,
+    request_period: window.settings_state.request_period,
   };
   let json_data = JSON.stringify(data);
   let response = await fetch("/settings/weather", {
@@ -90,13 +121,21 @@ async function weatherFormHandler(event) {
 }
 
 async function wifiFormHandler(event) {
+  window.settings_state.ssid = document.getElementById("ssid").value;
+  window.settings_state.password = document.getElementById("password").value;
+  window.settings_state.ip_address = document.getElementById("ip").value;
+  window.settings_state.gateway = document.getElementById("gateway").value;
+  window.settings_state.sta_login = document.getElementById("login").value;
+  window.settings_state.sta_password =
+    document.getElementById("sta-password").value;
+
   let data = {
-    ssid: document.getElementById("ssid").value,
-    password: document.getElementById("password").value,
-    ip_address: document.getElementById("ip").value,
-    gateway: document.getElementById("gateway").value,
-    sta_login: document.getElementById("login").value,
-    sta_password: document.getElementById("sta-password").value,
+    ssid: window.settings_state.ssid,
+    password: window.settings_state.password,
+    ip_address: window.settings_state.ip_address,
+    gateway: window.settings_state.gateway,
+    sta_login: window.settings_state.sta_login,
+    sta_password: window.settings_state.sta_password,
   };
   let json_data = JSON.stringify(data);
   let response = await fetch("/settings/wifi", {
