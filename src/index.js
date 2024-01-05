@@ -25,6 +25,16 @@ function check_lx() {
 }
 window.check_lx = check_lx;
 
+function show_password(target_id) {
+  let x = document.getElementById(target_id);
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+window.show_password = show_password;
+
 async function logout() {
   await fetch("/logout", {
     method: "GET",

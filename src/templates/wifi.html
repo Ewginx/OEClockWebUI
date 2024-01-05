@@ -6,7 +6,7 @@
   </span>
   <span class="password-wrapper">
     <label for="password" id="password-label">Password</label>
-    <input type="text" id="password" name="password" required/>
+    <input type="password" id="password" name="password" ondblclick="show_password('password')" required/>
   </span>
   <span class="ip-wrapper">
     <label for="ip" id="ip-label">IP Address</label>
@@ -22,7 +22,7 @@
   </span>
   <span class="sta-password-wrapper">
     <label for="sta-password" id="sta-password-label">STA password</label>
-    <input type="text" id="sta-password" name="sta-password"required />
+    <input type="password" id="sta-password" name="sta-password" required ondblclick="show_password('sta-password')"/>
   </span>
   <input type="submit" id="wifi-submit" class="button" value="Save settings" />
 </form>
