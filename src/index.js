@@ -4,8 +4,8 @@ import { pageFillerDispatcher, settings_state } from "./js/filler_dispatcher";
 import { initWebSocket } from "./js/sensors_handler";
 
 async function set_time_from_device() {
-  let time = { time: Date.now() };
-  let response = await fetch("/set_time", {
+  let time = { time: Date.now()/1000 };
+  let response = await fetch("/time", {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
