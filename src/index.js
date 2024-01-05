@@ -4,7 +4,7 @@ import { pageFillerDispatcher, settings_state } from "./js/filler_dispatcher";
 import { initWebSocket } from "./js/sensors_handler";
 
 async function set_time_from_device() {
-  let time = { time: Date.now()/1000 };
+  let time = { time: Date.now() / 1000 };
   let response = await fetch("/time", {
     method: "POST",
     headers: {
@@ -91,5 +91,9 @@ window.addEventListener("beforeunload", pageReloadHandler);
 document.querySelector(".hamburger").addEventListener("click", function () {
   document.querySelector("body").classList.toggle("active");
 });
-
+document.onclick = function (e) {
+  if (!document.getElementById("menu_wrapper").contains(e.target)) {
+    document.querySelector("body").classList.toggle("active", true);
+  }
+};
 router(window.location.pathname);
