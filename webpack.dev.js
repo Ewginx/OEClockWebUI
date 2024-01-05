@@ -15,7 +15,7 @@ module.exports = merge(common, {
   },
   plugins: [
     new webpack.DefinePlugin({
-      "__URL": JSON.stringify("localhost:8000"),
+      "__URL": '"ws://localhost:8000/ws"',
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "./src/index.html"),

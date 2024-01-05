@@ -1,4 +1,4 @@
-var gateway = `ws://${__URL}/ws`;
+var gateway = __URL;
 var websocket;
 
 function onOpen(event) {

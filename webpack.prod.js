@@ -10,7 +10,7 @@ const webpack = require('webpack');
 module.exports = merge(common, {
   plugins: [
     new webpack.DefinePlugin({
-      "__URL": JSON.stringify("${window.location.hostname}"),
+      "__URL": "`ws://${window.location.hostname}/ws`",
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "./src/index.html"),
