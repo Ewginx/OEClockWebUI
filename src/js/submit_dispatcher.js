@@ -1,5 +1,5 @@
 import { posix_db } from "./posix_db";
-import { toMilliseconds, showSuccessfulMessage } from "./helpers";
+import { toMilliseconds, showSuccessfulMessage, color_to_int } from "./helpers";
 
 async function timeFormHandler(event) {
   window.settings_state.timezone_posix =
@@ -58,16 +58,18 @@ async function brightnessFormHandler(event) {
 async function themeFormHandler(event) {
   window.settings_state.dark_theme_enabled =
     document.getElementById("theme-switch").checked;
-  window.settings_state.light_background_color = document.getElementById(
-    "light-theme-background"
-  ).value;
-  window.settings_state.light_second_color =
-    document.getElementById("light-theme-second").value;
-  window.settings_state.dark_background_color = document.getElementById(
-    "dark-theme-background"
-  ).value;
-  window.settings_state.dark_second_color =
-    document.getElementById("dark-theme-second").value;
+  window.settings_state.light_background_color = color_to_int(
+    document.getElementById("light-theme-background").value
+  );
+  window.settings_state.light_second_color = color_to_int(
+    document.getElementById("light-theme-second").value
+  );
+  window.settings_state.dark_background_color = color_to_int(
+    document.getElementById("dark-theme-background").value
+  );
+  window.settings_state.dark_second_color = color_to_int(
+    document.getElementById("dark-theme-second").value
+  );
 
   let data = {
     dark_theme_enabled: window.settings_state.dark_theme_enabled,

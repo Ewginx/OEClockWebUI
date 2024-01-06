@@ -32,6 +32,17 @@ function show_password(target_id) {
     x.type = "password";
   }
 }
+function color_to_int(color){
+  color = color.slice(1);
+  color = "0x" + color;
+  return parseInt(color)
+}
+
+function int_to_color(color){
+  color = "#" + color.toString(16)
+  return color
+}
+
 export {
   flip_object,
   toMinutes,
@@ -39,4 +50,6 @@ export {
   showSuccessfulMessage,
   check_lx,
   show_password,
+  color_to_int,
+  int_to_color
 };
