@@ -127,17 +127,17 @@ async function wifiFormHandler(event) {
   window.settings_state.password = document.getElementById("password").value;
   window.settings_state.ip_address = document.getElementById("ip").value;
   window.settings_state.gateway = document.getElementById("gateway").value;
-  window.settings_state.sta_login = document.getElementById("login").value;
-  window.settings_state.sta_password =
-    document.getElementById("sta-password").value;
+  window.settings_state.ap_login = document.getElementById("login").value;
+  window.settings_state.ap_password =
+    document.getElementById("ap-password").value;
 
   let data = {
     ssid: window.settings_state.ssid,
     password: window.settings_state.password,
     ip_address: window.settings_state.ip_address,
     gateway: window.settings_state.gateway,
-    sta_login: window.settings_state.sta_login,
-    sta_password: window.settings_state.sta_password,
+    ap_login: window.settings_state.ap_login,
+    ap_password: window.settings_state.ap_password,
   };
   let json_data = JSON.stringify(data);
   let response = await fetch("/settings/wifi", {

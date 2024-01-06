@@ -8,8 +8,8 @@ function wifiPageFiller(view) {
   document.getElementById("password").value = settings_state.password;
   document.getElementById("ip").value = settings_state.ip_address;
   document.getElementById("gateway").value = settings_state.gateway;
-  document.getElementById("login").value = settings_state.sta_login;
-  document.getElementById("sta-password").value = settings_state.sta_password;
+  document.getElementById("login").value = settings_state.ap_login;
+  document.getElementById("ap-password").value = settings_state.ap_password;
 }
 
 function themePageFiller(view) {

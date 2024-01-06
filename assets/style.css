@@ -271,7 +271,7 @@ fieldset#main-clock-fieldset {
 }
 
 .login-wrapper,
-.sta-password-wrapper,
+.ap-password-wrapper,
 .gateway-wrapper,
 .ip-wrapper,
 .password-wrapper,
@@ -293,7 +293,7 @@ label#change-theme-label {
   text-align: left;
 }
 
-label#sta-password-label,
+label#ap-password-label,
 label#login-label,
 label#language-label,
 label#api-key-label,
@@ -312,7 +312,7 @@ input#wifi-submit {
 }
 
 input#login,
-input#sta-password,
+input#ap-password,
 input#api-key,
 input#city,
 input#period,
