@@ -58,14 +58,14 @@ async function brightnessFormHandler(event) {
 async function themeFormHandler(event) {
   window.settings_state.dark_theme_enabled =
     document.getElementById("theme-switch").checked;
-  window.settings_state.light_background_color = color_to_int(
-    document.getElementById("light-theme-background").value
+  window.settings_state.light_primary_color = color_to_int(
+    document.getElementById("light-theme-primary").value
   );
   window.settings_state.light_second_color = color_to_int(
     document.getElementById("light-theme-second").value
   );
-  window.settings_state.dark_background_color = color_to_int(
-    document.getElementById("dark-theme-background").value
+  window.settings_state.dark_primary_color = color_to_int(
+    document.getElementById("dark-theme-primary").value
   );
   window.settings_state.dark_second_color = color_to_int(
     document.getElementById("dark-theme-second").value
@@ -73,9 +73,9 @@ async function themeFormHandler(event) {
 
   let data = {
     dark_theme_enabled: window.settings_state.dark_theme_enabled,
-    light_background_color: window.settings_state.light_background_color,
+    light_primary_color: window.settings_state.light_primary_color,
     light_second_color: window.settings_state.light_second_color,
-    dark_background_color: window.settings_state.dark_background_color,
+    dark_primary_color: window.settings_state.dark_primary_color,
     dark_second_color: window.settings_state.dark_second_color,
   };
 

@@ -15,14 +15,14 @@ function wifiPageFiller(view) {
 function themePageFiller(view) {
   document.getElementById("theme-switch").checked =
     settings_state.dark_theme_enabled;
-  document.getElementById("light-theme-background").value = int_to_color(
-    settings_state.light_background_color
+  document.getElementById("light-theme-primary").value = int_to_color(
+    settings_state.light_primary_color
   );
   document.getElementById("light-theme-second").value = int_to_color(
     settings_state.light_second_color
   );
-  document.getElementById("dark-theme-background").value = int_to_color(
-    settings_state.dark_background_color
+  document.getElementById("dark-theme-primary").value = int_to_color(
+    settings_state.dark_primary_color
   );
   document.getElementById("dark-theme-second").value = int_to_color(
     settings_state.dark_second_color
