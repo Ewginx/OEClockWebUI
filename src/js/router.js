@@ -7,7 +7,7 @@ import debug from "../../src/templates/debug.html";
 import home from "../../src/templates/home.html";
 import ota from "../../src/templates/ota_update.html";
 import rgb from "../../src/templates/rgb.html";
-import sounds from "../../src/templates/sounds.html";
+import alarm_clock from "../../src/templates/alarm_clock.html";
 
 const urlRoutes = {
   404: {
@@ -52,11 +52,11 @@ const urlRoutes = {
     form_id: "time-form",
     name: "time",
   },
-  "/sounds": {
-    template: sounds,
-    title: "Sounds",
+  "/alarm_clock": {
+    template: alarm_clock,
+    title: "Alarm Clock",
     form_id: null,
-    name: "sounds",
+    name: "alarm_clock",
   },
   "/rgb": {
     template: rgb,
