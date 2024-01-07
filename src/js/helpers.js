@@ -35,12 +35,12 @@ function show_password(target_id) {
 function color_to_int(color){
   color = color.slice(1);
   color = "0x" + color;
-  return parseInt(color)
+  return parseInt(color);
 }
 
 function int_to_color(color){
-  color = "#" + color.toString(16)
-  return color
+  color = "#" + color.toString(16).padStart(6, '0');
+  return color;
 }
 
 export {
