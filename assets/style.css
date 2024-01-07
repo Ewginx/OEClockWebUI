@@ -250,12 +250,22 @@ select#timezone-offset {
   font-size: clamp(20px, 3vmin, 30px);
 }
 
-fieldset#light-theme,
-fieldset#dark-theme,
 fieldset#weather,
 fieldset#main-clock-fieldset {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 3vmin;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: clamp(20px, 3vmin, 30px);
+}
+
+fieldset#theme {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 3vmin;
@@ -357,9 +367,11 @@ select#language {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: center;
   gap: 3vmin;
   padding: 15px 5px 15px 5px;
+  flex-basis: 33.33333%;
 }
 
 input[type="radio"] {

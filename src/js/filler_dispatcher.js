@@ -21,11 +21,36 @@ function themePageFiller(view) {
   document.getElementById("light-theme-second").value = int_to_color(
     settings_state.light_second_color
   );
+  document.getElementById("light-theme-screen").value = int_to_color(
+    settings_state.light_screen_color
+  );
+  document.getElementById("light-theme-card").value = int_to_color(
+    settings_state.light_card_color
+  );
+  document.getElementById("light-theme-text").value = int_to_color(
+    settings_state.light_text_color
+  );
+  document.getElementById("light-theme-grey").value = int_to_color(
+    settings_state.light_grey_color
+  );
+
   document.getElementById("dark-theme-primary").value = int_to_color(
     settings_state.dark_primary_color
   );
   document.getElementById("dark-theme-second").value = int_to_color(
     settings_state.dark_second_color
+  );
+  document.getElementById("dark-theme-screen").value = int_to_color(
+    settings_state.dark_screen_color
+  );
+  document.getElementById("dark-theme-card").value = int_to_color(
+    settings_state.dark_card_color
+  );
+  document.getElementById("dark-theme-text").value = int_to_color(
+    settings_state.dark_text_color
+  );
+  document.getElementById("dark-theme-grey").value = int_to_color(
+    settings_state.dark_grey_color
   );
 }
 

@@ -58,25 +58,61 @@ async function brightnessFormHandler(event) {
 async function themeFormHandler(event) {
   window.settings_state.dark_theme_enabled =
     document.getElementById("theme-switch").checked;
+
   window.settings_state.light_primary_color = color_to_int(
     document.getElementById("light-theme-primary").value
   );
   window.settings_state.light_second_color = color_to_int(
     document.getElementById("light-theme-second").value
   );
+  window.settings_state.light_screen_color = color_to_int(
+    document.getElementById("light-theme-screen").value
+  );
+  window.settings_state.light_card_color = color_to_int(
+    document.getElementById("light-theme-card").value
+  );
+  window.settings_state.light_text_color = color_to_int(
+    document.getElementById("light-theme-text").value
+  );
+  window.settings_state.light_grey_color = color_to_int(
+    document.getElementById("light-theme-grey").value
+  );
+
   window.settings_state.dark_primary_color = color_to_int(
     document.getElementById("dark-theme-primary").value
   );
   window.settings_state.dark_second_color = color_to_int(
     document.getElementById("dark-theme-second").value
   );
+  window.settings_state.dark_screen_color = color_to_int(
+    document.getElementById("dark-theme-screen").value
+  );
+  window.settings_state.dark_card_color = color_to_int(
+    document.getElementById("dark-theme-card").value
+  );
+  window.settings_state.dark_text_color = color_to_int(
+    document.getElementById("dark-theme-text").value
+  );
+  window.settings_state.dark_grey_color = color_to_int(
+    document.getElementById("dark-theme-grey").value
+  );
 
   let data = {
     dark_theme_enabled: window.settings_state.dark_theme_enabled,
+
     light_primary_color: window.settings_state.light_primary_color,
     light_second_color: window.settings_state.light_second_color,
+    light_screen_color: window.settings_state.light_screen_color,
+    light_card_color: window.settings_state.light_card_color,
+    light_text_color: window.settings_state.light_text_color,
+    light_grey_color: window.settings_state.light_grey_color,
+
     dark_primary_color: window.settings_state.dark_primary_color,
     dark_second_color: window.settings_state.dark_second_color,
+    dark_screen_color: window.settings_state.dark_screen_color,
+    dark_card_color: window.settings_state.dark_card_color,
+    dark_text_color: window.settings_state.dark_text_color,
+    dark_grey_color: window.settings_state.dark_grey_color,
   };
 
   let json_data = JSON.stringify(data);
