@@ -262,17 +262,6 @@ fieldset#main-clock-fieldset {
   font-size: clamp(20px, 3vmin, 30px);
 }
 
-fieldset#theme {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 3vmin;
-  padding: 5px;
-  border-radius: 5px;
-  font-size: clamp(20px, 3vmin, 30px);
-}
 
 .settings-header {
   text-align: center;
@@ -363,15 +352,26 @@ select#language {
   height: clamp(30px, 4vmin, 45px);
 }
 
-.theme-color-wrapper {
+fieldset#theme {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: clamp(20px, 3vmin, 30px);
+}
+
+.theme-color-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 3vmin;
-  padding: 15px 5px 15px 5px;
+  gap: 10px;
+  padding: 10px 5px 10px 5px;
   flex-basis: 33.33333%;
+  text-align: center;
+
 }
 
 input[type="radio"] {
