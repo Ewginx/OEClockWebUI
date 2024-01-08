@@ -195,6 +195,7 @@ div#weather-city-container {
   white-space: nowrap;
 }
 
+.alarm,
 .weather-requests,
 .theme-switch-wrapper,
 .change-theme,
@@ -208,6 +209,7 @@ div#weather-city-container {
   font-size: clamp(20px, 3vmin, 30px);
 }
 
+form#alarm-form,
 form#theme-form,
 form#weather-form,
 form#time-form,
@@ -250,6 +252,7 @@ select#timezone-offset {
   font-size: clamp(20px, 3vmin, 30px);
 }
 
+fieldset#alarm,
 fieldset#weather,
 fieldset#main-clock-fieldset {
   display: flex;
@@ -284,6 +287,7 @@ fieldset#main-clock-fieldset {
   min-width: 200px;
 }
 
+label#alarm-label,
 label#weather-requests-label,
 label#auto-brightness-label,
 label#change-theme-label {
@@ -352,6 +356,7 @@ select#language {
   height: clamp(30px, 4vmin, 45px);
 }
 
+
 fieldset#theme {
   display: flex;
   flex-direction: row;
@@ -371,7 +376,28 @@ fieldset#theme {
   padding: 10px 5px 10px 5px;
   flex-basis: 33.33333%;
   text-align: center;
+}
 
+.alarm-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 3vmin;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: clamp(20px, 3vmin, 30px);
+}
+
+.alarm-wrapper{
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+.time-input {
+  border-radius: 5px;
+  height: 40px;
+  font-size: clamp(20px, 3vmin, 30px);
 }
 
 input[type="radio"] {

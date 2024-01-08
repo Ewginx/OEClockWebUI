@@ -1,2 +1,71 @@
 <h1 class="settings-header">Alarm clock settings</h1>
-<div style="text-align: center; margin-top: 10vh; font-size: 40px;">Under construction</div>
+<form id="alarm-form">
+  <div class="alarm-container">
+    <label>Weekdays alarm clock</label>
+    <div class="alarm-wrapper">
+      <div class="checkbox-wrapper">
+        <label class="switch" for="alarm-weekdays">
+          <input type="checkbox" id="alarm-weekdays" name="alarm-weekdays" />
+          <div class="slider round"></div>
+        </label>
+      </div>
+      <input
+        type="time"
+        id="time-weekdays"
+        name="time-weekdays"
+        class="time-input"
+        min="00:00"
+        max="24:00"
+        required
+      />
+    </div>
+  </div>
+  <div class="alarm-container">
+    <label>Weekends alarm clock</label>
+    <div class="alarm-wrapper">
+      <div class="checkbox-wrapper">
+        <label class="switch" for="alarm-weekends">
+          <input type="checkbox" id="alarm-weekends" name="alarm-weekends" />
+          <div class="slider round"></div>
+        </label>
+      </div>
+      <input
+        type="time"
+        id="time-weekends"
+        name="time-weekends"
+        class="time-input"
+        min="00:00"
+        max="24:00"
+        required
+      />
+    </div>
+  </div>
+  <div class="alarm-container">
+    <label>One-off alarm clock</label>
+    <div class="alarm-wrapper">
+      <div class="checkbox-wrapper">
+        <label class="switch" for="alarm-oneOff">
+          <input type="checkbox" id="alarm-oneOff" name="alarm-oneOff" />
+          <div class="slider round"></div>
+        </label>
+      </div>
+      <input
+        type="time"
+        id="time-oneOff"
+        name="time-oneOff"
+        class="time-input"
+        min="00:00"
+        max="24:00"
+        required
+      />
+    </div>
+  </div>
+
+  <input
+    type="submit"
+    class="button"
+    id="save-alarm-settings"
+    value="Save settings"
+  />
+  <span id="saved_settings">Settings saved!</span>
+</form>
