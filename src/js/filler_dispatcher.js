@@ -3,6 +3,15 @@ import { flip_object, toMinutes, int_to_color } from "./helpers";
 
 window.settings_state;
 
+function alarmClockPageFiller(view) {
+  document.getElementById("time-weekdays").value = settings_state.weekdays_time;
+  document.getElementById("alarm-weekdays").checked = settings_state.weekdays_enabled;
+  document.getElementById("time-weekends").value = settings_state.weekends_time;
+  document.getElementById("alarm-weekends").checked = settings_state.weekends_enabled;
+  document.getElementById("time-oneOff").value = settings_state.one_off_time;
+  document.getElementById("alarm-oneOff").checked = settings_state.one_off_enabled;
+}
+
 function wifiPageFiller(view) {
   document.getElementById("ssid").value = settings_state.ssid;
   document.getElementById("password").value = settings_state.password;
@@ -102,6 +111,8 @@ function pageFillerDispatcher(view) {
     themePageFiller(view);
   } else if (view.name === "wifi") {
     wifiPageFiller(view);
+  } else if (view.name === "alarm_clock") {
+    alarmClockPageFiller(view);
   }
 }
 

@@ -55,7 +55,7 @@ const urlRoutes = {
   "/alarm_clock": {
     template: alarm_clock,
     title: "Alarm Clock",
-    form_id: null,
+    form_id: "alarm-form",
     name: "alarm_clock",
   },
   "/rgb": {

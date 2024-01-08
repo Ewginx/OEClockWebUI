@@ -1,6 +1,41 @@
 import { posix_db } from "./posix_db";
 import { toMilliseconds, showSuccessfulMessage, color_to_int } from "./helpers";
 
+async function alarmClockFormHandler(event) {
+  window.settings_state.weekdays_time =
+    document.getElementById("time-weekdays").value;
+  window.settings_state.weekdays_enabled =
+    document.getElementById("alarm-weekdays").checked;
+  window.settings_state.weekends_time =
+    document.getElementById("time-weekends").value;
+  window.settings_state.weekends_enabled =
+    document.getElementById("alarm-weekends").checked;
+  window.settings_state.one_off_time =
+    document.getElementById("time-oneOff").value;
+  window.settings_state.one_off_enabled =
+    document.getElementById("alarm-oneOff").checked;
+
+  let data = {
+    weekdays_time: window.settings_state.weekdays_time,
+    weekdays_enabled: window.settings_state.weekdays_enabled,
+    weekends_time: window.settings_state.weekends_time,
+    weekends_enabled: window.settings_state.weekends_enabled,
+    one_off_time: window.settings_state.one_off_time,
+    one_off_enabled: window.settings_state.one_off_enabled,
+  };
+  let json_data = JSON.stringify(data);
+  let response = await fetch("/settings/alarm_clock", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: json_data,
+  });
+  if (response.status === 200) {
+    showSuccessfulMessage();
+  }
+}
+
 async function timeFormHandler(event) {
   window.settings_state.timezone_posix =
     posix_db[document.getElementById("timezone-offset").value];
@@ -200,6 +235,8 @@ function formSubmitDispatcher(event) {
     themeFormHandler(event);
   } else if (event.currentTarget.id === "wifi-form") {
     wifiFormHandler(event);
+  } else if (event.currentTarget.id === "alarm-form") {
+    alarmClockFormHandler(event);
   }
 }
 
