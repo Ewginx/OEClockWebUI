@@ -67,7 +67,7 @@ const urlRoutes = {
   "/ota": {
     template: ota,
     title: "OTA Update",
-    form_id: null,
+    form_id: "ota-form",
     name: "ota",
   },
   "/debug": {

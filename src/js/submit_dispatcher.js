@@ -1,6 +1,38 @@
 import { posix_db } from "./posix_db";
 import { toMilliseconds, showSuccessfulMessage, color_to_int } from "./helpers";
 
+// async function otaUpdateFormHandler(event) {
+function otaUpdateFormHandler(event) {
+  const fileInput = document.getElementById("file-ota");
+  const formData = new FormData();
+  formData.append("file", fileInput.files[0]);
+  var xhr = new XMLHttpRequest();
+
+  xhr.upload.onprogress = function (event) {
+    let percent = (event.loaded / event.total) * 100;
+    let progress_bar = document.getElementById("file-progress-bar");
+    progress_bar.style.display = "block";
+    progress_bar.value = Math.round(percent);
+  };
+  xhr.upload.onloadend = function (event) {
+    let ota_status = document.getElementById("ota-status");
+    ota_status.style.display = "block";
+    ota_status.innerText = "Successfully upload FW. Reboot ESP32...";
+  };
+  xhr.upload.onerror = function (event) {
+    let ota_status = document.getElementById("ota-status");
+    ota_status.style.display = "block";
+    ota_status.innerText = "An error occurred.";
+  };
+  xhr.open("POST", "/ota_update");
+  xhr.send(formData);
+  //add response handling
+  // if (response.status === 200) {
+  //   let update = await response.json();
+  //   showSuccessfulMessage();
+  // }
+}
+
 async function alarmClockFormHandler(event) {
   window.settings_state.weekdays_time =
     document.getElementById("time-weekdays").value;
@@ -237,6 +269,8 @@ function formSubmitDispatcher(event) {
     wifiFormHandler(event);
   } else if (event.currentTarget.id === "alarm-form") {
     alarmClockFormHandler(event);
+  } else if (event.currentTarget.id === "ota-form") {
+    otaUpdateFormHandler(event);
   }
 }
 

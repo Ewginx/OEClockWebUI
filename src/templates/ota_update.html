@@ -1,2 +1,7 @@
 <h1 class="settings-header">OTA Update</h1>
-<div style="text-align: center; margin-top: 10vh; font-size: 40px;">Under construction</div>
+<form id="ota-form" enctype="multipart/form-data">
+  <input type="file" id="file-ota" name="update" required accept=".bin" />
+  <progress id="file-progress-bar" max="100" value="0"></progress>
+  <input type="submit" class="button" id="submit-ota" value="Load firmware" />
+  <span id="ota-status"></span>
+</form>
