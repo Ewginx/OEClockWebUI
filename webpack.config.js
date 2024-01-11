@@ -11,11 +11,6 @@ module.exports = {
     clean: true,
   },
   plugins: [
-    // new HtmlWebpackPlugin({
-    //   template: path.resolve(__dirname, "./src/index.html"),
-    //   filename: "index.html",
-    //   // inject: false,
-    // }),
     // new CopyPlugin({
     //   patterns: [
     //     {

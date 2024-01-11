@@ -19,8 +19,6 @@ module.exports = merge(common, {
       __SETTINGS_JSON: "await response.json()",
     }),
     new MiniCssExtractPlugin({
-      // filename: "[name].css",
-      // chunkFilename: "[id].css",
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "./src/index.html"),
@@ -46,7 +44,6 @@ module.exports = merge(common, {
   optimization: {
     minimize: true,
     minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
-    // minimizer: [ new TerserPlugin()],
     realContentHash: false,
   },
   module: {
@@ -69,9 +66,6 @@ module.exports = merge(common, {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            // options: {
-            //   publicPath: "/dist/",
-            // },
           },
           {
             loader: "css-loader",
