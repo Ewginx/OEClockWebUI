@@ -1,7 +1,31 @@
 <h1 class="settings-header">OTA Update</h1>
-<form id="ota-form" enctype="multipart/form-data">
-  <input type="file" id="file-ota" name="update" required accept=".bin" />
-  <progress id="file-progress-bar" max="100" value="0"></progress>
-  <input type="submit" class="button" id="submit-ota" value="Load firmware" />
-  <span id="ota-status"></span>
-</form>
+<div class="ota-update">
+  <form id="update-fw-form" enctype="multipart/form-data">
+    <input type="file" id="file-fw" name="file-fw" required accept=".bin" />
+    <progress id="fw-file-progress-bar" max="100" value="0"></progress>
+    <input
+      type="submit"
+      class="button"
+      id="submit-fw"
+      value="Load firmware image"
+    />
+    <span id="fw-status"></span>
+  </form>
+  <form id="update-fs-form" enctype="multipart/form-data">
+    <input type="file" id="file-fs" name="file-fs" required accept=".bin" />
+    <progress id="fs-file-progress-bar" max="100" value="0"></progress>
+    <input
+      type="submit"
+      class="button"
+      id="submit-fs"
+      value="Load filesystem image"
+    />
+    <span id="fs-status"></span>
+  </form>
+</div>
+<!-- <form id="ota-form" enctype="multipart/form-data">
+  <input type="file" id="file-weather" name="update" required accept=".bin" multiple/>
+  <progress id="weather-file-progress-bar" max="100" value="0"></progress>
+  <input type="submit" class="button" id="submit-weather-files" value="Load firmware" />
+  <span id="weather-file-status"></span>
+</form> -->

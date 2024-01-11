@@ -209,7 +209,8 @@ div#weather-city-container {
   font-size: clamp(20px, 3vmin, 30px);
 }
 
-form#ota-form,
+form#update-fs-form,
+form#update-fw-form,
 form#alarm-form,
 form#theme-form,
 form#weather-form,
@@ -399,8 +400,15 @@ fieldset#theme {
   font-size: clamp(20px, 3vmin, 30px);
 }
 
-progress#file-progress-bar {
+progress#fs-file-progress-bar,
+progress#fw-file-progress-bar {
   display: none;
+}
+
+.ota-update{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 input[type="file"]::file-selector-button {

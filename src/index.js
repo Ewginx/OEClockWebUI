@@ -1,23 +1,15 @@
 import { router } from "./js/router";
-import { formSubmitDispatcher } from "./js/submit_dispatcher";
+import {
+  formSubmitDispatcher,
+  set_time_from_device,
+} from "./js/submit_dispatcher";
 import { pageFillerDispatcher, settings_state } from "./js/filler_dispatcher";
 import { initWebSocket } from "./js/sensors_handler";
-import { check_lx, show_password} from "./js/helpers";
+import { check_lx, show_password } from "./js/helpers";
 
 window.check_lx = check_lx;
 
 window.show_password = show_password;
-
-async function set_time_from_device() {
-  let time = { time: Date.now() / 1000 };
-  let response = await fetch("/time", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json;charset=utf-8",
-    },
-    body: JSON.stringify(time),
-  });
-}
 
 window.set_time_from_device = set_time_from_device;
 
@@ -52,9 +44,11 @@ function anchorClickHandler(e) {
   }
   let view = loadPage();
   if (view && view.form_id) {
-    document
-      .getElementById(view.form_id)
-      .addEventListener("submit", formSubmitDispatcher);
+    for (let index in view.form_id) {
+      document
+        .getElementById(view.form_id[index])
+        .addEventListener("submit", formSubmitDispatcher);
+    }
   }
 }
 

@@ -1,30 +1,29 @@
 import { posix_db } from "./posix_db";
 import { toMilliseconds, showSuccessfulMessage, color_to_int } from "./helpers";
 
-// async function otaUpdateFormHandler(event) {
-function otaUpdateFormHandler(event) {
-  const fileInput = document.getElementById("file-ota");
+function updateFWHandler() {
+  const fileInput = document.getElementById("file-fw");
   const formData = new FormData();
   formData.append("file", fileInput.files[0]);
   var xhr = new XMLHttpRequest();
 
   xhr.upload.onprogress = function (event) {
     let percent = (event.loaded / event.total) * 100;
-    let progress_bar = document.getElementById("file-progress-bar");
+    let progress_bar = document.getElementById("fw-file-progress-bar");
     progress_bar.style.display = "block";
     progress_bar.value = Math.round(percent);
   };
   xhr.upload.onloadend = function (event) {
-    let ota_status = document.getElementById("ota-status");
+    let ota_status = document.getElementById("fw-status");
     ota_status.style.display = "block";
     ota_status.innerText = "Successfully upload FW. Reboot ESP32...";
   };
   xhr.upload.onerror = function (event) {
-    let ota_status = document.getElementById("ota-status");
+    let ota_status = document.getElementById("fw-status");
     ota_status.style.display = "block";
     ota_status.innerText = "An error occurred.";
   };
-  xhr.open("POST", "/ota_update");
+  xhr.open("POST", "/update_fw");
   xhr.send(formData);
   //add response handling
   // if (response.status === 200) {
@@ -32,6 +31,69 @@ function otaUpdateFormHandler(event) {
   //   showSuccessfulMessage();
   // }
 }
+function updateFSHandler() {
+  const fileInput = document.getElementById("file-fs");
+  const formData = new FormData();
+  formData.append("file", fileInput.files[0]);
+  var xhr = new XMLHttpRequest();
+
+  xhr.upload.onprogress = function (event) {
+    let percent = (event.loaded / event.total) * 100;
+    let progress_bar = document.getElementById("fs-file-progress-bar");
+    progress_bar.style.display = "block";
+    progress_bar.value = Math.round(percent);
+  };
+  xhr.upload.onloadend = function (event) {
+    let ota_status = document.getElementById("fs-status");
+    ota_status.style.display = "block";
+    ota_status.innerText = "Successfully upload FS. Reboot ESP32...";
+  };
+  xhr.upload.onerror = function (event) {
+    let ota_status = document.getElementById("fs-status");
+    ota_status.style.display = "block";
+    ota_status.innerText = "An error occurred.";
+  };
+  xhr.open("POST", "/update_fs");
+  xhr.send(formData);
+  //add response handling
+  // if (response.status === 200) {
+  //   let update = await response.json();
+  //   showSuccessfulMessage();
+  // }
+}
+// function weatherFilesFormHandler(event) {
+//   const files = document.getElementById("file-weather").files;
+//   const formData = new FormData();
+//   for (let i = 0; i < files.length; i++) {
+//     formData.append("files", files[i], files[i].name);
+//   }
+
+//   var xhr = new XMLHttpRequest();
+
+//   xhr.upload.onprogress = function (event) {
+//     let percent = (event.loaded / event.total) * 100;
+//     let progress_bar = document.getElementById("weather-file-progress-bar");
+//     progress_bar.style.display = "block";
+//     progress_bar.value = Math.round(percent);
+//   };
+//   xhr.upload.onloadend = function (event) {
+//     let ota_status = document.getElementById("weather-file-status");
+//     ota_status.style.display = "block";
+//     ota_status.innerText = "Successfully upload images.";
+//   };
+//   xhr.upload.onerror = function (event) {
+//     let ota_status = document.getElementById("weather-file-status");
+//     ota_status.style.display = "block";
+//     ota_status.innerText = "An error occurred.";
+//   };
+//   xhr.open("POST", "/weather_images");
+//   xhr.send(formData);
+//   add response handling
+//   if (response.status === 200) {
+//      let update = await response.json();
+//      showSuccessfulMessage();
+//    }
+// }
 
 async function alarmClockFormHandler(event) {
   window.settings_state.weekdays_time =
@@ -66,6 +128,17 @@ async function alarmClockFormHandler(event) {
   if (response.status === 200) {
     showSuccessfulMessage();
   }
+}
+
+async function set_time_from_device() {
+  let time = { time: Date.now() / 1000 };
+  let response = await fetch("/time", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: JSON.stringify(time),
+  });
 }
 
 async function timeFormHandler(event) {
@@ -269,9 +342,11 @@ function formSubmitDispatcher(event) {
     wifiFormHandler(event);
   } else if (event.currentTarget.id === "alarm-form") {
     alarmClockFormHandler(event);
-  } else if (event.currentTarget.id === "ota-form") {
-    otaUpdateFormHandler(event);
+  } else if (event.currentTarget.id === "update-fw-form") {
+    updateFWHandler(event);
+  } else if (event.currentTarget.id === "update-fs-form") {
+    updateFSHandler(event);
   }
 }
 
-export { formSubmitDispatcher };
+export { formSubmitDispatcher, set_time_from_device };
