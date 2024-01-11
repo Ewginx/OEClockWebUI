@@ -16,18 +16,18 @@ module.exports = {
     //   filename: "index.html",
     //   // inject: false,
     // }),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, "assets/webfonts"),
-          to: path.resolve(__dirname, "dist/webfonts"),
-        },
-        {
-          from: path.resolve(__dirname, "assets/webfonts"),
-          to: path.resolve(__dirname, "dist_dev/webfonts"),
-        },
-      ],
-    }),
+    // new CopyPlugin({
+    //   patterns: [
+    //     {
+    //       from: path.resolve(__dirname, "assets/webfonts"),
+    //       to: path.resolve(__dirname, "dist/webfonts"),
+    //     },
+    //     {
+    //       from: path.resolve(__dirname, "assets/webfonts"),
+    //       to: path.resolve(__dirname, "dist_dev/webfonts"),
+    //     },
+    //   ],
+    // }),
   ],
   // optimization: {
   //   realContentHash: false,

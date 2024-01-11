@@ -4,20 +4,32 @@ const common = require("./webpack.config.js");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlInlineScriptPlugin = require("html-inline-script-webpack-plugin");
+const HTMLInlineCSSWebpackPlugin =
+  require("html-inline-css-webpack-plugin").default;
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 const TerserPlugin = require("terser-webpack-plugin");
-const webpack = require('webpack');
+const webpack = require("webpack");
 
 module.exports = merge(common, {
   plugins: [
     new webpack.DefinePlugin({
-      "__URL": "`ws://${window.location.hostname}/ws`",
-      "__SETTINGS_JSON": "await response.json()",
+      __URL: "`ws://${window.location.hostname}/ws`",
+      __SETTINGS_JSON: "await response.json()",
+    }),
+    new MiniCssExtractPlugin({
+      // filename: "[name].css",
+      // chunkFilename: "[id].css",
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "./src/index.html"),
       filename: "index.html",
+      inject: "body",
       // inject: false,
     }),
+    new HTMLInlineCSSWebpackPlugin(),
+    new HtmlInlineScriptPlugin(),
     new CompressionPlugin({
       deleteOriginalAssets: true,
     }),
@@ -33,7 +45,8 @@ module.exports = merge(common, {
   mode: "production",
   optimization: {
     minimize: true,
-    minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
+    minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
+    // minimizer: [ new TerserPlugin()],
     realContentHash: false,
   },
   module: {
@@ -44,24 +57,26 @@ module.exports = merge(common, {
       },
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-        type: "asset/resource",
-        generator: {
-          filename: "[name].[contenthash:5][ext]",
-        },
+        type: "asset/inline",
       },
-      // {
-      //   test: /\.(woff(2)?|ttf|eot)$/,
-      //   type: "asset/source",
-      //   generator: {
-      //     filename: "[name].[contenthash][ext]",
-      //   },
-      // },
       {
-        test: /\.css$/i,
-        // use: ["style-loader", "css-loader"],
-        generator: {
-          filename: "[name].[contenthash:5][ext]",
-        },
+        test: /\.(woff(2)?|ttf|eot)$/,
+        use: ['base64-inline-loader'],
+        type: 'javascript/auto'
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            // options: {
+            //   publicPath: "/dist/",
+            // },
+          },
+          {
+            loader: "css-loader",
+          },
+        ],
       },
     ],
   },

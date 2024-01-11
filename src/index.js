@@ -1,3 +1,4 @@
+import "../assets/style.css";
 import { router } from "./js/router";
 import {
   formSubmitDispatcher,
@@ -61,6 +62,19 @@ function loadPage() {
 function loadPageOnContentLoaded() {
   initWebSocket();
   fetch_settings().then(() => loadPage());
+  // Handle navigation
+  document.querySelectorAll("[data-link]").forEach(function (elem) {
+    elem.addEventListener("click", anchorClickHandler);
+  });
+  document.querySelector(".hamburger").addEventListener("click", function () {
+    document.querySelector("body").classList.toggle("active");
+  });
+  document.onclick = function (e) {
+    if (!document.getElementById("menu_wrapper").contains(e.target)) {
+      document.querySelector("body").classList.toggle("active", true);
+    }
+  };
+  router(window.location.pathname);
 }
 
 function pageReloadHandler(event) {
@@ -68,22 +82,7 @@ function pageReloadHandler(event) {
   loadPage();
 }
 
-// Handle navigation
-document.querySelectorAll("[data-link]").forEach(function (elem) {
-  elem.addEventListener("click", anchorClickHandler);
-});
-
 // Update router
 window.addEventListener("popstate", router);
 window.addEventListener("DOMContentLoaded", loadPageOnContentLoaded);
 window.addEventListener("beforeunload", pageReloadHandler);
-
-document.querySelector(".hamburger").addEventListener("click", function () {
-  document.querySelector("body").classList.toggle("active");
-});
-document.onclick = function (e) {
-  if (!document.getElementById("menu_wrapper").contains(e.target)) {
-    document.querySelector("body").classList.toggle("active", true);
-  }
-};
-router(window.location.pathname);
