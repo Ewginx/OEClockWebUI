@@ -10,12 +10,6 @@ import rgb from "../../src/templates/rgb.html";
 import alarm_clock from "../../src/templates/alarm_clock.html";
 
 const urlRoutes = {
-  404: {
-    template: "404",
-    title: "404",
-    form_ids: [null],
-    name: "",
-  },
   "/": {
     template: home,
     title: "Home",
