@@ -11,69 +11,69 @@ import alarm_clock from "../../src/templates/alarm_clock.html";
 
 const urlRoutes = {
   404: {
-    template: "/templates/404.html",
+    template: "404",
     title: "404",
-    form_id: null,
+    form_ids: [null],
     name: "",
   },
   "/": {
     template: home,
     title: "Home",
-    form_id: null,
+    form_ids: [null],
     name: "home",
   },
   "/weather": {
     template: weather,
     title: "Weather Settings",
-    form_id: "weather-form",
+    form_ids: ["weather-form"],
     name: "weather",
   },
   "/brightness": {
     template: brightness,
     title: "Brightness",
-    form_id: "brightness-form",
+    form_ids: ["brightness-form"],
     name: "brightness"
   },
   "/wifi": {
     template: wifi,
     title: "WiFi Manager",
-    form_id: "wifi-form",
+    form_ids: ["wifi-form"],
     name: "wifi",
   },
   "/theme": {
     template: theme,
     title: "Theme",
-    form_id: "theme-form",
+    form_ids: ["theme-form"],
     name: "theme",
   },
   "/time": {
     template: time,
     title: "Time",
-    form_id: "time-form",
+    form_ids: ["time-form"],
     name: "time",
   },
   "/alarm_clock": {
     template: alarm_clock,
     title: "Alarm Clock",
-    form_id: "alarm-form",
+    form_ids: ["alarm-form"],
     name: "alarm_clock",
   },
   "/rgb": {
     template: rgb,
     title: "RGB",
-    form_id: null,
+    form_ids: [null],
     name: "rgb",
   },
   "/ota": {
     template: ota,
     title: "OTA Update",
-    form_id: ["update-fw-form", "update-fs-form"],
+    form_ids: ["update-fw-form", "update-fs-form"],
     name: "ota",
   },
   "/debug": {
     template: debug,
     title: "Debug",
-    form_id: null,
+    form_ids: [null],
     name: "debug",
   },
 };

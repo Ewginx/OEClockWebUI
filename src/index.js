@@ -44,10 +44,10 @@ function anchorClickHandler(e) {
     document.getElementById(e.target.offsetParent.id).classList.add("active");
   }
   let view = loadPage();
-  if (view && view.form_id) {
-    for (let index in view.form_id) {
+  if (view && view.form_ids) {
+    for (let index in view.form_ids) {
       document
-        .getElementById(view.form_id[index])
+        .getElementById(view.form_ids[index])
         .addEventListener("submit", formSubmitDispatcher);
     }
   }
