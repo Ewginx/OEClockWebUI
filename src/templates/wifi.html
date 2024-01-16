@@ -10,11 +10,11 @@
   </span>
   <span class="ip-wrapper">
     <label for="ip" id="ip-label">IP Address</label>
-    <input type="text" id="ip" name="ip" required/>
+    <input type="text" id="ip" name="ip" required minlength="7" maxlength="15" size="15" pattern="^((\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$"/>
   </span>
   <span class="gateway-wrapper">
     <label for="gateway" id="gateway-label">Gateway</label>
-    <input type="text" id="gateway" name="gateway"/>
+    <input type="text" id="gateway" name="gateway" minlength="7" maxlength="15" size="15" pattern="^((\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$"/>
   </span>
   <span class="login-wrapper">
     <label id="login-label" for="login">AP name</label>
