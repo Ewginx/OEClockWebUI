@@ -209,6 +209,7 @@ div#weather-city-container {
   font-size: clamp(20px, 3vmin, 30px);
 }
 
+form#update-weather-images-form,
 form#update-fs-form,
 form#update-fw-form,
 form#alarm-form,
@@ -256,7 +257,8 @@ select#timezone-offset {
 
 fieldset#alarm,
 fieldset#weather,
-fieldset#main-clock-fieldset {
+fieldset#main-clock-fieldset,
+fieldset#weather-folder-fieldset{
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -400,16 +402,33 @@ fieldset#theme {
   font-size: clamp(20px, 3vmin, 30px);
 }
 
+progress#weather-files-progress-bar,
 progress#fs-file-progress-bar,
 progress#fw-file-progress-bar {
   display: none;
 }
 
-.ota-update{
+.ota-update {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  margin-top: 6vh;
 }
+
+form#update-weather-images-form,
+form#update-fs-form,
+form#update-fw-form {
+  margin-top: 0vh;
+  margin-bottom: 0vh;
+  font-size: clamp(20px, 3vmin, 30px);
+}
+
+input#submit-fw,
+input#submit-fs,
+input#submit-weather-images{
+  font-size: 20px;
+}
+
 
 input[type="file"]::file-selector-button {
   margin-right: 20px;

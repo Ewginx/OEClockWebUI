@@ -22,6 +22,39 @@
     />
     <span id="fs-status"></span>
   </form>
+  <form id="update-weather-images-form" enctype="multipart/form-data">
+    <fieldset id="weather-folder-fieldset">
+      <legend>Images folder:</legend>
+      <div>
+        <input
+          type="radio"
+          id="night-images"
+          name="images-folder"
+          value="night"
+        />
+        <label for="night-images">night</label>
+      </div>
+      <div>
+        <input
+          type="radio"
+          id="day-images"
+          name="images-folder"
+          checked
+          value="analog"
+        />
+        <label for="day-images">day</label>
+      </div>
+    </fieldset>
+    <input type="file" id="files-weather" name="files-weather" required accept=".bin" multiple/>
+    <progress id="weather-files-progress-bar" max="100" value="0"></progress>
+    <input
+      type="submit"
+      class="button"
+      id="submit-weather-images"
+      value="Load weather images"
+    />
+    <span id="weather-files-status"></span>
+  </form>
 </div>
 <!-- <form id="ota-form" enctype="multipart/form-data">
   <input type="file" id="file-weather" name="update" required accept=".bin" multiple/>

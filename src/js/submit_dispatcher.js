@@ -61,39 +61,43 @@ function updateFSHandler() {
   //   showSuccessfulMessage();
   // }
 }
-// function weatherFilesFormHandler(event) {
-//   const files = document.getElementById("file-weather").files;
-//   const formData = new FormData();
-//   for (let i = 0; i < files.length; i++) {
-//     formData.append("files", files[i], files[i].name);
-//   }
+function weatherFilesFormHandler(event) {
+  const files = document.getElementById("files-weather").files;
+  let url = "/weather_images_day";
+  if (document.getElementById("night-images").checked) {
+    url = "/weather_images_night";
+  }
+  const formData = new FormData();
+  for (let i = 0; i < files.length; i++) {
+    formData.append("files", files[i], files[i].name);
+  }
 
-//   var xhr = new XMLHttpRequest();
+  var xhr = new XMLHttpRequest();
 
-//   xhr.upload.onprogress = function (event) {
-//     let percent = (event.loaded / event.total) * 100;
-//     let progress_bar = document.getElementById("weather-file-progress-bar");
-//     progress_bar.style.display = "block";
-//     progress_bar.value = Math.round(percent);
-//   };
-//   xhr.upload.onloadend = function (event) {
-//     let ota_status = document.getElementById("weather-file-status");
-//     ota_status.style.display = "block";
-//     ota_status.innerText = "Successfully upload images.";
-//   };
-//   xhr.upload.onerror = function (event) {
-//     let ota_status = document.getElementById("weather-file-status");
-//     ota_status.style.display = "block";
-//     ota_status.innerText = "An error occurred.";
-//   };
-//   xhr.open("POST", "/weather_images");
-//   xhr.send(formData);
-//   add response handling
-//   if (response.status === 200) {
-//      let update = await response.json();
-//      showSuccessfulMessage();
-//    }
-// }
+  xhr.upload.onprogress = function (event) {
+    let percent = (event.loaded / event.total) * 100;
+    let progress_bar = document.getElementById("weather-files-progress-bar");
+    progress_bar.style.display = "block";
+    progress_bar.value = Math.round(percent);
+  };
+  xhr.upload.onloadend = function (event) {
+    let ota_status = document.getElementById("weather-files-status");
+    ota_status.style.display = "block";
+    ota_status.innerText = "Successfully upload images.";
+  };
+  xhr.upload.onerror = function (event) {
+    let ota_status = document.getElementById("weather-files-status");
+    ota_status.style.display = "block";
+    ota_status.innerText = "An error occurred.";
+  };
+  xhr.open("POST", url);
+  xhr.send(formData);
+  // add response handling
+  // if (response.status === 200) {
+  //    let update = await response.json();
+  //    showSuccessfulMessage();
+  //  }
+}
 
 async function alarmClockFormHandler(event) {
   window.settings_state.weekdays_time =
@@ -346,6 +350,8 @@ function formSubmitDispatcher(event) {
     updateFWHandler(event);
   } else if (event.currentTarget.id === "update-fs-form") {
     updateFSHandler(event);
+  } else if (event.currentTarget.id === "update-weather-images-form") {
+    weatherFilesFormHandler(event);
   }
 }
 
