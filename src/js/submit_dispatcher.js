@@ -163,6 +163,37 @@ function gifFileFormHandler(event) {
   //  }
 }
 
+function frontendFileFormHandler(event) {
+  const fileInput = document.getElementById("frontend-file");
+  const formData = new FormData();
+  formData.append("file", fileInput.files[0]);
+  var xhr = new XMLHttpRequest();
+
+  xhr.upload.onprogress = function (event) {
+    let percent = (event.loaded / event.total) * 100;
+    let progress_bar = document.getElementById("frontend-file-progress-bar");
+    progress_bar.style.display = "block";
+    progress_bar.value = Math.round(percent);
+  };
+  xhr.upload.onloadend = function (event) {
+    let ota_status = document.getElementById("frontend-file-status");
+    ota_status.style.display = "block";
+    ota_status.innerText = "Successfully upload images.";
+  };
+  xhr.upload.onerror = function (event) {
+    let ota_status = document.getElementById("frontend-file-status");
+    ota_status.style.display = "block";
+    ota_status.innerText = "An error occurred.";
+  };
+  xhr.open("POST", "/frontend");
+  xhr.send(formData);
+  // add response handling
+  // if (response.status === 200) {
+  //    let update = await response.json();
+  //    showSuccessfulMessage();
+  //  }
+}
+
 async function alarmClockFormHandler(event) {
   window.settings_state.weekdays_time =
     document.getElementById("time-weekdays").value;
@@ -420,6 +451,8 @@ function formSubmitDispatcher(event) {
     analogClockFilesFormHandler(event);
   } else if (event.currentTarget.id === "upload-gif-form") {
     gifFileFormHandler(event);
+  } else if (event.currentTarget.id === "upload-frontend-form") {
+    frontendFileFormHandler(event);
   }
 }
 

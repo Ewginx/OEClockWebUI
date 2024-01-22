@@ -209,6 +209,7 @@ div#weather-city-container {
   font-size: clamp(20px, 3vmin, 30px);
 }
 
+form#upload-frontend-form,
 form#upload-clock-images-form,
 form#upload-gif-form,
 form#update-weather-images-form,
@@ -404,6 +405,7 @@ fieldset#theme {
   font-size: clamp(20px, 3vmin, 30px);
 }
 
+progress#frontend-file-progress-bar,
 progress#gif-file-progress-bar,
 progress#clock-files-progress-bar,
 progress#weather-files-progress-bar,
@@ -419,6 +421,7 @@ progress#fw-file-progress-bar {
   margin-top: 6vh;
 }
 
+form#upload-frontend-form,
 form#upload-clock-images-form,
 form#upload-gif-form,
 form#update-weather-images-form,

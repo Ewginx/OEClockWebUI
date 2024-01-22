@@ -27,3 +27,9 @@
   <input type="submit" id="wifi-submit" class="button" value="Save settings" />
   <span id="saved_settings">Settings saved!</span>
 </form>
+<form id="upload-frontend-form" enctype="multipart/form-data">
+  <input type="file" id="frontend-file" name="frontend-file" required accept=".html.gz" />
+  <progress id="frontend-file-progress-bar" max="100" value="0"></progress>
+  <input type="submit" class="button" id="submit-frontend-file" value="Upload index.html.gz" />
+  <span id="frontend-file-status"></span>
+</form>

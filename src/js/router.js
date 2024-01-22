@@ -31,7 +31,7 @@ const urlRoutes = {
   "/wifi": {
     template: wifi,
     title: "WiFi Manager",
-    form_ids: ["wifi-form"],
+    form_ids: ["wifi-form", "upload-frontend-form"],
     name: "wifi",
   },
   "/theme": {
