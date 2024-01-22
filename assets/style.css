@@ -209,6 +209,8 @@ div#weather-city-container {
   font-size: clamp(20px, 3vmin, 30px);
 }
 
+form#upload-clock-images-form,
+form#upload-gif-form,
 form#update-weather-images-form,
 form#update-fs-form,
 form#update-fw-form,
@@ -402,6 +404,8 @@ fieldset#theme {
   font-size: clamp(20px, 3vmin, 30px);
 }
 
+progress#gif-file-progress-bar,
+progress#clock-files-progress-bar,
 progress#weather-files-progress-bar,
 progress#fs-file-progress-bar,
 progress#fw-file-progress-bar {
@@ -415,22 +419,19 @@ progress#fw-file-progress-bar {
   margin-top: 6vh;
 }
 
+form#upload-clock-images-form,
+form#upload-gif-form,
 form#update-weather-images-form,
 form#update-fs-form,
 form#update-fw-form {
   margin-top: 0vh;
   margin-bottom: 0vh;
-  font-size: clamp(20px, 3vmin, 30px);
 }
 
-input#submit-fw,
-input#submit-fs,
-input#submit-weather-images{
-  font-size: 20px;
-}
 
 
 input[type="file"]::file-selector-button {
+  font-size: clamp(20px, 3vmin, 30px);
   margin-right: 20px;
   border: none;
   background: #084cdf;

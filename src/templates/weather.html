@@ -94,3 +94,36 @@
   <input type="submit" class="button" value="Save settings" />
   <span id="saved_settings">Settings saved!</span>
 </form>
+<form id="update-weather-images-form" enctype="multipart/form-data">
+  <fieldset id="weather-folder-fieldset">
+    <legend>Weather images for:</legend>
+    <div>
+      <input
+        type="radio"
+        id="night-images"
+        name="images-folder"
+        value="night"
+      />
+      <label for="night-images">night</label>
+    </div>
+    <div>
+      <input
+        type="radio"
+        id="day-images"
+        name="images-folder"
+        checked
+        value="analog"
+      />
+      <label for="day-images">day</label>
+    </div>
+  </fieldset>
+  <input type="file" id="files-weather" name="files-weather" required accept=".bin" multiple/>
+  <progress id="weather-files-progress-bar" max="100" value="0"></progress>
+  <input
+    type="submit"
+    class="button"
+    id="submit-weather-images"
+    value="Upload weather images"
+  />
+  <span id="weather-files-status"></span>
+</form>

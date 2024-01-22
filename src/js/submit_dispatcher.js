@@ -99,6 +99,70 @@ function weatherFilesFormHandler(event) {
   //  }
 }
 
+function analogClockFilesFormHandler(event) {
+  const files = document.getElementById("files-clock").files;
+  const formData = new FormData();
+  for (let i = 0; i < files.length; i++) {
+    formData.append("files", files[i], files[i].name);
+  }
+
+  var xhr = new XMLHttpRequest();
+
+  xhr.upload.onprogress = function (event) {
+    let percent = (event.loaded / event.total) * 100;
+    let progress_bar = document.getElementById("clock-files-progress-bar");
+    progress_bar.style.display = "block";
+    progress_bar.value = Math.round(percent);
+  };
+  xhr.upload.onloadend = function (event) {
+    let ota_status = document.getElementById("clock-images-status");
+    ota_status.style.display = "block";
+    ota_status.innerText = "Successfully upload images.";
+  };
+  xhr.upload.onerror = function (event) {
+    let ota_status = document.getElementById("clock-images-status");
+    ota_status.style.display = "block";
+    ota_status.innerText = "An error occurred.";
+  };
+  xhr.open("POST", "/clock_images");
+  xhr.send(formData);
+  // add response handling
+  // if (response.status === 200) {
+  //    let update = await response.json();
+  //    showSuccessfulMessage();
+  //  }
+}
+function gifFileFormHandler(event) {
+  const fileInput = document.getElementById("gif-file");
+  const formData = new FormData();
+  formData.append("file", fileInput.files[0]);
+  var xhr = new XMLHttpRequest();
+
+  xhr.upload.onprogress = function (event) {
+    let percent = (event.loaded / event.total) * 100;
+    let progress_bar = document.getElementById("gif-file-progress-bar");
+    progress_bar.style.display = "block";
+    progress_bar.value = Math.round(percent);
+  };
+  xhr.upload.onloadend = function (event) {
+    let ota_status = document.getElementById("gif-file-status");
+    ota_status.style.display = "block";
+    ota_status.innerText = "Successfully upload images.";
+  };
+  xhr.upload.onerror = function (event) {
+    let ota_status = document.getElementById("gif-file-status");
+    ota_status.style.display = "block";
+    ota_status.innerText = "An error occurred.";
+  };
+  xhr.open("POST", "/gif");
+  xhr.send(formData);
+  // add response handling
+  // if (response.status === 200) {
+  //    let update = await response.json();
+  //    showSuccessfulMessage();
+  //  }
+}
+
 async function alarmClockFormHandler(event) {
   window.settings_state.weekdays_time =
     document.getElementById("time-weekdays").value;
@@ -352,6 +416,10 @@ function formSubmitDispatcher(event) {
     updateFSHandler(event);
   } else if (event.currentTarget.id === "update-weather-images-form") {
     weatherFilesFormHandler(event);
+  } else if (event.currentTarget.id === "upload-clock-images-form") {
+    analogClockFilesFormHandler(event);
+  } else if (event.currentTarget.id === "upload-gif-form") {
+    gifFileFormHandler(event);
   }
 }
 

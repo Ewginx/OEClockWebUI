@@ -19,7 +19,7 @@ const urlRoutes = {
   "/weather": {
     template: weather,
     title: "Weather Settings",
-    form_ids: ["weather-form"],
+    form_ids: ["weather-form", "update-weather-images-form"],
     name: "weather",
   },
   "/brightness": {
@@ -37,13 +37,13 @@ const urlRoutes = {
   "/theme": {
     template: theme,
     title: "Theme",
-    form_ids: ["theme-form"],
+    form_ids: ["theme-form", "upload-gif-form"],
     name: "theme",
   },
   "/time": {
     template: time,
     title: "Time",
-    form_ids: ["time-form"],
+    form_ids: ["time-form", "upload-clock-images-form"],
     name: "time",
   },
   "/alarm_clock": {
@@ -61,7 +61,7 @@ const urlRoutes = {
   "/ota": {
     template: ota,
     title: "OTA Update",
-    form_ids: ["update-fw-form", "update-fs-form", "update-weather-images-form"],
+    form_ids: ["update-fw-form", "update-fs-form"],
     name: "ota",
   },
   "/debug": {

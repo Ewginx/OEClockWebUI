@@ -774,3 +774,21 @@
   <input type="submit" class="button" value="Save settings" />
   <span id="saved_settings">Settings saved!</span>
 </form>
+<form id="upload-clock-images-form" enctype="multipart/form-data">
+  <input
+    type="file"
+    id="files-clock"
+    name="files-clock"
+    required
+    accept=".bin, .png"
+    multiple
+  />
+  <progress id="clock-files-progress-bar" max="100" value="0"></progress>
+  <input
+    type="submit"
+    class="button"
+    id="submit-clock-images"
+    value="Upload analog clock images"
+  />
+  <span id="clock-images-status"></span>
+</form>
