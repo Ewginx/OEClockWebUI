@@ -2,7 +2,14 @@
 <div class="ota-update">
   <form id="update-fw-form" enctype="multipart/form-data">
     <div>Upload firmware, &lt~1.5 MB:</div>
-    <input type="file" id="file-fw" name="file-fw" required accept=".bin" />
+    <input
+      type="file"
+      id="file-fw"
+      name="file-fw"
+      required
+      accept=".bin"
+      onchange='document.getElementById("fw-file-progress-bar").style.display = "none";document.getElementById("fw-status").style.display = "none"'
+    />
     <progress id="fw-file-progress-bar" max="100" value="0"></progress>
     <input
       type="submit"
@@ -14,7 +21,14 @@
   </form>
   <form id="update-fs-form" enctype="multipart/form-data">
     <div>Upload filesystem (LittleFS), &lt~1 MB:</div>
-    <input type="file" id="file-fs" name="file-fs" required accept=".bin" />
+    <input
+      type="file"
+      id="file-fs"
+      name="file-fs"
+      required
+      accept=".bin"
+      onchange='document.getElementById("fs-file-progress-bar").style.display = "none";document.getElementById("fs-status").style.display = "none"'
+    />
     <progress id="fs-file-progress-bar" max="100" value="0"></progress>
     <input
       type="submit"

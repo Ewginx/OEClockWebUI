@@ -2,35 +2,76 @@
 <form id="wifi-form">
   <span class="ssid-wrapper">
     <label id="ssid-label" for="ssid">SSID</label>
-    <input type="text" id="ssid" name="ssid" required/>
+    <input type="text" id="ssid" name="ssid" required />
   </span>
   <span class="password-wrapper">
     <label for="password" id="password-label">Password</label>
-    <input type="password" id="password" name="password" ondblclick="show_password('password')" required/>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      ondblclick="show_password('password')"
+      required
+    />
   </span>
   <span class="ip-wrapper">
     <label for="ip" id="ip-label">IP Address</label>
-    <input type="text" id="ip" name="ip" required minlength="7" maxlength="15" size="15" pattern="^((\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$"/>
+    <input
+      type="text"
+      id="ip"
+      name="ip"
+      required
+      minlength="7"
+      maxlength="15"
+      size="15"
+      pattern="^((\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$"
+    />
   </span>
   <span class="gateway-wrapper">
     <label for="gateway" id="gateway-label">Gateway</label>
-    <input type="text" id="gateway" name="gateway" minlength="7" maxlength="15" size="15" pattern="^((\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$"/>
+    <input
+      type="text"
+      id="gateway"
+      name="gateway"
+      minlength="7"
+      maxlength="15"
+      size="15"
+      pattern="^((\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$"
+    />
   </span>
   <span class="login-wrapper">
     <label id="login-label" for="login">AP name</label>
-    <input type="text" id="login" name="login" required/>
+    <input type="text" id="login" name="login" required />
   </span>
   <span class="ap-password-wrapper">
     <label for="ap-password" id="ap-password-label">AP password</label>
-    <input type="password" id="ap-password" name="ap-password" required ondblclick="show_password('ap-password')"/>
+    <input
+      type="password"
+      id="ap-password"
+      name="ap-password"
+      required
+      ondblclick="show_password('ap-password')"
+    />
   </span>
   <input type="submit" id="wifi-submit" class="button" value="Save settings" />
   <span id="saved_settings">Settings saved!</span>
 </form>
 <form id="upload-frontend-form" enctype="multipart/form-data">
   <div>Update WebUI:</div>
-  <input type="file" id="frontend-file" name="frontend-file" required accept=".html.gz" onchange='document.getElementById("frontend-file-progress-bar").style.display = "none";document.getElementById("frontend-file-status").style.display = "none"'/>
+  <input
+    type="file"
+    id="frontend-file"
+    name="frontend-file"
+    required
+    accept=".html.gz"
+    onchange='document.getElementById("frontend-file-progress-bar").style.display = "none";document.getElementById("frontend-file-status").style.display = "none"'
+  />
   <progress id="frontend-file-progress-bar" max="100" value="0"></progress>
-  <input type="submit" class="button" id="submit-frontend-file" value="Upload index.html.gz" />
+  <input
+    type="submit"
+    class="button"
+    id="submit-frontend-file"
+    value="Upload index.html.gz"
+  />
   <span id="frontend-file-status"></span>
 </form>

@@ -775,7 +775,10 @@
   <span id="saved_settings">Settings saved!</span>
 </form>
 <form id="upload-clock-images-form" enctype="multipart/form-data">
-  <div>Upload images for analog clock, names shoud match (more in README), watchface must be .bin:</div>
+  <div>
+    Upload images for analog clock, names shoud match (more in README),
+    watchface must be .bin:
+  </div>
   <input
     type="file"
     id="files-clock"
@@ -783,6 +786,7 @@
     required
     accept=".bin, .png"
     multiple
+    onchange='document.getElementById("clock-files-progress-bar").style.display = "none";document.getElementById("clock-images-status").style.display = "none"'
   />
   <progress id="clock-files-progress-bar" max="100" value="0"></progress>
   <input
