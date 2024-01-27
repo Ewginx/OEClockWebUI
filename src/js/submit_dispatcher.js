@@ -134,9 +134,26 @@ function analogClockFilesFormHandler(event) {
 }
 function gifFileFormHandler(event) {
   const fileInput = document.getElementById("gif-file");
+  let file = fileInput.files[0];
   const formData = new FormData();
-  formData.append("file", fileInput.files[0]);
+  const image = new Image();
+  const objectURL = URL.createObjectURL(file);
   var xhr = new XMLHttpRequest();
+  image.onload = function handleLoad() {
+    let sum_dimension = image.width * image.height;
+    if (sum_dimension > 2500) {
+      let ota_status = document.getElementById("gif-file-status");
+      ota_status.style.display = "block";
+      ota_status.innerText = "GIF bigger than 50x50px.";
+    }
+    else{
+      formData.append("file", file, "gif.gif");
+      xhr.open("POST", "/gif");
+      xhr.send(formData);
+    }
+    URL.revokeObjectURL(objectURL);
+  };
+  image.src = objectURL;
 
   xhr.upload.onprogress = function (event) {
     let percent = (event.loaded / event.total) * 100;
@@ -147,15 +164,14 @@ function gifFileFormHandler(event) {
   xhr.upload.onloadend = function (event) {
     let ota_status = document.getElementById("gif-file-status");
     ota_status.style.display = "block";
-    ota_status.innerText = "Successfully upload images.";
+    ota_status.innerText = `Successfully upload ${file.name}.`;
   };
   xhr.upload.onerror = function (event) {
     let ota_status = document.getElementById("gif-file-status");
     ota_status.style.display = "block";
     ota_status.innerText = "An error occurred.";
   };
-  xhr.open("POST", "/gif");
-  xhr.send(formData);
+
   // add response handling
   // if (response.status === 200) {
   //    let update = await response.json();
