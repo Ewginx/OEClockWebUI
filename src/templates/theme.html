@@ -68,7 +68,7 @@
 </form>
 <form id="upload-gif-form" enctype="multipart/form-data">
   <div>Upload GIF for main screen, 50x50 or smaller, &lt~70kB:</div>
-  <input type="file" id="gif-file" name="gif-file" required accept=".gif" />
+  <input type="file" id="gif-file" name="gif-file" required accept=".gif" onchange='document.getElementById("gif-file-progress-bar").style.display = "none";document.getElementById("gif-file-status").style.display = "none"' />
   <progress id="gif-file-progress-bar" max="100" value="0"></progress>
   <input type="submit" class="button" id="submit-gif-file" value="Upload GIF" />
   <span id="gif-file-status"></span>
