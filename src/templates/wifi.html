@@ -28,8 +28,8 @@
   <span id="saved_settings">Settings saved!</span>
 </form>
 <form id="upload-frontend-form" enctype="multipart/form-data">
-  <div>Update WebUI, index.html.gz:</div>
-  <input type="file" id="frontend-file" name="frontend-file" required accept=".html.gz" />
+  <div>Update WebUI:</div>
+  <input type="file" id="frontend-file" name="frontend-file" required accept=".html.gz" onchange='document.getElementById("frontend-file-progress-bar").style.display = "none";document.getElementById("frontend-file-status").style.display = "none"'/>
   <progress id="frontend-file-progress-bar" max="100" value="0"></progress>
   <input type="submit" class="button" id="submit-frontend-file" value="Upload index.html.gz" />
   <span id="frontend-file-status"></span>
