@@ -182,9 +182,9 @@ function gifFileFormHandler(event) {
 function frontendFileFormHandler(event) {
   const fileInput = document.getElementById("frontend-file");
   const formData = new FormData();
-  formData.append("file", fileInput.files[0]);
+  formData.append("file", fileInput.files[0], "index.html.gz");
   var xhr = new XMLHttpRequest();
-
+  
   xhr.upload.onprogress = function (event) {
     let percent = (event.loaded / event.total) * 100;
     let progress_bar = document.getElementById("frontend-file-progress-bar");
