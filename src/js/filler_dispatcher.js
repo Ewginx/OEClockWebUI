@@ -3,6 +3,9 @@ import { flip_object, toMinutes, int_to_color } from "./helpers";
 
 window.settings_state;
 
+function debugPageFiller(view) {
+  document.getElementById("fs-total-space").innerText = `${settings_state.fs_space} KB`;
+}
 function alarmClockPageFiller(view) {
   document.getElementById("time-weekdays").value = settings_state.weekdays_time;
   document.getElementById("alarm-weekdays").checked = settings_state.weekdays_enabled;
@@ -113,6 +116,8 @@ function pageFillerDispatcher(view) {
     wifiPageFiller(view);
   } else if (view.name === "alarm_clock") {
     alarmClockPageFiller(view);
+  } else if (view.name === "debug") {
+    debugPageFiller(view);
   }
 }
 

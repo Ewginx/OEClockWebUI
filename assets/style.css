@@ -261,7 +261,7 @@ select#timezone-offset {
 fieldset#alarm,
 fieldset#weather,
 fieldset#main-clock-fieldset,
-fieldset#weather-folder-fieldset{
+fieldset#weather-folder-fieldset {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -431,7 +431,27 @@ form#update-fw-form {
   margin-bottom: 2vh;
 }
 
+.debug-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-top: 8vh;
+  margin-bottom: 6vh;
+  font-size: clamp(20px, 3vmin, 30px);
+}
 
+.max-free-heap-block-wrapper,
+.max-free-heap-wrapper,
+.fs-total-space-wrapper,
+.fs-used-space-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap:10px;
+}
 
 input[type="file"]::file-selector-button {
   font-size: clamp(20px, 3vmin, 30px);
