@@ -196,6 +196,7 @@ div#weather-city-container {
 }
 
 .alarm,
+.rgb-slider,
 .weather-requests,
 .theme-switch-wrapper,
 .change-theme,
@@ -217,6 +218,7 @@ form#update-fs-form,
 form#update-fw-form,
 form#alarm-form,
 form#theme-form,
+form#rgb-form,
 form#weather-form,
 form#time-form,
 form#brightness-form {
@@ -342,6 +344,7 @@ span#saved_settings {
   color: green;
 }
 
+.rgb-wrapper,
 .language-wrapper,
 .period-wrapper,
 .city-wrapper,
@@ -355,6 +358,7 @@ span#saved_settings {
   min-width: 200px;
 }
 
+select#rgb-mode,
 select#language {
   font-size: clamp(20px, 3vmin, 30px);
   width: clamp(150px, 50vmin, 300px);

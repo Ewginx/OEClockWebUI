@@ -1,2 +1,34 @@
 <h1 class="settings-header">RBG settings</h1>
-<div style="text-align: center; margin-top: 10vh; font-size: 40px;">Under construction</div>
+<form id="rgb-form" action="">
+  <span class="rgb-slider">
+    <div class="checkbox-wrapper">
+      <label class="switch" for="rgb-enabled">
+        <input type="checkbox" id="rgb-enabled" name="rgb-enabled" />
+        <div class="slider round"></div>
+      </label>
+    </div>
+    <label id="rgb-enabled-label" for="rgb-enabled"
+      >RGB</label
+    >
+  </span>
+  <span class="rgb-wrapper">
+    <label id="rgb-label" for="rgb-mode">RGB mode</label>
+    <select id="rgb-mode" name="rgb-mode">
+      <option value="1">Solid</option>
+      <option value="2">Solid two colors</option>
+      <option value="3">Rainbow</option>
+      <option value="4">Cycle</option>
+      <option value="5">Cycle two colors</option>
+    </select>
+  </span>
+  <span class="first-rgb-color-wrapper">
+    <input type="color" id="first-rgb-color" name="first-rgb-color" />
+    <label for="first-rgb-color">First color</label>
+  </span>
+  <span class="second-rgb-color-wrapper">
+    <input type="color" id="second-rgb-color" name="second-rgb-color" />
+    <label for="second-rgb-color">Second color</label>
+  </span>
+  <input type="submit" class="button" value="Save settings" />
+  <span id="saved_settings">Settings saved!</span>
+</form>

@@ -6,6 +6,12 @@ window.settings_state;
 function debugPageFiller(view) {
   document.getElementById("fs-total-space").innerText = `${settings_state.fs_space} KB`;
 }
+function rgbPageFiller(view) {
+  document.getElementById("rgb-enabled").checked = settings_state.rgb_enabled;
+  document.getElementById("rgb-mode").value = settings_state.rgb_mode;
+  document.getElementById("first-rgb-color").value = int_to_color(settings_state.first_rgb_color);
+  document.getElementById("second-rgb-color").value = int_to_color(settings_state.second_rgb_color);
+}
 function alarmClockPageFiller(view) {
   document.getElementById("time-weekdays").value = settings_state.weekdays_time;
   document.getElementById("alarm-weekdays").checked = settings_state.weekdays_enabled;
@@ -116,6 +122,8 @@ function pageFillerDispatcher(view) {
     wifiPageFiller(view);
   } else if (view.name === "alarm_clock") {
     alarmClockPageFiller(view);
+  } else if (view.name === "rgb") {
+    rgbPageFiller(view);
   } else if (view.name === "debug") {
     debugPageFiller(view);
   }

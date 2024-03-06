@@ -210,6 +210,35 @@ function frontendFileFormHandler(event) {
   //  }
 }
 
+async function rgbFormHandler(event) {
+  window.settings_state.rgb_enabled =
+    document.getElementById("rgb-enabled").checked;
+  window.settings_state.rgb_mode =
+    document.getElementById("rgb-mode").value;
+  window.settings_state.first_rgb_color =
+    document.getElementById("first-rgb-color").value;
+  window.settings_state.second_rgb_color =
+    document.getElementById("second-rgb-color").checked;
+
+  let data = {
+    rgb_enabled: window.settings_state.rgb_enabled,
+    rgb_mode: window.settings_state.rgb_mode,
+    first_rgb_color: window.settings_state.first_rgb_color,
+    second_rgb_color: window.settings_state.second_rgb_color,
+  };
+  let json_data = JSON.stringify(data);
+  let response = await fetch("/settings/rgb", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: json_data,
+  });
+  if (response.status === 200) {
+    showSuccessfulMessage();
+  }
+}
+
 async function alarmClockFormHandler(event) {
   window.settings_state.weekdays_time =
     document.getElementById("time-weekdays").value;
@@ -456,6 +485,8 @@ function formSubmitDispatcher(event) {
   } else if (event.currentTarget.id === "wifi-form") {
     wifiFormHandler(event);
   } else if (event.currentTarget.id === "alarm-form") {
+    rgbFormHandler(event);
+  } else if (event.currentTarget.id === "rgb-form") {
     alarmClockFormHandler(event);
   } else if (event.currentTarget.id === "update-fw-form") {
     updateFWHandler(event);
