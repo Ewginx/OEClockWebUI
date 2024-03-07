@@ -15,10 +15,10 @@
     <label id="rgb-label" for="rgb-mode">RGB mode</label>
     <select id="rgb-mode" name="rgb-mode">
       <option value="1">Solid</option>
-      <option value="2">Solid two colors</option>
+      <option value="2">Solid three colors</option>
       <option value="3">Rainbow</option>
       <option value="4">Cycle</option>
-      <option value="5">Cycle two colors</option>
+      <option value="5">Cycle three colors</option>
     </select>
   </span>
   <span class="rgb-delay-wrapper">
@@ -40,6 +40,17 @@
   <span class="third-rgb-color-wrapper">
     <input type="color" id="third-rgb-color" name="third-rgb-color" />
     <label id="third-rgb-color-label" for="third-rgb-color">Third color</label>
+  </span>
+  <span class="rgb-slider">
+    <div class="checkbox-wrapper">
+      <label class="switch" for="rgb-night">
+        <input type="checkbox" id="rgb-night" name="rgb-night" />
+        <div class="slider round"></div>
+      </label>
+    </div>
+    <label id="rgb-enabled-label" for="rgb-enabled"
+      >Turn off at night time</label
+    >
   </span>
   <input type="submit" class="button" value="Save settings" />
   <span id="saved_settings">Settings saved!</span>
