@@ -224,12 +224,9 @@ async function rgbFormHandler(event) {
   window.settings_state.third_rgb_color = color_to_int(
     document.getElementById("third-rgb-color").value
   );
-  window.settings_state.rgb_delay = color_to_int(
-    document.getElementById("rgb-delay").value
-  );
-  window.settings_state.rgb_brightness = color_to_int(
-    document.getElementById("rgb-brightness").value
-  );
+  window.settings_state.rgb_delay = document.getElementById("rgb-delay").value;
+  window.settings_state.rgb_brightness =
+    document.getElementById("rgb-brightness").value;
 
   let data = {
     rgb_enabled: window.settings_state.rgb_enabled,
