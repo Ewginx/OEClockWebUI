@@ -7,9 +7,7 @@
         <div class="slider round"></div>
       </label>
     </div>
-    <label id="rgb-enabled-label" for="rgb-enabled"
-      >RGB</label
-    >
+    <label id="rgb-enabled-label" for="rgb-enabled">RGB</label>
   </span>
   <span class="rgb-wrapper">
     <label id="rgb-label" for="rgb-mode">RGB mode</label>
@@ -23,11 +21,17 @@
   </span>
   <span class="rgb-delay-wrapper">
     <label id="rgb-delay-label" for="rgb-delay">Delay</label>
-    <input type="number" id="rgb-delay" name="rgb-delay" />
+    <input type="number" id="rgb-delay" name="rgb-delay" min="150" max="1000" />
   </span>
   <span class="rgb-brightness-wrapper">
     <label id="rgb-brightness-label" for="rgb-brightness">Brightness</label>
-    <input type="number" id="rgb-brightness" name="rgb-brightness" />
+    <input
+      type="number"
+      id="rgb-brightness"
+      name="rgb-brightness"
+      min="1"
+      max="255"
+    />
   </span>
   <span class="first-rgb-color-wrapper">
     <input type="color" id="first-rgb-color" name="first-rgb-color" />
@@ -35,7 +39,9 @@
   </span>
   <span class="second-rgb-color-wrapper">
     <input type="color" id="second-rgb-color" name="second-rgb-color" />
-    <label id="second-rgb-color-label" for="second-rgb-color">Second color</label>
+    <label id="second-rgb-color-label" for="second-rgb-color"
+      >Second color</label
+    >
   </span>
   <span class="third-rgb-color-wrapper">
     <input type="color" id="third-rgb-color" name="third-rgb-color" />
