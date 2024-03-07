@@ -304,6 +304,9 @@ label#change-theme-label {
   text-align: left;
 }
 
+label#first-rgb-color-label,
+label#second-rgb-color-label,
+label#third-rgb-color-label,
 label#rgb-brightness-label,
 label#rgb-delay-label,
 label#rgb-label,
