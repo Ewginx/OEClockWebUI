@@ -145,8 +145,7 @@ function gifFileFormHandler(event) {
       let ota_status = document.getElementById("gif-file-status");
       ota_status.style.display = "block";
       ota_status.innerText = "GIF bigger than 50x50px.";
-    }
-    else{
+    } else {
       formData.append("file", file, "gif.gif");
       xhr.open("POST", "/gif");
       xhr.send(formData);
@@ -184,7 +183,7 @@ function frontendFileFormHandler(event) {
   const formData = new FormData();
   formData.append("file", fileInput.files[0], "index.html.gz");
   var xhr = new XMLHttpRequest();
-  
+
   xhr.upload.onprogress = function (event) {
     let percent = (event.loaded / event.total) * 100;
     let progress_bar = document.getElementById("frontend-file-progress-bar");
@@ -213,12 +212,13 @@ function frontendFileFormHandler(event) {
 async function rgbFormHandler(event) {
   window.settings_state.rgb_enabled =
     document.getElementById("rgb-enabled").checked;
-  window.settings_state.rgb_mode =
-    document.getElementById("rgb-mode").value;
-  window.settings_state.first_rgb_color =
-    document.getElementById("first-rgb-color").value;
-  window.settings_state.second_rgb_color =
-    document.getElementById("second-rgb-color").checked;
+  window.settings_state.rgb_mode = document.getElementById("rgb-mode").value;
+  window.settings_state.first_rgb_color = color_to_int(
+    document.getElementById("first-rgb-color").value
+  );
+  window.settings_state.second_rgb_color = color_to_int(
+    document.getElementById("second-rgb-color").value
+  );
 
   let data = {
     rgb_enabled: window.settings_state.rgb_enabled,
@@ -485,9 +485,9 @@ function formSubmitDispatcher(event) {
   } else if (event.currentTarget.id === "wifi-form") {
     wifiFormHandler(event);
   } else if (event.currentTarget.id === "alarm-form") {
-    rgbFormHandler(event);
-  } else if (event.currentTarget.id === "rgb-form") {
     alarmClockFormHandler(event);
+  } else if (event.currentTarget.id === "rgb-form") {
+    rgbFormHandler(event);
   } else if (event.currentTarget.id === "update-fw-form") {
     updateFWHandler(event);
   } else if (event.currentTarget.id === "update-fs-form") {
