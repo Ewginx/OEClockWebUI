@@ -8,6 +8,7 @@ function debugPageFiller(view) {
 }
 function rgbPageFiller(view) {
   document.getElementById("rgb-enabled").checked = settings_state.rgb_enabled;
+  document.getElementById("rgb-night").checked = settings_state.rgb_night;
   document.getElementById("rgb-mode").value = settings_state.rgb_mode;
   document.getElementById("first-rgb-color").value = int_to_color(settings_state.first_rgb_color);
   document.getElementById("second-rgb-color").value = int_to_color(settings_state.second_rgb_color);

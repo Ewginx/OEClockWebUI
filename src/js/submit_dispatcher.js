@@ -212,6 +212,8 @@ function frontendFileFormHandler(event) {
 async function rgbFormHandler(event) {
   window.settings_state.rgb_enabled =
     document.getElementById("rgb-enabled").checked;
+  window.settings_state.rgb_night =
+    document.getElementById("rgb-night").checked;
   window.settings_state.rgb_mode = document.getElementById("rgb-mode").value;
   window.settings_state.first_rgb_color = color_to_int(
     document.getElementById("first-rgb-color").value
@@ -231,6 +233,7 @@ async function rgbFormHandler(event) {
 
   let data = {
     rgb_enabled: window.settings_state.rgb_enabled,
+    rgb_night: window.settings_state.rgb_night,
     rgb_mode: window.settings_state.rgb_mode,
     first_rgb_color: window.settings_state.first_rgb_color,
     second_rgb_color: window.settings_state.second_rgb_color,
