@@ -304,6 +304,9 @@ label#change-theme-label {
   text-align: left;
 }
 
+label#rgb-brightness-label,
+label#rgb-delay-label,
+label#rgb-label,
 label#ap-password-label,
 label#login-label,
 label#language-label,
@@ -326,6 +329,8 @@ input#login,
 input#ap-password,
 input#api-key,
 input#city,
+input#rgb-brightness,
+input#rgb-delay,
 input#period,
 input#gateway,
 input#ip,
@@ -346,6 +351,8 @@ span#saved_settings {
 
 .rgb-wrapper,
 .language-wrapper,
+.rgb-brightness-wrapper,
+.rgb-delay-wrapper,
 .period-wrapper,
 .city-wrapper,
 .api-key-wrapper {

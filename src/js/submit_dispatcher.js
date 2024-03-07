@@ -219,12 +219,24 @@ async function rgbFormHandler(event) {
   window.settings_state.second_rgb_color = color_to_int(
     document.getElementById("second-rgb-color").value
   );
+  window.settings_state.third_rgb_color = color_to_int(
+    document.getElementById("third-rgb-color").value
+  );
+  window.settings_state.rgb_delay = color_to_int(
+    document.getElementById("rgb-delay").value
+  );
+  window.settings_state.rgb_brightness = color_to_int(
+    document.getElementById("rgb-brightness").value
+  );
 
   let data = {
     rgb_enabled: window.settings_state.rgb_enabled,
     rgb_mode: window.settings_state.rgb_mode,
     first_rgb_color: window.settings_state.first_rgb_color,
     second_rgb_color: window.settings_state.second_rgb_color,
+    third_rgb_color: window.settings_state.third_rgb_color,
+    rgb_delay: window.settings_state.rgb_delay,
+    rgb_brightness: window.settings_state.rgb_brightness,
   };
   let json_data = JSON.stringify(data);
   let response = await fetch("/settings/rgb", {
