@@ -209,6 +209,41 @@ function frontendFileFormHandler(event) {
   //  }
 }
 
+async function soundFormHandler(event) {
+  window.settings_state.sound_on =
+    document.getElementById("sound-enabled").checked;
+  window.settings_state.plug_sound_on =
+    document.getElementById("plug-enabled").checked;
+  window.settings_state.ee_sound_on =
+    document.getElementById("ee-enabled").checked;
+  window.settings_state.volume_level = document.getElementById("volume-slider").value;
+  window.settings_state.alarm_track = document.getElementById("alarm-track").value;
+  window.settings_state.ee_track = document.getElementById("ee-track").value;
+  window.settings_state.plug_track = document.getElementById("plug-track").value;
+
+  let data = {
+    sound_on: window.settings_state.sound_on,
+    ee_sound_on: window.settings_state.ee_sound_on,
+    plug_sound_on: window.settings_state.plug_sound_on,
+    volume_level: window.settings_state.volume_level,
+    alarm_track: window.settings_state.alarm_track,
+    ee_track: window.settings_state.ee_track,
+    plug_track: window.settings_state.plug_track,
+
+  };
+  let json_data = JSON.stringify(data);
+  let response = await fetch("/settings/sound", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: json_data,
+  });
+  if (response.status === 200) {
+    showSuccessfulMessage();
+  }
+}
+
 async function rgbFormHandler(event) {
   window.settings_state.rgb_enabled =
     document.getElementById("rgb-enabled").checked;
@@ -500,6 +535,8 @@ function formSubmitDispatcher(event) {
     alarmClockFormHandler(event);
   } else if (event.currentTarget.id === "rgb-form") {
     rgbFormHandler(event);
+  } else if (event.currentTarget.id === "sound-form") {
+    soundFormHandler(event);
   } else if (event.currentTarget.id === "update-fw-form") {
     updateFWHandler(event);
   } else if (event.currentTarget.id === "update-fs-form") {

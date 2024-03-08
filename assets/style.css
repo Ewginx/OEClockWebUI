@@ -196,6 +196,9 @@ div#weather-city-container {
 }
 
 .alarm,
+.sound-slider,
+.plug-slider,
+.ee-slider,
 .rgb-slider,
 .weather-requests,
 .theme-switch-wrapper,
@@ -219,6 +222,7 @@ form#update-fw-form,
 form#alarm-form,
 form#theme-form,
 form#rgb-form,
+form#sound-form,
 form#weather-form,
 form#time-form,
 form#brightness-form {
@@ -243,6 +247,7 @@ input#auto-brightness-threshold {
   border-radius: 5px;
 }
 
+.volume-slider-wrapper,
 .timezone-wrapper,
 .brightness-slider-wrapper {
   display: flex;
@@ -304,6 +309,12 @@ label#change-theme-label {
   text-align: left;
 }
 
+label#alarm-track-label,
+label#plug-track-label,
+label#ee-track-label,
+label#sound-enabled-label,
+label#plug-enabled-label,
+label#ee-enabled-label,
 label#first-rgb-color-label,
 label#second-rgb-color-label,
 label#third-rgb-color-label,
@@ -328,6 +339,9 @@ input#wifi-submit {
   margin-top: 25px;
 }
 
+input#alarm-track,
+input#plug-track,
+input#ee-track,
 input#login,
 input#ap-password,
 input#api-key,
@@ -352,6 +366,9 @@ span#saved_settings {
   color: green;
 }
 
+.alarm-track-wrapper,
+.plug-track-wrapper,
+.ee-track-wrapper,
 .rgb-wrapper,
 .language-wrapper,
 .rgb-brightness-wrapper,

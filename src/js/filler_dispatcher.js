@@ -4,25 +4,47 @@ import { flip_object, toMinutes, int_to_color } from "./helpers";
 window.settings_state;
 
 function debugPageFiller(view) {
-  document.getElementById("fs-total-space").innerText = `${settings_state.fs_space} KB`;
+  document.getElementById(
+    "fs-total-space"
+  ).innerText = `${settings_state.fs_space} KB`;
+}
+function soundPageFiller(view) {
+  document.getElementById("sound-enabled").checked = settings_state.sound_on;
+  document.getElementById("plug-enabled").checked = settings_state.plug_sound_on;
+  document.getElementById("ee-enabled").checked = settings_state.ee_sound_on;
+  document.getElementById("volume-slider").value = settings_state.volume_level;
+  document.getElementById("volume-value").innerText = settings_state.volume_level;
+  document.getElementById("alarm-track").value = settings_state.alarm_track;
+  document.getElementById("ee-track").value = settings_state.ee_track;
+  document.getElementById("plug-track").value = settings_state.plug_track;
 }
 function rgbPageFiller(view) {
   document.getElementById("rgb-enabled").checked = settings_state.rgb_enabled;
   document.getElementById("rgb-night").checked = settings_state.rgb_night;
   document.getElementById("rgb-mode").value = settings_state.rgb_mode;
-  document.getElementById("first-rgb-color").value = int_to_color(settings_state.first_rgb_color);
-  document.getElementById("second-rgb-color").value = int_to_color(settings_state.second_rgb_color);
-  document.getElementById("third-rgb-color").value = int_to_color(settings_state.third_rgb_color);
+  document.getElementById("first-rgb-color").value = int_to_color(
+    settings_state.first_rgb_color
+  );
+  document.getElementById("second-rgb-color").value = int_to_color(
+    settings_state.second_rgb_color
+  );
+  document.getElementById("third-rgb-color").value = int_to_color(
+    settings_state.third_rgb_color
+  );
   document.getElementById("rgb-delay").value = settings_state.rgb_delay;
-  document.getElementById("rgb-brightness").value = settings_state.rgb_brightness;
+  document.getElementById("rgb-brightness").value =
+    settings_state.rgb_brightness;
 }
 function alarmClockPageFiller(view) {
   document.getElementById("time-weekdays").value = settings_state.weekdays_time;
-  document.getElementById("alarm-weekdays").checked = settings_state.weekdays_enabled;
+  document.getElementById("alarm-weekdays").checked =
+    settings_state.weekdays_enabled;
   document.getElementById("time-weekends").value = settings_state.weekends_time;
-  document.getElementById("alarm-weekends").checked = settings_state.weekends_enabled;
+  document.getElementById("alarm-weekends").checked =
+    settings_state.weekends_enabled;
   document.getElementById("time-oneOff").value = settings_state.one_off_time;
-  document.getElementById("alarm-oneOff").checked = settings_state.one_off_enabled;
+  document.getElementById("alarm-oneOff").checked =
+    settings_state.one_off_enabled;
 }
 
 function wifiPageFiller(view) {
@@ -128,6 +150,8 @@ function pageFillerDispatcher(view) {
     alarmClockPageFiller(view);
   } else if (view.name === "rgb") {
     rgbPageFiller(view);
+  } else if (view.name === "sound") {
+    soundPageFiller(view);
   } else if (view.name === "debug") {
     debugPageFiller(view);
   }

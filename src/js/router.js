@@ -8,6 +8,7 @@ import home from "../../src/templates/home.html";
 import ota from "../../src/templates/ota_update.html";
 import rgb from "../../src/templates/rgb.html";
 import alarm_clock from "../../src/templates/alarm_clock.html";
+import sound from "../../src/templates/sound.html";
 
 const urlRoutes = {
   "/": {
@@ -51,6 +52,12 @@ const urlRoutes = {
     title: "Alarm Clock",
     form_ids: ["alarm-form"],
     name: "alarm_clock",
+  },
+  "/sound": {
+    template: sound,
+    title: "Sound",
+    form_ids: ["sound-form"],
+    name: "sound",
   },
   "/rgb": {
     template: rgb,
