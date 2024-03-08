@@ -145,8 +145,7 @@ function gifFileFormHandler(event) {
       let ota_status = document.getElementById("gif-file-status");
       ota_status.style.display = "block";
       ota_status.innerText = "GIF bigger than 50x50px.";
-    }
-    else{
+    } else {
       formData.append("file", file, "gif.gif");
       xhr.open("POST", "/gif");
       xhr.send(formData);
@@ -184,7 +183,7 @@ function frontendFileFormHandler(event) {
   const formData = new FormData();
   formData.append("file", fileInput.files[0], "index.html.gz");
   var xhr = new XMLHttpRequest();
-  
+
   xhr.upload.onprogress = function (event) {
     let percent = (event.loaded / event.total) * 100;
     let progress_bar = document.getElementById("frontend-file-progress-bar");
@@ -208,6 +207,48 @@ function frontendFileFormHandler(event) {
   //    let update = await response.json();
   //    showSuccessfulMessage();
   //  }
+}
+
+async function rgbFormHandler(event) {
+  window.settings_state.rgb_enabled =
+    document.getElementById("rgb-enabled").checked;
+  window.settings_state.rgb_night =
+    document.getElementById("rgb-night").checked;
+  window.settings_state.rgb_mode = document.getElementById("rgb-mode").value;
+  window.settings_state.first_rgb_color = color_to_int(
+    document.getElementById("first-rgb-color").value
+  );
+  window.settings_state.second_rgb_color = color_to_int(
+    document.getElementById("second-rgb-color").value
+  );
+  window.settings_state.third_rgb_color = color_to_int(
+    document.getElementById("third-rgb-color").value
+  );
+  window.settings_state.rgb_delay = document.getElementById("rgb-delay").value;
+  window.settings_state.rgb_brightness =
+    document.getElementById("rgb-brightness").value;
+
+  let data = {
+    rgb_enabled: window.settings_state.rgb_enabled,
+    rgb_night: window.settings_state.rgb_night,
+    rgb_mode: window.settings_state.rgb_mode,
+    first_rgb_color: window.settings_state.first_rgb_color,
+    second_rgb_color: window.settings_state.second_rgb_color,
+    third_rgb_color: window.settings_state.third_rgb_color,
+    rgb_delay: window.settings_state.rgb_delay,
+    rgb_brightness: window.settings_state.rgb_brightness,
+  };
+  let json_data = JSON.stringify(data);
+  let response = await fetch("/settings/rgb", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: json_data,
+  });
+  if (response.status === 200) {
+    showSuccessfulMessage();
+  }
 }
 
 async function alarmClockFormHandler(event) {
@@ -457,6 +498,8 @@ function formSubmitDispatcher(event) {
     wifiFormHandler(event);
   } else if (event.currentTarget.id === "alarm-form") {
     alarmClockFormHandler(event);
+  } else if (event.currentTarget.id === "rgb-form") {
+    rgbFormHandler(event);
   } else if (event.currentTarget.id === "update-fw-form") {
     updateFWHandler(event);
   } else if (event.currentTarget.id === "update-fs-form") {

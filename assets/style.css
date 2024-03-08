@@ -196,6 +196,7 @@ div#weather-city-container {
 }
 
 .alarm,
+.rgb-slider,
 .weather-requests,
 .theme-switch-wrapper,
 .change-theme,
@@ -217,6 +218,7 @@ form#update-fs-form,
 form#update-fw-form,
 form#alarm-form,
 form#theme-form,
+form#rgb-form,
 form#weather-form,
 form#time-form,
 form#brightness-form {
@@ -302,6 +304,12 @@ label#change-theme-label {
   text-align: left;
 }
 
+label#first-rgb-color-label,
+label#second-rgb-color-label,
+label#third-rgb-color-label,
+label#rgb-brightness-label,
+label#rgb-delay-label,
+label#rgb-label,
 label#ap-password-label,
 label#login-label,
 label#language-label,
@@ -324,6 +332,8 @@ input#login,
 input#ap-password,
 input#api-key,
 input#city,
+input#rgb-brightness,
+input#rgb-delay,
 input#period,
 input#gateway,
 input#ip,
@@ -342,7 +352,10 @@ span#saved_settings {
   color: green;
 }
 
+.rgb-wrapper,
 .language-wrapper,
+.rgb-brightness-wrapper,
+.rgb-delay-wrapper,
 .period-wrapper,
 .city-wrapper,
 .api-key-wrapper {
@@ -355,6 +368,7 @@ span#saved_settings {
   min-width: 200px;
 }
 
+select#rgb-mode,
 select#language {
   font-size: clamp(20px, 3vmin, 30px);
   width: clamp(150px, 50vmin, 300px);

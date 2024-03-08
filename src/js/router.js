@@ -55,7 +55,7 @@ const urlRoutes = {
   "/rgb": {
     template: rgb,
     title: "RGB",
-    form_ids: null,
+    form_ids: ["rgb-form"],
     name: "rgb",
   },
   "/ota": {
