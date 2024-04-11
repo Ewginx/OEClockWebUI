@@ -1,0 +1,67 @@
+<h1 class="settings-header">Sound settings</h1>
+<form id="sound-form" action="">
+  <span class="sound-slider">
+    <label id="sound-enabled-label" for="sound-enabled">Sound</label>
+    <div class="checkbox-wrapper">
+      <label class="switch" for="sound-enabled">
+        <input type="checkbox" id="sound-enabled" name="sound-enabled" />
+        <div class="slider round"></div>
+      </label>
+    </div>
+  </span>
+  <span class="plug-slider">
+    <label id="plug-enabled-label" for="plug-enabled">Plug-in sound</label>
+    <div class="checkbox-wrapper">
+      <label class="switch" for="plug-enabled">
+        <input type="checkbox" id="plug-enabled" name="plug-enabled" />
+        <div class="slider round"></div>
+      </label>
+    </div>
+  </span>
+  <span class="ee-slider">
+    <label id="ee-enabled-label" for="ee-enabled">Easter egg sound</label>
+    <div class="checkbox-wrapper">
+      <label class="switch" for="ee-enabled">
+        <input type="checkbox" id="ee-enabled" name="ee-enabled" />
+        <div class="slider round"></div>
+      </label>
+    </div>
+  </span>
+  <div class="volume-slider-wrapper">
+    <label for="volume-slider">Volume level:</label>
+    <input
+      type="range"
+      min="0"
+      max="30"
+      value="10"
+      class="slider"
+      id="volume-slider"
+      name="volume-slider"
+      oninput="document.getElementById('volume-value').innerText = this.value"
+    />
+    <div id="volume-value">10</div>
+  </div>
+  <span class="alarm-track-wrapper">
+    <label id="alarm-track-label" for="alarm-track">Alarm track number</label>
+    <input type="number" id="alarm-track" name="alarm-track" min="1" max="255" />
+  </span>
+  <span class="plug-track-wrapper">
+    <label id="plug-track-label" for="plug-track">Plug-in track number</label>
+    <input type="number" id="plug-track" name="plug-track" min="1" max="255" />
+  </span>
+  <span class="ee-track-wrapper">
+    <label id="ee-track-label" for="ee-track">EE track number</label>
+    <input type="number" id="ee-track" name="ee-track" min="1" max="255" />
+  </span>
+  <span class="player-usb-slider">
+    <label id="player-usb-enabled-label" for="player-usb-enabled">Player USB enable</label>
+    <div class="checkbox-wrapper">
+      <label class="switch" for="player-usb-enabled">
+        <input type="checkbox" id="player-usb-enabled" name="player-usb-enabled" />
+        <div class="slider round"></div>
+      </label>
+    </div>
+  </span>
+  <input type="submit" class="button" value="Save settings" />
+  <span id="saved_settings">Settings saved!</span>
+</form>
