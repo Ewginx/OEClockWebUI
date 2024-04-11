@@ -12,6 +12,7 @@ function soundPageFiller(view) {
   document.getElementById("sound-enabled").checked = settings_state.sound_on;
   document.getElementById("plug-enabled").checked = settings_state.plug_sound_on;
   document.getElementById("ee-enabled").checked = settings_state.ee_sound_on;
+  document.getElementById("player-usb-enabled").checked = settings_state.enable_player_usb;
   document.getElementById("volume-slider").value = settings_state.volume_level;
   document.getElementById("volume-value").innerText = settings_state.volume_level;
   document.getElementById("alarm-track").value = settings_state.alarm_track;

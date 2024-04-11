@@ -216,6 +216,8 @@ async function soundFormHandler(event) {
     document.getElementById("plug-enabled").checked;
   window.settings_state.ee_sound_on =
     document.getElementById("ee-enabled").checked;
+  window.settings_state.enable_player_usb =
+    document.getElementById("player-usb-enabled").checked;
   window.settings_state.volume_level = document.getElementById("volume-slider").value;
   window.settings_state.alarm_track = document.getElementById("alarm-track").value;
   window.settings_state.ee_track = document.getElementById("ee-track").value;
@@ -225,6 +227,7 @@ async function soundFormHandler(event) {
     sound_on: window.settings_state.sound_on,
     ee_sound_on: window.settings_state.ee_sound_on,
     plug_sound_on: window.settings_state.plug_sound_on,
+    enable_player_usb: window.settings_state.enable_player_usb,
     volume_level: window.settings_state.volume_level,
     alarm_track: window.settings_state.alarm_track,
     ee_track: window.settings_state.ee_track,

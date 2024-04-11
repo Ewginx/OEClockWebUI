@@ -53,6 +53,15 @@
     <label id="ee-track-label" for="ee-track">EE track number</label>
     <input type="number" id="ee-track" name="ee-track" min="1" max="255" />
   </span>
+  <span class="player-usb-slider">
+    <label id="player-usb-enabled-label" for="player-usb-enabled">Player USB enable</label>
+    <div class="checkbox-wrapper">
+      <label class="switch" for="player-usb-enabled">
+        <input type="checkbox" id="player-usb-enabled" name="player-usb-enabled" />
+        <div class="slider round"></div>
+      </label>
+    </div>
+  </span>
   <input type="submit" class="button" value="Save settings" />
   <span id="saved_settings">Settings saved!</span>
 </form>
