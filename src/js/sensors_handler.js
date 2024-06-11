@@ -11,6 +11,7 @@ function onMessage(event) {
   let humidity_div = document.getElementById("humidity");
   let lx_p = document.getElementById("lx-label");
   let battery_level_div = document.getElementById("battery-level");
+  let battery_voltage_div = document.getElementById("battery-voltage");
   let max_free_heap_block_div = document.getElementById("max-free-heap-block");
   let max_free_heap_div = document.getElementById("max-free-heap");
   let fs_used_space_div = document.getElementById("fs-used-space");
@@ -25,6 +26,10 @@ function onMessage(event) {
   }
   if (battery_level_div) {
     battery_level_div.innerText = `${websocket_json["battery_level"]}%`;
+  }
+  if (battery_voltage_div) {
+    let battery_voltage = websocket_json["battery_voltage"].toFixed(2);
+    battery_voltage_div.innerText = `${battery_voltage} V`;
   }
   if (max_free_heap_block_div) {
     max_free_heap_block_div.innerText = `${websocket_json["max_free_block"]} KB`;
