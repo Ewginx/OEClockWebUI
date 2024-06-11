@@ -193,7 +193,7 @@ function frontendFileFormHandler(event) {
   xhr.upload.onloadend = function (event) {
     let ota_status = document.getElementById("frontend-file-status");
     ota_status.style.display = "block";
-    ota_status.innerText = "Successfully upload images.";
+    ota_status.innerText = "Successfully upload frontend.";
   };
   xhr.upload.onerror = function (event) {
     let ota_status = document.getElementById("frontend-file-status");
