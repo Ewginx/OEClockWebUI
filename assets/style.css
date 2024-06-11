@@ -480,6 +480,7 @@ form#update-fw-form {
 .max-free-heap-block-wrapper,
 .max-free-heap-wrapper,
 .fs-total-space-wrapper,
+.battery-voltage-wrapper,
 .fs-used-space-wrapper {
   display: flex;
   flex-direction: row;
