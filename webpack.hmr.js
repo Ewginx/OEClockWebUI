@@ -16,11 +16,10 @@ module.exports = merge(common, {
   },
   plugins: [
     new webpack.DefinePlugin({
-      __URL: '"ws://localhost:8000/ws"',
-      __SETTINGS_JSON: "JSON.parse(await response.json())",
+      __WEBSOCKET_URL: '"ws://localhost:8000/ws"',
+      __HOST_URL: '"http://localhost:8000"',
     }),
-    new MiniCssExtractPlugin({
-    }),
+    new MiniCssExtractPlugin({}),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "./src/index.html"),
       filename: "index.html",

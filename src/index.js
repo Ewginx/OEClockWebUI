@@ -22,13 +22,13 @@ async function logout() {
 window.logout = logout;
 
 async function fetch_settings() {
-  let response = await fetch("/settings", {
+  let response = await fetch(__HOST_URL +"/settings", {
     method: "GET",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
     },
   });
-  window.settings_state = __SETTINGS_JSON;
+  window.settings_state = await response.json();
 }
 
 function anchorClickHandler(e) {

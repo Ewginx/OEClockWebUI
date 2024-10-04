@@ -1,4 +1,4 @@
-var gateway = __URL;
+var gateway = __WEBSOCKET_URL;
 var websocket;
 
 function onOpen(event) {

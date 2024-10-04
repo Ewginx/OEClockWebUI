@@ -218,10 +218,13 @@ async function soundFormHandler(event) {
     document.getElementById("ee-enabled").checked;
   window.settings_state.enable_player_usb =
     document.getElementById("player-usb-enabled").checked;
-  window.settings_state.volume_level = document.getElementById("volume-slider").value;
-  window.settings_state.alarm_track = document.getElementById("alarm-track").value;
+  window.settings_state.volume_level =
+    document.getElementById("volume-slider").value;
+  window.settings_state.alarm_track =
+    document.getElementById("alarm-track").value;
   window.settings_state.ee_track = document.getElementById("ee-track").value;
-  window.settings_state.plug_track = document.getElementById("plug-track").value;
+  window.settings_state.plug_track =
+    document.getElementById("plug-track").value;
 
   let data = {
     sound_on: window.settings_state.sound_on,
@@ -232,10 +235,9 @@ async function soundFormHandler(event) {
     alarm_track: window.settings_state.alarm_track,
     ee_track: window.settings_state.ee_track,
     plug_track: window.settings_state.plug_track,
-
   };
   let json_data = JSON.stringify(data);
-  let response = await fetch("/settings/sound", {
+  let response = await fetch(__HOST_URL + "/settings/sound", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
@@ -277,7 +279,7 @@ async function rgbFormHandler(event) {
     rgb_brightness: window.settings_state.rgb_brightness,
   };
   let json_data = JSON.stringify(data);
-  let response = await fetch("/settings/rgb", {
+  let response = await fetch(__HOST_URL + "/settings/rgb", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
@@ -312,7 +314,7 @@ async function alarmClockFormHandler(event) {
     one_off_enabled: window.settings_state.one_off_enabled,
   };
   let json_data = JSON.stringify(data);
-  let response = await fetch("/settings/alarm_clock", {
+  let response = await fetch(__HOST_URL + "/settings/alarm_clock", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
@@ -326,7 +328,7 @@ async function alarmClockFormHandler(event) {
 
 async function set_time_from_device() {
   let time = { time: Date.now() / 1000 };
-  let response = await fetch("/time", {
+  let response = await fetch(__HOST_URL + "/time", {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
@@ -346,7 +348,7 @@ async function timeFormHandler(event) {
     digital_main_screen: window.settings_state.digital_main_screen,
   };
   let json_data = JSON.stringify(data);
-  let response = await fetch("/settings/time", {
+  let response = await fetch(__HOST_URL + "/settings/time", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
@@ -377,7 +379,7 @@ async function brightnessFormHandler(event) {
     brightness_level: window.settings_state.brightness_level,
   };
   let json_data = JSON.stringify(data);
-  let response = await fetch("/settings/brightness", {
+  let response = await fetch(__HOST_URL + "/settings/brightness", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
@@ -450,7 +452,7 @@ async function themeFormHandler(event) {
   };
 
   let json_data = JSON.stringify(data);
-  let response = await fetch("/settings/theme", {
+  let response = await fetch(__HOST_URL + "/settings/theme", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
@@ -480,7 +482,7 @@ async function weatherFormHandler(event) {
     request_period: window.settings_state.request_period,
   };
   let json_data = JSON.stringify(data);
-  let response = await fetch("/settings/weather", {
+  let response = await fetch(__HOST_URL + "/settings/weather", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
@@ -510,7 +512,7 @@ async function wifiFormHandler(event) {
     ap_password: window.settings_state.ap_password,
   };
   let json_data = JSON.stringify(data);
-  let response = await fetch("/settings/wifi", {
+  let response = await fetch(__HOST_URL + "/settings/wifi", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json;charset=utf-8",

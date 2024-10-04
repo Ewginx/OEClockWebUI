@@ -16,10 +16,9 @@ module.exports = merge(common, {
   plugins: [
     new webpack.DefinePlugin({
       __URL: "`ws://${window.location.hostname}/ws`",
-      __SETTINGS_JSON: "await response.json()",
+      __HOST_URL: "''",
     }),
-    new MiniCssExtractPlugin({
-    }),
+    new MiniCssExtractPlugin({}),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "./src/index.html"),
       filename: "index.html",
@@ -58,8 +57,8 @@ module.exports = merge(common, {
       },
       {
         test: /\.(woff(2)?|ttf|eot)$/,
-        use: ['base64-inline-loader'],
-        type: 'javascript/auto'
+        use: ["base64-inline-loader"],
+        type: "javascript/auto",
       },
       {
         test: /\.css$/,
