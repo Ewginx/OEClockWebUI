@@ -32,7 +32,7 @@ const urlRoutes = {
   "/wifi": {
     template: wifi,
     title: "WiFi Manager",
-    form_ids: ["wifi-form", "upload-frontend-form"],
+    form_ids: ["wifi-form"],
     name: "wifi",
   },
   "/theme": {
@@ -68,7 +68,7 @@ const urlRoutes = {
   "/ota": {
     template: ota,
     title: "OTA Update",
-    form_ids: ["update-fw-form", "update-fs-form"],
+    form_ids: ["update-fw-form", "update-fs-form", "upload-frontend-form"],
     name: "ota",
   },
   "/debug": {
