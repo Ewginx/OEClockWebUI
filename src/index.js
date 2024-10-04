@@ -46,9 +46,11 @@ function anchorClickHandler(e) {
   let view = loadPage();
   if (view && view.form_ids) {
     for (let index in view.form_ids) {
-      document
-        .getElementById(view.form_ids[index])
-        .addEventListener("submit", formSubmitDispatcher);
+      if (view.form_ids[index]) {
+        document
+          .getElementById(view.form_ids[index])
+          .addEventListener("submit", formSubmitDispatcher);
+      }
     }
   }
 }
