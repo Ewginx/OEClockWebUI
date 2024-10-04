@@ -15,7 +15,7 @@ const webpack = require("webpack");
 module.exports = merge(common, {
   plugins: [
     new webpack.DefinePlugin({
-      __URL: "`ws://${window.location.hostname}/ws`",
+      __WEBSOCKET_URL: "`ws://${window.location.hostname}/ws`",
       __HOST_URL: "''",
     }),
     new MiniCssExtractPlugin({}),
