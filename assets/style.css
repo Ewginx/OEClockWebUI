@@ -450,7 +450,7 @@ progress#fw-file-progress-bar {
 .ota-update {
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 20px;
   margin-top: 6vh;
 }
 
@@ -460,8 +460,8 @@ form#upload-gif-form,
 form#update-weather-images-form,
 form#update-fs-form,
 form#update-fw-form {
-  margin-top: 2vh;
-  margin-bottom: 2vh;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
 }
 
 .debug-wrapper {
