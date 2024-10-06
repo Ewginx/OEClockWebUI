@@ -1,0 +1,20 @@
+{
+    "Log out": "Выйти",
+    "OEClock Settings": "Настройки OEClock",
+	"Home": "Дом. страница",
+	"WiFi Manager": "WiFi менеджер",
+	"Brightness": "Яркость экрана",
+	"Time": "Время",
+	"Weather": "Погода",
+	"Theme": "Тема",
+	"Alarm clock": "Будильник",
+	"Sound": "Звук",
+	"RGB": "Подсветка",
+	"OTA Update": "Обновления OTA",
+	"Debug": "Debug-панель",
+
+	"Battery level": "Уровень батареи",
+	"Your IP": "IP компьютера",
+	"Current weather city": "Погода показывается для города"
+
+}
