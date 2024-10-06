@@ -8,50 +8,50 @@ const languages = {
   ru: require("./locales/ru.json"),
 };
 
-module.exports = (env) => {
-  return {
-    entry: {
-      main: path.resolve(__dirname, "./src/index.js"),
-    },
-    output: {
-      path: path.resolve(__dirname, "./dist"),
-      filename: "main.js",
-      clean: true,
-    },
-    plugins: [
-      new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, "./src/index.html"),
-        filename: "index.html",
-        inject: "body",
-      }),
-      new I18nPlugin(languages[env.lang]),
-      new MiniCssExtractPlugin({}),
-    ],
-    module: {
-      rules: [
-        {
-          test: /\.html$/,
-          loader: "underscore-template-loader",
-          options: {
-            parseDynamicRoutes: true,
+const lang = 'en'
+
+module.exports = {
+  entry: {
+    main: path.resolve(__dirname, "./src/index.js"),
+  },
+  output: {
+    path: path.resolve(__dirname, "./dist"),
+    filename: "main.js",
+    clean: true,
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "./src/index.html"),
+      filename: "index.html",
+      inject: "body",
+    }),
+    new I18nPlugin(languages[lang]),
+    new MiniCssExtractPlugin({}),
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.html$/,
+        loader: "underscore-template-loader",
+        options: {
+          parseDynamicRoutes: true,
+        },
+      },
+      {
+        test: /\.(png|ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+        type: "asset/inline",
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
           },
-        },
-        {
-          test: /\.(png|ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
-          type: "asset/inline",
-        },
-        {
-          test: /\.css$/,
-          use: [
-            {
-              loader: MiniCssExtractPlugin.loader,
-            },
-            {
-              loader: "css-loader",
-            },
-          ],
-        },
-      ],
-    },
-  };
+          {
+            loader: "css-loader",
+          },
+        ],
+      },
+    ],
+  },
 };

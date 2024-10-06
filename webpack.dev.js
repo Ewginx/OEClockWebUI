@@ -4,8 +4,6 @@ const common = require("./webpack.hmr.js");
 const HTMLInlineCSSWebpackPlugin =
   require("html-inline-css-webpack-plugin").default;
 
-module.exports = (env) => {
-  return merge(common(env), {
-    plugins: [new HTMLInlineCSSWebpackPlugin()],
-  });
-};
+module.exports = merge(common, {
+  plugins: [new HTMLInlineCSSWebpackPlugin()],
+});

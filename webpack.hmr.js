@@ -3,9 +3,7 @@ const webpack = require("webpack");
 const { merge } = require("webpack-merge");
 const common = require("./webpack.config.js");
 
-
-module.exports = (env) => {
-  return merge(common(env), {
+module.exports = merge(common, {
   entry: {
     main: path.resolve(__dirname, "./src/index.js"),
   },
@@ -19,7 +17,6 @@ module.exports = (env) => {
       __WEBSOCKET_URL: '"ws://localhost:8000/ws"',
       __HOST_URL: '"http://localhost:8000"',
     }),
-
   ],
   devServer: {
     historyApiFallback: true,
@@ -28,4 +25,3 @@ module.exports = (env) => {
   devtool: "inline-source-map",
   mode: "development",
 });
-};
