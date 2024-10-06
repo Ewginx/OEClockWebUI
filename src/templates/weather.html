@@ -1,4 +1,4 @@
-<h1 class="settings-header">Weather Settings</h1>
+<h1 class="settings-header"><%= __('Weather settings') %></h1>
 <form id="weather-form" action="">
   <span class="weather-requests">
     <div class="checkbox-wrapper">
@@ -8,11 +8,11 @@
       </label>
     </div>
     <label id="weather-requests-label" for="weather-enabled"
-      >Weather requests</label
+      ><%= __('Weather update') %></label
     >
   </span>
   <span class="api-key-wrapper">
-    <label id="api-key-label" for="api-key">API key</label>
+    <label id="api-key-label" for="api-key"><%= __('API key') %></label>
     <input
       type="password"
       required
@@ -24,7 +24,7 @@
     />
   </span>
   <span class="city-wrapper">
-    <label id="city-label" for="city">City</label>
+    <label id="city-label" for="city"><%= __('City') %></label>
     <input
       type="text"
       id="city"
@@ -34,7 +34,7 @@
     />
   </span>
   <span class="language-wrapper">
-    <label id="language-label" for="language">Language</label>
+    <label id="language-label" for="language"><%= __('Language') %></label>
     <select id="language" name="language">
       <option value="ar">Arabic</option>
       <option value="bn">Bengali</option>
@@ -80,7 +80,7 @@
     </select>
   </span>
   <span class="period-wrapper">
-    <label id="period-label" for="period">Periodicity of weather request</label>
+    <label id="period-label" for="period"><%= __('Periodicity of weather request in minutes') %></label>
     <input
       type="number"
       id="period"
@@ -92,16 +92,16 @@
     />
   </span>
   <input type="submit" class="button" value="Save settings" />
-  <span id="saved_settings">Settings saved!</span>
+  <span id="saved_settings"><%= __('Settings saved') %>!</span>
 </form>
 <form id="update-weather-images-form" enctype="multipart/form-data">
   <div
     title="113, 119, 116, 122, 176, 143, 182, 185, 179, 200, 227, 263, 293, 296, 305, 308, 326, 350, 353, 359, 374, 389"
   >
-    Upload weather images, names should match (more in README):
+  <%= __('Upload weather images, names should match (more in README)') %>:
   </div>
   <fieldset id="weather-folder-fieldset">
-    <legend>Weather images for:</legend>
+    <legend><%= __('Weather images for') %>:</legend>
     <div>
       <input
         type="radio"
@@ -109,7 +109,7 @@
         name="images-folder"
         value="night"
       />
-      <label for="night-images">night</label>
+      <label for="night-images"><%= __('Night') %></label>
     </div>
     <div>
       <input
@@ -119,7 +119,7 @@
         checked
         value="analog"
       />
-      <label for="day-images">day</label>
+      <label for="day-images"><%= __('Day') %></label>
     </div>
   </fieldset>
   <input
@@ -136,7 +136,7 @@
     type="submit"
     class="button"
     id="submit-weather-images"
-    value="Upload weather images"
+    value="<%= __('Upload images') %>"
   />
   <span id="weather-files-status"></span>
 </form>

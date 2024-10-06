@@ -1,7 +1,7 @@
-<h1 class="settings-header">OTA Update</h1>
+<h1 class="settings-header"><%= __('OTA Update') %></h1>
 <div class="ota-update">
   <form id="update-fw-form" enctype="multipart/form-data">
-    <div>Upload firmware, &lt~1.5 MB:</div>
+    <div><%= __('Update firmware, &lt~1.5 MB') %>:</div>
     <input
       type="file"
       id="file-fw"
@@ -15,12 +15,12 @@
       type="submit"
       class="button"
       id="submit-fw"
-      value="Upload firmware image"
+      value="<%= __('Upload firmware image') %>"
     />
     <span id="fw-status"></span>
   </form>
   <form id="update-fs-form" enctype="multipart/form-data">
-    <div>Upload filesystem (LittleFS), &lt~1 MB:</div>
+    <div><%= __('Update filesystem (LittleFS), &lt~1 MB') %>:</div>
     <input
       type="file"
       id="file-fs"
@@ -34,12 +34,12 @@
       type="submit"
       class="button"
       id="submit-fs"
-      value="Upload filesystem image"
+      value="<%= __('Upload filesystem image') %>"
     />
     <span id="fs-status"></span>
   </form>
   <form id="upload-frontend-form" enctype="multipart/form-data">
-    <div>Update WebUI:</div>
+    <div><%= __('Update WebUI') %>:</div>
     <input
       type="file"
       id="frontend-file"
@@ -53,7 +53,7 @@
       type="submit"
       class="button"
       id="submit-frontend-file"
-      value="Upload index.html.gz"
+      value="<%= __('Upload index.html.gz') %>"
     />
     <span id="frontend-file-status"></span>
   </form>

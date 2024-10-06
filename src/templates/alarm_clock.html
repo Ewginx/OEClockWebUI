@@ -1,7 +1,7 @@
-<h1 class="settings-header">Alarm clock settings</h1>
+<h1 class="settings-header"><%= __('Alarm clocks') %></h1>
 <form id="alarm-form">
   <div class="alarm-container">
-    <label>Weekdays alarm clock</label>
+    <label><%= __('Weekdays alarm clock') %></label>
     <div class="alarm-wrapper">
       <div class="checkbox-wrapper">
         <label class="switch" for="alarm-weekdays">
@@ -21,7 +21,7 @@
     </div>
   </div>
   <div class="alarm-container">
-    <label>Weekends alarm clock</label>
+    <label><%= __('Weekends alarm clock') %></label>
     <div class="alarm-wrapper">
       <div class="checkbox-wrapper">
         <label class="switch" for="alarm-weekends">
@@ -41,7 +41,7 @@
     </div>
   </div>
   <div class="alarm-container">
-    <label>One-off alarm clock</label>
+    <label><%= __('One-off alarm clock') %></label>
     <div class="alarm-wrapper">
       <div class="checkbox-wrapper">
         <label class="switch" for="alarm-oneOff">
@@ -65,7 +65,7 @@
     type="submit"
     class="button"
     id="save-alarm-settings"
-    value="Save settings"
+    value="<%= __('Save settings') %>"
   />
-  <span id="saved_settings">Settings saved!</span>
+  <span id="saved_settings"><%= __('Settings saved') %>!</span>
 </form>

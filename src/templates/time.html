@@ -1,7 +1,7 @@
-<h1 class="settings-header">Time settings</h1>
+<h1 class="settings-header"><%= __('Time settings') %></h1>
 <form id="time-form">
   <span class="timezone-wrapper">
-    <label for="timezone-offset">Timezone:</label>
+    <label for="timezone-offset"><%= __('Timezone') %>:</label>
     <select name="timezone-offset" id="timezone-offset">
       <option value="Africa/Abidjan">Africa/Abidjan GMT+0:00</option>
       <option value="Africa/Accra">Africa/Accra GMT+0:00</option>
@@ -744,7 +744,7 @@
     </select>
   </span>
   <fieldset id="main-clock-fieldset">
-    <legend>Choose main clock screen:</legend>
+    <legend><%= __('Choose main clock screen') %>:</legend>
     <div>
       <input
         type="radio"
@@ -752,7 +752,7 @@
         name="screen-choice"
         value="digital"
       />
-      <label for="digital-clock">Digital</label>
+      <label for="digital-clock"><%= __('Digital clock') %></label>
     </div>
     <div>
       <input
@@ -762,22 +762,21 @@
         checked
         value="analog"
       />
-      <label for="analog-clock">Analog</label>
+      <label for="analog-clock"><%= __('Analog clock') %></label>
     </div>
   </fieldset>
   <input
     type="button"
     class="button"
-    value="Set time from your device"
+    value="<%= __('Set time from your device') %>"
     onclick="set_time_from_device()"
   />
-  <input type="submit" class="button" value="Save settings" />
-  <span id="saved_settings">Settings saved!</span>
+  <input type="submit" class="button" value="<%= __('Save settings') %>" />
+  <span id="saved_settings"><%= __('Settings saved') %></span>
 </form>
 <form id="upload-clock-images-form" enctype="multipart/form-data">
   <div>
-    Upload images for analog clock, names shoud match (more in README),
-    watchface must be .bin:
+    <%= __('Upload images for analog clock, names should match (more in README), watchface must be .bin') %>:
   </div>
   <input
     type="file"
@@ -793,7 +792,7 @@
     type="submit"
     class="button"
     id="submit-clock-images"
-    value="Upload analog clock images"
+    value="<%= __('Upload images') %>"
   />
   <span id="clock-images-status"></span>
 </form>

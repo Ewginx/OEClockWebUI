@@ -1,11 +1,11 @@
-<h1 class="settings-header">Wifi Manager</h1>
+<h1 class="settings-header"><%= __('WiFi Settings') %></h1>
 <form id="wifi-form">
   <span class="ssid-wrapper">
-    <label id="ssid-label" for="ssid">SSID</label>
+    <label id="ssid-label" for="ssid"><%= __('SSID') %></label>
     <input type="text" id="ssid" name="ssid" required />
   </span>
   <span class="password-wrapper">
-    <label for="password" id="password-label">Password</label>
+    <label for="password" id="password-label"><%= __('Password') %></label>
     <input
       type="password"
       id="password"
@@ -15,7 +15,7 @@
     />
   </span>
   <span class="ip-wrapper">
-    <label for="ip" id="ip-label">IP Address</label>
+    <label for="ip" id="ip-label"><%= __('IP address') %></label>
     <input
       type="text"
       id="ip"
@@ -28,7 +28,7 @@
     />
   </span>
   <span class="gateway-wrapper">
-    <label for="gateway" id="gateway-label">Gateway</label>
+    <label for="gateway" id="gateway-label"><%= __('Gateway address') %></label>
     <input
       type="text"
       id="gateway"
@@ -40,11 +40,11 @@
     />
   </span>
   <span class="login-wrapper">
-    <label id="login-label" for="login">AP name</label>
+    <label id="login-label" for="login"><%= __('AccessPoint name') %></label>
     <input type="text" id="login" name="login" required />
   </span>
   <span class="ap-password-wrapper">
-    <label for="ap-password" id="ap-password-label">AP password</label>
+    <label for="ap-password" id="ap-password-label"><%= __('AccessPoint password') %></label>
     <input
       type="password"
       id="ap-password"
@@ -53,6 +53,6 @@
       ondblclick="show_password('ap-password')"
     />
   </span>
-  <input type="submit" id="wifi-submit" class="button" value="Save settings" />
-  <span id="saved_settings">Settings saved!</span>
+  <input type="submit" id="wifi-submit" class="button" value="<%= __('Save settings') %>" />
+  <span id="saved_settings"><%= __('Settings saved') %>!</span>
 </form>
